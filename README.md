@@ -1,4 +1,4 @@
-# amherst_ghg_inventory
-# amherst_ghg_inventory
-# amherst_ghg_inventory
-# amherst_ghg_inventory
+# Town of Amherst GHG Inventory
+
+This will contain instructions, I suppose
+
