@@ -8,6 +8,10 @@ item <- od$get_item("2026_GHG_update/waste_model_inputs.xlsx")
 tmp <- tempfile(fileext = ".xlsx")
 item$download(dest = tmp)
 
+item2 <- od$get_item("2026_GHG_update/clean_in_the_sheets.xlsx")
+tmp2 <- tempfile(fileext = ".xlsx")
+item2$download(dest = tmp2)
+
 # reading sheets
 solid_waste_inputs <- read_xlsx(tmp, sheet = "solid_waste_inputs")
 solid_waste_composition <- read_xlsx(tmp, sheet = "solid_waste_composition") %>% select(-units, -source)
@@ -15,6 +19,9 @@ waste_method_composition <- read_xlsx(tmp, sheet = "waste_method_composition")
 recycling_composition <- read_xlsx(tmp, sheet = "recycling_composition")
 organic_waste_composition <- read_xlsx(tmp, sheet = "organic_waste_composition")
 umass_disposal_methods <- read_xlsx(tmp, sheet = "umass_disposal_methods")
+
+activity_emissions_key <- read_xlsx(tmp2, sheet = "activity_emissions_key") 
+emissions_factors <- read_xlsx(tmp2, sheet = "emissions_factors")
 
 wastewater_inputs <- read_xlsx(tmp, sheet = "wastewater_inputs")
 wastewater_chemicals <- read_xlsx(tmp, sheet = "wastewater_chemicals")
@@ -59,7 +66,26 @@ solid_waste_output <- disposal_methods %>%
   left_join(tonnage_key, by = c("input_year", "entity")) %>%
   mutate(waste_tonnes = percentage*total_tonnes) %>%
   group_by(input_year, entity, disposal_method) %>%
-  summarize(waste_tonnes = sum(waste_tonnes))
+  summarize(waste_tonnes = sum(waste_tonnes), .groups="drop") %>%
+  # coercing into standard structure. note that recycling isn't counted toward emissions
+  mutate(supercategory = "waste", 
+         subcategory = case_when(
+           disposal_method == "landfill" ~ "solid_waste_disposal",
+           disposal_method == "compost" ~ "biological_treatment_of_waste",
+           disposal_method == "incineration" ~ "incineration_and_open_burning"
+         ),
+         gpc_ref = case_when(
+           disposal_method == "landfill" ~ "III.1.2",
+           disposal_method == "compost" ~ "III.2.2",
+           disposal_method == "incineration" ~ "III.3.2"
+         ),
+         unit = "tonnes",
+         scope = str_extract(gpc_ref, "\\d$")) %>%
+  rename(activity = disposal_method, amount = waste_tonnes) %>%
+  left_join(activity_emissions_key, by = c('activity', 'input_year')) %>%
+  left_join(select(emissions_factors, emissions_factor, total_co2e_ef), by = 'emissions_factor') %>%
+  mutate(total_mtco2e = total_co2e_ef*amount) %>%
+  select(supercategory, subcategory, gpc_ref, scope, activity, entity, amount, units = unit, input_year, total_co2e_ef, total_mtco2e)
 
 # waste water 
 liters_per_gallon <- 3.79
@@ -70,8 +96,24 @@ bod_key <- wastewater_chemicals %>%
             avg_effluent_bod = mean(effluent_bod_mg_l))
 
 
-wastewater_inputs %>% 
+wastewater_output <- wastewater_inputs %>% 
   group_by(input_year, entity) %>% 
-  summarize(wastewater_gallons=sum(wastewater_gallons)) %>%
+  summarize(wastewater_gallons=sum(wastewater_gallons), .groups = "drop") %>%
   left_join(bod_key, by = 'input_year') %>%
-  mutate(total_annual_bod_kg = wastewater_gallons*liters_per_gallon*avg_effluent_bod/1000000)
+  mutate(total_annual_bod_kg = wastewater_gallons*liters_per_gallon*avg_effluent_bod/1000000,
+         supercategory = "waste",
+         subcategory = "wastewater_treatment_and_discharge",
+         gpc_ref = "III.4.1",
+         scope = "1",
+         activity = "wastewater_bod",
+         amount = total_annual_bod_kg,
+         units = "kg"
+         ) %>%
+  select(-c(wastewater_gallons, avg_influent_bod, avg_effluent_bod, total_annual_bod_kg)) %>%
+  left_join(activity_emissions_key, by = c('activity', 'input_year')) %>%
+  left_join(select(emissions_factors, emissions_factor, total_co2e_ef), by = 'emissions_factor') %>%
+  mutate(total_mtco2e = total_co2e_ef*amount) %>%
+  select(-emissions_factor)
+
+# binding together
+waste_final_output <- bind_rows(solid_waste_output, wastewater_output)

@@ -13,19 +13,14 @@ transportation_inputs <- read_xlsx(tmp, sheet = "transportation_inputs")
 pvta_model_inputs <- read_xlsx(tmp, sheet = "pvta_model_inputs")
 activity_emissions_key <- read_xlsx(tmp, sheet = "activity_emissions_key")
 emissions_factors <- read_xlsx(tmp, sheet = "emissions_factors")
+activity_map <- read_xlsx(tmp, sheet = "activity_map")
 
-# this should probably be stored separately in a spreadsheet! it's a bit fragile in this state
-activity_map <- tibble(activity = unique(transportation_inputs$activity),
-                       activity_recoded = c("passenger_cars", "light_trucks", "motorcycles", "heavy_trucks",
-                                            "other_vehicles", "gasoline", "diesel", "b100", "emission_sector_specific",
-                                            "lpg"))
 
 transportation_inputs_clean <- transportation_inputs %>%
-  select(-c(input_type, data_quality, description_methods, quality_explanation, source)) %>%
   left_join(activity_map, by = 'activity')
 
 transportation_hardcoded <- transportation_inputs_clean %>%
-  select(supercategory, subcategory, gpc_ref, scope, activity=activity_recoded, description, amount, units, input_year)
+  select(supercategory, subcategory, gpc_ref, scope, activity=activity_recoded, entity, amount, units, input_year)
 
 # PVTA Model
 regular_service_factor <- 8.5/12 # school year is ~8.5 months
@@ -53,8 +48,8 @@ final_pvta_output <- tibble(
   subcategory = 'on_road_transportation',
   gpc_ref = "II.1.2", 
   scope = 2, 
-  activity = "diesel", 
-  description = "In-city bus transit fuel use", 
+  activity = "pvta_bus", 
+  entity = "municipal", 
   amount=pvta_model$total_fuel_usage, 
   units="gallons/year", 
   input_year = pvta_model$input_year
@@ -62,12 +57,12 @@ final_pvta_output <- tibble(
 
 # emissions factors
 transportation_efs <- activity_emissions_key %>% 
-  left_join(select(emissions_factors, emissions_factor, total_co2e), by = 'emissions_factor') %>%
-  select(activity, total_co2e, input_year)
+  left_join(select(emissions_factors, emissions_factor, total_co2e_ef), by = 'emissions_factor') %>%
+  select(activity, total_co2e_ef, input_year)
 
 # joining the PVTA data with the other transportation data, and 
 transportation_final_output <- bind_rows(transportation_hardcoded, final_pvta_output) %>%
   left_join(transportation_efs, by = c('activity', 'input_year')) %>%
-  mutate(total_mtco2e = amount*total_co2e)
+  mutate(total_mtco2e = amount*total_co2e_ef) 
 
 #transportation_final_output %>% group_by(input_year) %>% summarize(total_mtco2e_annual = sum(total_mtco2e, na.rm = TRUE))
