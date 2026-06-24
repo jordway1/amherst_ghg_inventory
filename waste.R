@@ -80,7 +80,7 @@ solid_waste_output <- disposal_methods %>%
            disposal_method == "incineration" ~ "III.3.2"
          ),
          unit = "tonnes",
-         scope = str_extract(gpc_ref, "\\d$")) %>%
+         scope = as.integer(str_extract(gpc_ref, "\\d$"))) %>%
   rename(activity = disposal_method, amount = waste_tonnes) %>%
   left_join(activity_emissions_key, by = c('activity', 'input_year')) %>%
   left_join(select(emissions_factors, emissions_factor, total_co2e_ef), by = 'emissions_factor') %>%
@@ -104,7 +104,7 @@ wastewater_output <- wastewater_inputs %>%
          supercategory = "waste",
          subcategory = "wastewater_treatment_and_discharge",
          gpc_ref = "III.4.1",
-         scope = "1",
+         scope = 1,
          activity = "wastewater_bod",
          amount = total_annual_bod_kg,
          units = "kg"
@@ -117,3 +117,6 @@ wastewater_output <- wastewater_inputs %>%
 
 # binding together
 waste_final_output <- bind_rows(solid_waste_output, wastewater_output)
+
+rm(list = setdiff(ls(), c("stationary_final_output", "transportation_final_output", "waste_final_output", "afolu_final_output")))
+
