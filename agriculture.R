@@ -3,7 +3,7 @@ library(Microsoft365R)
 library(readxl)
 
 # connecting to Onedrive and reading inputs
-od <- get_business_onedrive()
+if (!exists("od")) od <- get_business_onedrive()
 item <- od$get_item("2026_GHG_update/livestock_agriculture_inputs.xlsx")
 tmp <- tempfile(fileext = ".xlsx")
 item$download(dest = tmp)

@@ -3,7 +3,7 @@ library(Microsoft365R)
 library(readxl)
 
 # connecting to Onedrive and reading waste inputs
-od <- get_business_onedrive()
+if (!exists("od")) od <- get_business_onedrive()
 item <- od$get_item("2026_GHG_update/waste_model_inputs.xlsx")
 tmp <- tempfile(fileext = ".xlsx")
 item$download(dest = tmp)
@@ -118,5 +118,5 @@ wastewater_output <- wastewater_inputs %>%
 # binding together
 waste_final_output <- bind_rows(solid_waste_output, wastewater_output)
 
-rm(list = setdiff(ls(), c("stationary_final_output", "transportation_final_output", "waste_final_output", "afolu_final_output")))
+
 

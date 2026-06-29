@@ -3,7 +3,7 @@ library(Microsoft365R)
 library(readxl)
 
 # connecting to Onedrive and reading stationary inputs, trans loss factors
-od <- get_business_onedrive()
+if (!exists("od")) od <- get_business_onedrive()
 item <- od$get_item("2026_GHG_update/clean_in_the_sheets.xlsx")
 tmp <- tempfile(fileext = ".xlsx")
 item$download(dest = tmp)
