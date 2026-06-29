@@ -17,3 +17,4 @@ ghg_emissions <- bind_rows(
 )
 
 rm(list = setdiff(ls(), "ghg_emissions"))
+write_csv(ghg_emissions, "ghg_emissions.csv")

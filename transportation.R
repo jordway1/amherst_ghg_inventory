@@ -49,7 +49,7 @@ final_pvta_output <- tibble(
   gpc_ref = "II.1.2", 
   scope = 2, 
   activity = "pvta_bus", 
-  entity = "municipal", 
+  entity = "community", 
   amount=pvta_model$total_fuel_usage, 
   units="gallons/year", 
   input_year = pvta_model$input_year

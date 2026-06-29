@@ -1,0 +1,10 @@
+---
+title: "Stationary Energy"
+---
+
+```{r}
+#| include: false
+source("../params.R")
+library(tidyverse)
+ghg_emissions <- read_csv("../ghg_emissions.csv")
+```

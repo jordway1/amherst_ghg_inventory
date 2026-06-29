@@ -76,7 +76,4 @@ stationary_final_output <- bind_rows(stationary_hardcoded, trans_emissions_final
   left_join(stationary_efs, by = c('activity', 'input_year')) %>%
   mutate(total_mtco2e = amount*total_co2e_ef) %>%
   filter(!is.na(total_mtco2e))
-
-stationary_final_output %>% group_by(input_year) %>% summarize(total_co2e = sum(total_mtco2e))
-
                                                                

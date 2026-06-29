@@ -1,0 +1,22 @@
+project:
+  type: book
+  execute-dir: project
+
+book:
+  title: "Town of Amherst Greenhouse Gas Inventory FY 2025"
+  chapters:
+    - index.qmd
+    - part: "Municipal Inventory"
+      chapters:
+        - municipal/overview.qmd
+        - municipal/transportation.qmd
+        - municipal/stationary.qmd
+        - municipal/waste.qmd
+        - municipal/agriculture.qmd
+    - part: "Community Inventory"
+      chapters:
+        - community/overview.qmd
+        - community/transportation.qmd
+        - community/stationary.qmd
+        - community/waste.qmd
+        - community/agriculture.qmd
