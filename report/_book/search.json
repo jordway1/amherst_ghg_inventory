@@ -4,7 +4,7 @@
     "href": "municipal/overview.html",
     "title": "2  Municipal Overview",
     "section": "",
-    "text": "The Town of Amherst Municipality was responsible for 4388.6 Metric Tons of Co2 Equivalent emissions in FY 2016. In FY 2022, this number was 3384.5.",
+    "text": "2.1 Emissions by Fuel Type\nThe Town of Amherst Municipality was responsible for 4764.7 Metric Tons of CO2 Equivalent emissions in FY 2016. In FY 2025, this number was 3342.5. This represents a 29.8% decrease in municipal emissions relative to the 2016 baseline, which exceeded the Town’s emissions reduction goal for 2025.\nNote: Previous inventories reported 4,389 and 3,852 MTCO2e for FY 2016 and FY 2022, respectively. These numbers were updated to reflect the latest data sources and methodologies.\nMunicipal emissions fall into two categories: stationary energy and transportation. Stationary energy accounted for 79.6% of total emissions in 2025, up from 66.1% in 2022. As it has been reported, electricity usage from electric vehicles (EVs) has been absorbed into stationary energy, so this increase in electricity consumption likely reflects the increased adoption of EVs and their miscategorization as stationary energy, rather than a reduction in transportation.\nAs shown in Figure 2.2, the composition of fuel usage has changed over time within the municipality. Most notably, electricity has seen an increased share of total emissions, from 36% in 2022 to 46% in 2025, while the relative shares of gasoline and diesel have decreased. This is consistent with the Town’s move toward more renewable energy sources.\nFigure 2.2: Share of total greenhouse gas emissions by fuel source.",
     "crumbs": [
       "Municipal Inventory",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Municipal Overview</span>"
@@ -13,9 +13,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Town of Amherst Greenhouse Gas Inventory FY 2025",
+    "title": "Greenhouse Gas Inventory FY 2025",
     "section": "",
-    "text": "This is the introduction",
+    "text": "The Town of Amherst Massachusetts seeks to achieve net zero community emissions by 2050, an ambitious goal set by the Town’s Energy and Climate Action Committee (ECAC) in their 2021 Climate Action, Adaptation, and Resilience Plan (CAARP). Using the 2016 emissions inventory as a baseline, the intermediary goals of 25% reduction in emissions by 2025 and 50% reduction in emissions by 2030 were set.\nTo accurately assess progress toward the ultimate goal of carbon neutrality, periodic emissions inventories are essential for tracking emissions trends and evaluating the effectiveness of climate action initiatives. This report seeks to determine whether the Town has achieved their 2025 target, to evaluate progress toward future milestones, to identify areas of success, and to identify areas that require further intervention.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]

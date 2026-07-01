@@ -2,8 +2,3 @@
 title: "Municipal Transportation"
 ---
 
-```{r}
-#| include: false
-source("../params.R")
-ghg_emissions <- read_csv("../ghg_emissions.csv")
-```

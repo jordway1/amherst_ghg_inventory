@@ -2,17 +2,29 @@ project:
   type: book
   execute-dir: project
 
+execute:
+  echo: false
+  warning: false
+
+format:
+  html:
+    theme:
+      - cosmo
+    css: styles.css
+
 book:
-  title: "Town of Amherst Greenhouse Gas Inventory FY 2025"
+  title: "Greenhouse Gas Inventory FY 2025"
+  sidebar:
+    logo: amherst_seal.png        # <-- Moving it here fixes the validation error
+    style: docked                 # Optional: Creates a structured background block for the menu
+    background: light
   chapters:
     - index.qmd
     - part: "Municipal Inventory"
       chapters:
         - municipal/overview.qmd
-        - municipal/transportation.qmd
         - municipal/stationary.qmd
-        - municipal/waste.qmd
-        - municipal/agriculture.qmd
+        - municipal/transportation.qmd
     - part: "Community Inventory"
       chapters:
         - community/overview.qmd

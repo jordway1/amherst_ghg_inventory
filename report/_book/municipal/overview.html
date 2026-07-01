@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; Municipal Overview – Town of Amherst Greenhouse Gas Inventory FY 2025</title>
+<title>2&nbsp; Municipal Overview – Greenhouse Gas Inventory FY 2025</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -33,7 +33,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../municipal/transportation.html" rel="next">
+<link href="../municipal/stationary.html" rel="next">
 <link href="../index.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -44,7 +44,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-87aed0b8589e23e45aa8556edf37a91b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-0be3436302ea171be80ef53aace9a748.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -72,11 +72,21 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<link href="../site_libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+<script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="../site_libs/plotly-binding-4.12.0/plotly.js"></script>
+<script src="../site_libs/typedarray-0.1/typedarray.min.js"></script>
+<script src="../site_libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="../site_libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+<script src="../site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+<link href="../site_libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="../site_libs/plotly-main-2.25.2/plotly-latest.min.js"></script>
 
 
+<link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-sidebar floating quarto-light">
+<body class="nav-sidebar docked quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -97,10 +107,14 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../amherst_seal.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../amherst_seal.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="../">Town of Amherst Greenhouse Gas Inventory FY 2025</a> 
+      <a href="../">Greenhouse Gas Inventory FY 2025</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -133,26 +147,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../municipal/transportation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Municipal Transportation</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../municipal/stationary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Municipal Stationary Energy</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Municipal Stationary Energy</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../municipal/waste.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Municipal Waste</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../municipal/agriculture.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Municipal Agriculture</span></span></a>
+  <a href="../municipal/transportation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Municipal Transportation</span></span></a>
   </div>
 </li>
       </ul>
@@ -169,31 +171,31 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../community/overview.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Overview</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Overview</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../community/transportation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Transportation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Transportation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../community/stationary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Stationary Energy</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stationary Energy</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../community/waste.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Waste</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Waste</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../community/agriculture.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Agriculture</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Agriculture</span></span></a>
   </div>
 </li>
       </ul>
@@ -203,8 +205,14 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#emissions-by-fuel-type" id="toc-emissions-by-fuel-type" class="nav-link active" data-scroll-target="#emissions-by-fuel-type"><span class="header-section-number">2.1</span> Emissions by Fuel Type</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -228,18 +236,524 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>The Town of Amherst Municipality was responsible for 4388.6 Metric Tons of Co2 Equivalent emissions in FY 2016. In FY 2022, this number was 3384.5.</p>
-<div class="cell">
+<p>The Town of Amherst Municipality was responsible for 4764.7 Metric Tons of CO2 Equivalent emissions in FY 2016. In FY 2025, this number was 3342.5. This represents a <strong>29.8% decrease in municipal emissions</strong> relative to the 2016 baseline, which exceeded the Town’s emissions reduction goal for 2025.</p>
+<div class="cell" data-tbl-cap="GHG emissions by year, along with percentage reductions relative to the 2016 baseline.">
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="overview_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<div id="wbyabqayck" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#wbyabqayck table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#wbyabqayck thead, #wbyabqayck tbody, #wbyabqayck tfoot, #wbyabqayck tr, #wbyabqayck td, #wbyabqayck th {
+  border-style: none;
+}
+
+#wbyabqayck p {
+  margin: 0;
+  padding: 0;
+}
+
+#wbyabqayck .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#wbyabqayck .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#wbyabqayck .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#wbyabqayck .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#wbyabqayck .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#wbyabqayck .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wbyabqayck .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#wbyabqayck .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#wbyabqayck .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#wbyabqayck .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#wbyabqayck .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#wbyabqayck .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#wbyabqayck .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#wbyabqayck .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#wbyabqayck .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#wbyabqayck .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#wbyabqayck .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#wbyabqayck .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#wbyabqayck .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wbyabqayck .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#wbyabqayck .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#wbyabqayck .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#wbyabqayck .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wbyabqayck .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#wbyabqayck .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#wbyabqayck .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wbyabqayck .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wbyabqayck .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#wbyabqayck .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wbyabqayck .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#wbyabqayck .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wbyabqayck .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#wbyabqayck .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wbyabqayck .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#wbyabqayck .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wbyabqayck .gt_left {
+  text-align: left;
+}
+
+#wbyabqayck .gt_center {
+  text-align: center;
+}
+
+#wbyabqayck .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#wbyabqayck .gt_font_normal {
+  font-weight: normal;
+}
+
+#wbyabqayck .gt_font_bold {
+  font-weight: bold;
+}
+
+#wbyabqayck .gt_font_italic {
+  font-style: italic;
+}
+
+#wbyabqayck .gt_super {
+  font-size: 65%;
+}
+
+#wbyabqayck .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#wbyabqayck .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#wbyabqayck .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#wbyabqayck .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#wbyabqayck .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#wbyabqayck .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#wbyabqayck .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#wbyabqayck .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#wbyabqayck div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<caption>GHG emissions by year, along with percentage reductions relative to the 2016 baseline.</caption>
+<thead>
+<tr class="gt_col_headings header">
+<th id="fiscal_year" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Inventory Year</th>
+<th id="total" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Total MTCo2e</th>
+<th id="percent_change" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Percent Reduction</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="fiscal_year">FY 2016</td>
+<td class="gt_row gt_right" headers="total">4,765</td>
+<td class="gt_row gt_right" headers="percent_change">0%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="fiscal_year">FY 2022</td>
+<td class="gt_row gt_right" headers="total">4,142</td>
+<td class="gt_row gt_right" headers="percent_change">-13%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="fiscal_year">FY 2025</td>
+<td class="gt_row gt_right" headers="total">3,342</td>
+<td class="gt_row gt_right" headers="percent_change">-30%</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p><em>Note: Previous inventories reported 4,389 and 3,852 MTCO2e for FY 2016 and FY 2022, respectively. These numbers were updated to reflect the latest data sources and methodologies.</em></p>
+<p>Municipal emissions fall into two categories: stationary energy and transportation. Stationary energy accounted for 79.6% of total emissions in 2025, up from 66.1% in 2022. As it has been reported, electricity usage from electric vehicles (EVs) has been absorbed into stationary energy, so this increase in electricity consumption likely reflects the increased adoption of EVs and their miscategorization as stationary energy, rather than a reduction in transportation.</p>
+<div class="cell">
+<div id="fig-municipal-emissions" class="cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-municipal-emissions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-f7e5b932853c953fb5ec" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-f7e5b932853c953fb5ec">{"x":{"data":[{"orientation":"v","width":[0.89999999999999991,0.90000000000000013,0.90000000000000036],"base":[1523.8942018800001,1404.4568868200001,681.61258128000009],"x":[1,2,3],"y":[3240.8400008598592,2737.921035847934,2660.8602082364],"text":["Sector: Stationary Energy<br>Emissions: 3240.8 MTCO2e<br>Share: 68%","Sector: Stationary Energy<br>Emissions: 2737.9 MTCO2e<br>Share: 66.1%","Sector: Stationary Energy<br>Emissions: 2660.9 MTCO2e<br>Share: 79.6%"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(139,38,53,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Stationary Energy","legendgroup":"Stationary Energy","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.89999999999999991,0.90000000000000013,0.90000000000000036],"base":[0,0,0],"x":[1,2,3],"y":[1523.8942018800001,1404.4568868200001,681.61258128000009],"text":["Sector: Transportation<br>Emissions: 1523.9 MTCO2e<br>Share: 32%","Sector: Transportation<br>Emissions: 1404.5 MTCO2e<br>Share: 33.9%","Sector: Transportation<br>Emissions: 681.6 MTCO2e<br>Share: 20.4%"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(46,125,140,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Transportation","legendgroup":"Transportation","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":22.648401826484022,"l":48.949771689497723},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"Georgia","size":14.611872146118724},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,3.6000000000000001],"tickmode":"array","ticktext":["FY 2016","FY 2022","FY 2025"],"tickvals":[1,2,3],"categoryorder":"array","categoryarray":["FY 2016","FY 2022","FY 2025"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"Georgia","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":null,"family":null,"size":0}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-238.23671013699297,5002.9709128768518],"tickmode":"array","ticktext":["0","1000","2000","3000","4000","5000"],"tickvals":[0,1000,1999.9999999999998,3000,4000,5000],"categoryorder":"array","categoryarray":["0","1000","2000","3000","4000","5000"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"Georgia","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"MTCO2e","font":{"color":"rgba(0,0,0,1)","family":"Georgia","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"Georgia","size":11.68949771689498},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"Georgia","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"d7bd6f62015a":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"}},"cur_data":"d7bd6f62015a","visdat":{"d7bd6f62015a":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-municipal-emissions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.1: Municipal GHG emissions (MTCO2e) by reporting year
+</figcaption>
 </figure>
 </div>
 </div>
+<section id="emissions-by-fuel-type" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="emissions-by-fuel-type"><span class="header-section-number">2.1</span> Emissions by Fuel Type</h2>
+<p>As shown in <a href="#fig-fuel-mix" class="quarto-xref">Figure&nbsp;<span>2.2</span></a>, the composition of fuel usage has changed over time within the municipality. Most notably, electricity has seen an increased share of total emissions, from 36% in 2022 to 46% in 2025, while the relative shares of gasoline and diesel have decreased. This is consistent with the Town’s move toward more renewable energy sources.</p>
+<div class="cell">
+<div id="fig-fuel-mix" class="cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fuel-mix-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-2352e9efd7e11182b16d" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-2352e9efd7e11182b16d">{"x":{"data":[{"orientation":"v","width":[0.89999999999999991,0.90000000000000013,0.90000000000000036],"base":[0.83430459061787376,0.82922945278146087,0.89883870063489091],"x":[1,2,3],"y":[0.16569540938212624,0.17077054721853913,0.10116129936510909],"text":["Fuel: Diesel<br />Emissions: 789.49 MTCO2e<br />Share: 16.6%","Fuel: Diesel<br />Emissions: 707.4 MTCO2e<br />Share: 17.1%","Fuel: Diesel<br />Emissions: 338.13 MTCO2e<br />Share: 10.1%"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(139,38,53,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Diesel","legendgroup":"Diesel","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.89999999999999991,0.90000000000000013,0.90000000000000036],"base":[0.46320994107112456,0.47042478916706421,0.43644464131929844],"x":[1,2,3],"y":[0.3710946495467492,0.35880466361439667,0.46239405931559246],"text":["Fuel: Electric<br />Emissions: 1768.17 MTCO2e<br />Share: 37.1%","Fuel: Electric<br />Emissions: 1486.3 MTCO2e<br />Share: 35.9%","Fuel: Electric<br />Emissions: 1545.54 MTCO2e<br />Share: 46.2%"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(46,125,140,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Electric","legendgroup":"Electric","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.89999999999999991,0.90000000000000013,0.90000000000000036],"base":[0.33460058387375319,0.32531395592995083,0.26582323693607463],"x":[1,2,3],"y":[0.12860935719737138,0.14511083323711338,0.17062140438322382],"text":["Fuel: Gas<br />Emissions: 612.79 MTCO2e<br />Share: 12.9%","Fuel: Gas<br />Emissions: 601.1 MTCO2e<br />Share: 14.5%","Fuel: Gas<br />Emissions: 570.3 MTCO2e<br />Share: 17.1%"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(90,122,94,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Gas","legendgroup":"Gas","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.89999999999999991,0.90000000000000013,0.90000000000000036],"base":[0.18156006730922164,0.15863391463731394,0.16411123493973587],"x":[1,2,3],"y":[0.15304051656453155,0.16668004129263689,0.10171200199633876],"text":["Fuel: Gasoline<br />Emissions: 729.2 MTCO2e<br />Share: 15.3%","Fuel: Gasoline<br />Emissions: 690.45 MTCO2e<br />Share: 16.7%","Fuel: Gasoline<br />Emissions: 339.97 MTCO2e<br />Share: 10.2%"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(201,160,64,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Gasoline","legendgroup":"Gasoline","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.89999999999999991,0.90000000000000013,0.90000000000000036],"base":[0.0010918203741582405,0.0015954649970091076,0.0010513449117736666],"x":[1,2,3],"y":[0.18046824693506339,0.15703844964030483,0.1630598900279622],"text":["Fuel: Oil<br />Emissions: 859.88 MTCO2e<br />Share: 18%","Fuel: Oil<br />Emissions: 650.51 MTCO2e<br />Share: 15.7%","Fuel: Oil<br />Emissions: 545.02 MTCO2e<br />Share: 16.3%"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(91,111,126,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Oil","legendgroup":"Oil","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.89999999999999991,0.90000000000000013,0.90000000000000036],"base":[0,0,0],"x":[1,2,3],"y":[0.0010918203741582405,0.0015954649970091076,0.0010513449117736666],"text":["Fuel: Propane<br />Emissions: 5.2 MTCO2e<br />Share: 0.1%","Fuel: Propane<br />Emissions: 6.61 MTCO2e<br />Share: 0.2%","Fuel: Propane<br />Emissions: 3.51 MTCO2e<br />Share: 0.1%"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(176,128,80,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Propane","legendgroup":"Propane","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":22.648401826484022,"l":34.337899543379002},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"Georgia","size":14.611872146118724},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,3.6000000000000001],"tickmode":"array","ticktext":["FY 2016","FY 2022","FY 2025"],"tickvals":[1,2,3],"categoryorder":"array","categoryarray":["FY 2016","FY 2022","FY 2025"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"Georgia","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":null,"family":null,"size":0}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.050000000000000003,1.05],"tickmode":"array","ticktext":["0.00","0.25","0.50","0.75","1.00"],"tickvals":[0,0.25,0.5,0.75,1],"categoryorder":"array","categoryarray":["0.00","0.25","0.50","0.75","1.00"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"Georgia","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"","font":{"color":null,"family":null,"size":0}},"hoverformat":".2f"},"shapes":[],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"Georgia","size":11.68949771689498},"title":{"text":"","font":{"color":null,"family":null,"size":0}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"d7bd44d59a0":{"x":{},"y":{},"text":{},"fill":{},"type":"bar"}},"cur_data":"d7bd44d59a0","visdat":{"d7bd44d59a0":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fuel-mix-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.2: Share of total greenhouse gas emissions by fuel source.
+</figcaption>
+</figure>
+</div>
 </div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -649,8 +1163,8 @@ ul.task-list li input[type="checkbox"] {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../municipal/transportation.html" class="pagination-link" aria-label="Municipal Transportation">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Municipal Transportation</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../municipal/stationary.html" class="pagination-link" aria-label="Municipal Stationary Energy">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Municipal Stationary Energy</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

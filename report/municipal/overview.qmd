@@ -6,25 +6,104 @@ title: "Municipal Overview"
 #| include: false
 source("../params.R")
 ghg_emissions <- read_csv("../ghg_emissions.csv")
-municipal_emissions <- ghg_emissions %>% filter(entity == "municipal")
+municipal_emissions <- ghg_emissions %>% filter(entity == "municipal") 
+mei_final <- read_csv("mei_emissions.csv")
 ```
 
 ```{r}
 #| include: false
-baseline <- municipal_emissions %>% filter(input_year == 2016) %>% select(total_mtco2e) %>% pull() %>% sum()
-current <- municipal_emissions %>% filter(input_year == current_year) %>% select(total_mtco2e) %>% pull() %>% sum()
+baseline <- municipal_emissions %>% filter(input_year == baseline_year) %>% select(total_mtco2e) %>% pull() %>% sum()
+current <- municipal_emissions %>% filter(input_year == current_year) %>% select(total_mtco2e) %>% pull() %>% sum(na.rm=TRUE)
 ```
 
-The Town of Amherst Municipality was responsible for `r round(baseline, 1)` Metric Tons of Co2 Equivalent emissions in FY 2016. In FY `r current_year`, this number was `r round(current,1)`. 
+The Town of Amherst Municipality was responsible for `r round(baseline, 1)` Metric Tons of CO2 Equivalent emissions in FY 2016. In FY `r current_year`, this number was `r round(current,1)`. This represents a **29.8% decrease in municipal emissions** relative to the 2016 baseline, which exceeded the Town's emissions reduction goal for 2025.
 
 
 ```{r}
 #| echo: false
+#| tbl-cap: GHG emissions by year, along with percentage reductions relative to the 2016 baseline.
 municipal_emissions %>%
-  ggplot(aes(input_year, total_mtco2e)) +
-  geom_col(aes(fill = supercategory)) +
-  labs(x = "Year", y = "Total CO2e (metric tons)", title = "Municipal Emissions by Year") +
-  scale_fill_amherst()
+  group_by(fiscal_year) %>%
+  summarize(total = sum(total_mtco2e, na.rm = TRUE)) %>%
+  mutate(percent_change = percent((total - first(total))/first(total))) %>% 
+  gt() %>%
+  cols_label(fiscal_year = "Inventory Year", total = "Total MTCo2e", percent_change = "Percent Reduction") %>%
+  fmt_number(columns = total, decimals = 0, use_seps=TRUE)
 ```
 
+
+*Note: Previous inventories reported 4,389 and 3,852 MTCO2e for FY 2016 and FY 2022, respectively. These numbers were updated to reflect the latest data sources and methodologies.*
+
+
+Municipal emissions fall into two categories: stationary energy and transportation. Stationary energy accounted for 79.6% of total emissions in 2025, up from 66.1% in 2022. As it has been reported, electricity usage from electric vehicles (EVs) has been absorbed into stationary energy, so this increase in electricity consumption likely reflects the increased adoption of EVs and their miscategorization as stationary energy, rather than a reduction in transportation.
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-municipal-emissions
+#| fig-cap: "Municipal GHG emissions (MTCO2e) by reporting year"
+
+p <- municipal_emissions %>%
+  group_by(fiscal_year) %>%
+  mutate(
+    year_total = sum(total_mtco2e),
+    pct = total_mtco2e/year_total * 100
+  ) %>%
+  group_by(fiscal_year, supercategory) %>%
+  summarize(
+   total_mtco2e = sum(total_mtco2e),
+   pct = sum(pct),
+   year_total = first(year_total),
+   .groups="drop"
+  ) %>%
+  ggplot(aes(fiscal_year, total_mtco2e, fill = supercategory,
+             text = paste0("Sector: ", supercategory, "<br>",
+                           "Emissions: ", round(total_mtco2e, 1), " MTCO2e<br>",
+                           "Share: ", round(pct, 1), "%"))) +
+  geom_col() +
+  scale_fill_amherst() +
+  labs(y = "MTCO2e", fill = NULL) +
+  theme(axis.title.x = element_blank())
+
+ggplotly(p, tooltip = "text")
+```
+
+## Emissions by Fuel Type
+
+As shown in @fig-fuel-mix, the composition of fuel usage has changed over time within the municipality. Most notably, electricity has seen an increased share of total emissions, from 36% in 2022 to 46% in 2025, while the relative shares of gasoline and diesel have decreased. This is consistent with the Town's move toward more renewable energy sources.
+
+```{r}
+#| label: fig-fuel-mix
+#| fig-cap: "Share of total greenhouse gas emissions by fuel source."
+
+# mei_final %>%
+#   group_by(fiscal_year, account_fuel) %>%
+#   summarize(total_emissions = sum(total_mtco2e)) %>%
+#   ggplot(aes(fiscal_year, total_emissions)) +
+#   geom_col(position = "fill", aes(fill = account_fuel)) +
+#   scale_fill_amherst() +
+#   theme(legend.title = element_blank(),
+#         axis.title.x = element_blank(),
+#         axis.title.y = element_blank())
+
+mei_interactive <- mei_final %>%
+  group_by(fiscal_year, account_fuel) %>%
+  summarize(total_emissions = sum(total_mtco2e), .groups = "drop") %>%
+  group_by(fiscal_year) %>%
+  mutate(
+    percentage = total_emissions / sum(total_emissions) * 100,
+    tooltip_text = paste0(
+      "Fuel: ", account_fuel, "\n",
+      "Emissions: ", round(total_emissions, 2), " MTCO2e\n",
+      "Share: ", round(percentage, 1), "%"
+    )
+  )
+p <- ggplot(mei_interactive, aes(x = fiscal_year, y = total_emissions, text = tooltip_text)) +
+  geom_col(position = "fill", aes(fill = account_fuel)) +
+  scale_fill_amherst() +
+  labs(fill = NULL) +
+  theme(legend.title = element_blank(),
+        axis.title = element_blank())
+ggplotly(p, tooltip = "text")
+```
 

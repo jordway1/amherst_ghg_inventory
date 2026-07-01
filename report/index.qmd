@@ -3,4 +3,6 @@ title: "Introduction"
 format: html
 ---
 
-This is the introduction
+The Town of Amherst Massachusetts seeks to achieve **net zero community emissions by 2050**, an ambitious goal set by the Town's Energy and Climate Action Committee (ECAC) in their 2021 Climate Action, Adaptation, and Resilience Plan [(CAARP)](https://www.amherstma.gov/DocumentCenter/View/58981/Climate-Action-Adaptation-and-Resilience-Plan-Final-from-June-2021){.external target="_blank"}. Using the 2016 emissions inventory as a baseline, the intermediary goals of **25% reduction in emissions by 2025** and **50% reduction in emissions by 2030** were set. 
+
+To accurately assess progress toward the ultimate goal of carbon neutrality, periodic emissions inventories are essential for tracking emissions trends and evaluating the effectiveness of climate action initiatives. This report seeks to determine whether the Town has achieved their 2025 target, to evaluate progress toward future milestones, to identify areas of success, and to identify areas that require further intervention. 
