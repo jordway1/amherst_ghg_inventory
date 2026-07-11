@@ -2,3 +2,30 @@
 title: "Municipal Transportation"
 ---
 
+```{r}
+#| include: false
+source("../params.R")
+library(tidyverse)
+mei_transportation <- read_csv("../mei_final.csv") %>% filter(fiscal_year %in% c(2016, 2022, 2025), supercategory == "transportation")
+```
+
+```{r}
+#| echo: false
+#| tbl-cap: Transportation GHG emissions by year, along with percentage reductions relative to the 2016 baseline.
+mei_transportation %>%
+  group_by(fiscal_year) %>%
+  summarize(total = sum(emission_mtco2e, na.rm = TRUE)) %>%
+  mutate(percent_change = percent((total - first(total))/first(total))) %>% 
+  gt() %>%
+  cols_label(fiscal_year = "Inventory Year", total = "Transportation MTCO2e", percent_change = "Percent Reduction") %>%
+  fmt_number(columns = total, decimals = 0, use_seps=TRUE)
+```
+
+
+```{r}
+mei_transportation %>% group_by(fiscal_year_string, department) %>% summarize(emission = sum(emission_mtco2e)) %>%
+  ggplot(aes(fiscal_year_string, emission, fill = department)) + 
+  geom_col() +
+  scale_fill_amherst()
+```
+

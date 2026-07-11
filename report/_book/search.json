@@ -4,7 +4,7 @@
     "href": "municipal/overview.html",
     "title": "2  Municipal Overview",
     "section": "",
-    "text": "2.1 Emissions by Fuel Type\nThe Town of Amherst Municipality was responsible for 4764.7 Metric Tons of CO2 Equivalent emissions in FY 2016. In FY 2025, this number was 3342.5. This represents a 29.8% decrease in municipal emissions relative to the 2016 baseline, which exceeded the Town’s emissions reduction goal for 2025.\nNote: Previous inventories reported 4,389 and 3,852 MTCO2e for FY 2016 and FY 2022, respectively. These numbers were updated to reflect the latest data sources and methodologies.\nMunicipal emissions fall into two categories: stationary energy and transportation. Stationary energy accounted for 79.6% of total emissions in 2025, up from 66.1% in 2022. As it has been reported, electricity usage from electric vehicles (EVs) has been absorbed into stationary energy, so this increase in electricity consumption likely reflects the increased adoption of EVs and their miscategorization as stationary energy, rather than a reduction in transportation.\nAs shown in Figure 2.2, the composition of fuel usage has changed over time within the municipality. Most notably, electricity has seen an increased share of total emissions, from 36% in 2022 to 46% in 2025, while the relative shares of gasoline and diesel have decreased. This is consistent with the Town’s move toward more renewable energy sources.\nFigure 2.2: Share of total greenhouse gas emissions by fuel source.",
+    "text": "2.1 Progress to Date\nThe Town of Amherst Municipality was responsible for 4487.6 Metric Tons of CO2 Equivalent emissions in FY 2016. In FY 2025, this number was 3731.9. This represents a 16.8% decrease in municipal emissions relative to the 2016 baseline, which failed to meet the Town’s 25% emissions reduction goal for 2025. To meet the 2030 goal, the Town would need to reach 2,244 MTCO2e emissions, which represents a near 40% decrease in current emissions over the span of 5 years.\nFigure 2.1: Plot of municipal GHG emissions (MTCO2e) by reporting year, and the Town of Amherst’s emissions reductions goals with respect to 2016 baseline (25% by 2025, 50% by 2030, 100% by 2050).\nGHG emissions by year, along with percentage reductions relative to the 2016 baseline.\n\n\nInventory Year\nTotal MTCO2e\nPercent Reduction\n\n\n\n\nFY 2016\n4,488\n0.0%\n\n\nFY 2022\n3,898\n-13.1%\n\n\nFY 2025\n3,732\n-16.8%\nNote: Previous inventories reported 4,389 and 3,852 MTCO2e for FY 2016 and FY 2022, respectively. These numbers were updated to reflect the latest data sources and methodologies.\nNote: The emissions totals reported above are based on the Town’s greenhouse gas inventory methodology and include transmission and distribution (T&D) losses associated with electricity and methane gas consumption. The sector and fuel analyses below, and in the following municipal sections of the report, are based directly on MassEnergyInsight facility-level data, which excludes T&D losses. As a result, totals shown in the following figures may differ slightly from the headline inventory totals.",
     "crumbs": [
       "Municipal Inventory",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Municipal Overview</span>"
@@ -15,7 +15,113 @@
     "href": "index.html",
     "title": "Greenhouse Gas Inventory FY 2025",
     "section": "",
-    "text": "The Town of Amherst Massachusetts seeks to achieve net zero community emissions by 2050, an ambitious goal set by the Town’s Energy and Climate Action Committee (ECAC) in their 2021 Climate Action, Adaptation, and Resilience Plan (CAARP). Using the 2016 emissions inventory as a baseline, the intermediary goals of 25% reduction in emissions by 2025 and 50% reduction in emissions by 2030 were set.\nTo accurately assess progress toward the ultimate goal of carbon neutrality, periodic emissions inventories are essential for tracking emissions trends and evaluating the effectiveness of climate action initiatives. This report seeks to determine whether the Town has achieved their 2025 target, to evaluate progress toward future milestones, to identify areas of success, and to identify areas that require further intervention.",
+    "text": "1 Summary",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "municipal/stationary.html",
+    "href": "municipal/stationary.html",
+    "title": "3  Municipal Stationary Energy",
+    "section": "",
+    "text": "3.1 Buildings\nStationary emissions accounted for 3,195 MTCO2e in 2016, and 2,704 MTCO2e in 2025, representing a 15.4% reduction. Notably, despite an overall reduction in municipal emissions since 2022, stationary energy emissions were slightly higher in 2025 than they were in 2022, an increase of 78 MTCO2e.\nThe 10 municipal buildings with the highest emissions account for 2234.7 MTCO2e in 2025, which accounts for 61% of total municipal emissions.\nEmissions (MTCO2e) data for highest-emissions buildings, with percent change in emissions from both 2016 and 2022 inventories.\n\n\nBuilding\nBuilding Subcategory\nFY 2016\nFY 2022\nFY 2025\nChange Since 2016\nChange Since 2022\n\n\n\n\nWastewater Treatment Facility\nWastewater Treatment Plant\n513.2\n429.1\n457.3\n−10.9%\n6.6%\n\n\nWildwood ES\nSchool\n369.8\n303.5\n343.7\n−7.0%\n13.3%\n\n\npump stations\nDrinking Water Pumping\n301.5\n166.7\n283.4\n−6.0%\n70.0%\n\n\nFort River ES\nSchool\n303.1\n253.3\n244.3\n−19.4%\n−3.6%\n\n\nCrocker Farm ES\nSchool\n324.0\n254.7\n207.5\n−36.0%\n−18.6%\n\n\nAmherst Police Station\nPublic Safety\n255.0\n201.0\n181.3\n−28.9%\n−9.8%\n\n\nTreatment Plants\nDrinking Water Treatment Plant\n219.7\n202.2\n153.7\n−30.0%\n−24.0%\n\n\nAmherst Bangs (Senior Ctr.)\nOther\n92.4\n121.3\n129.6\n40.2%\n6.8%\n\n\nJones Library\nLibrary\n107.2\n106.8\n119.0\n11.0%\n11.4%\n\n\nAmherst Town Hall\nAdministration\n117.5\n119.9\n114.8\n−2.3%\n−4.2%",
+    "crumbs": [
+      "Municipal Inventory",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Municipal Stationary Energy</span>"
+    ]
+  },
+  {
+    "objectID": "municipal/transportation.html",
+    "href": "municipal/transportation.html",
+    "title": "4  Municipal Transportation",
+    "section": "",
+    "text": "Transportation GHG emissions by year, along with percentage reductions relative to the 2016 baseline.\n\n\nInventory Year\nTransportation MTCO2e\nPercent Reduction\n\n\n\n\n2016\n1,230\n0.0%\n\n\n2022\n1,202\n-2.2%\n\n\n2025\n955\n-22.3%",
+    "crumbs": [
+      "Municipal Inventory",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Municipal Transportation</span>"
+    ]
+  },
+  {
+    "objectID": "municipal/stationary.html#electricity",
+    "href": "municipal/stationary.html#electricity",
+    "title": "3  Municipal Stationary Energy",
+    "section": "3.2 Electricity",
+    "text": "3.2 Electricity\nSince electricity is the main culprit in the increase of stationary emissions from 2022 to 2016, it’s worth looking more closely at where these emissions are coming from.\n\n\n\n\n\n\n\n\nBuilding\nBuilding Subcategory\nFY 2016\nFY 2022\nFY 2025\nChange Since 2016\nChange Since 2022\n\n\n\n\nWastewater Treatment Facility\nWastewater Treatment Plant\n457.2\n357.8\n415.6\n−9.1%\n16.1%\n\n\npump stations\nDrinking Water Pumping\n301.5\n166.7\n283.4\n−6.0%\n70.0%\n\n\nPumping\nWastewater Pumping\n100.6\n107.3\n96.6\n−3.9%\n−10.0%\n\n\nAmherst Police Station\nPublic Safety\n155.7\n113.7\n86.6\n−44.4%\n−23.9%\n\n\nFort River ES\nSchool\n117.3\n85.0\n80.2\n−31.7%\n−5.7%\n\n\nTreatment Plants\nDrinking Water Treatment Plant\n114.3\n99.7\n74.5\n−34.9%\n−25.3%\n\n\nWildwood ES\nSchool\n118.2\n84.1\n73.4\n−37.9%\n−12.8%\n\n\nAmherst Town Hall\nAdministration\n71.0\n61.6\n63.9\n−10.0%\n3.7%\n\n\nCrocker Farm ES\nSchool\n94.8\n69.3\n63.6\n−32.9%\n−8.2%\n\n\nAll Streets\nStreet Light\n62.1\n56.3\n55.2\n−11.1%\n−2.0%\n\n\nAmherst Bangs (Senior Ctr.)\nOther\n46.8\n46.4\n47.2\n0.9%\n1.6%\n\n\nAmherst North Fire Station\nPublic Safety\n41.5\n37.2\n36.7\n−11.6%\n−1.5%\n\n\nParking\nParking Lots & Parking Garages\n18.1\n18.8\n20.1\n11.0%\n7.0%\n\n\nCentral Fire Station\nPublic Safety\n18.4\n14.9\n14.1\n−23.3%\n−5.4%\n\n\nPublic Works Building\nPublic Works\n19.9\n13.6\n13.0\n−34.6%\n−4.3%\n\n\nMontague Road - Mill River Pool\nOutdoor Recreation\n7.8\n9.2\n10.3\n31.9%\n11.6%\n\n\nTraffic Lights\nTraffic Light\n13.0\n9.6\n9.7\n−25.8%\n1.1%\n\n\nNorth Amherst Library\nLibrary\n3.0\n1.9\n6.8\n128.2%\n250.0%\n\n\nCherry Hill Golf Course\nIndoor Recreation\n11.4\n4.7\n5.3\n−53.4%\n13.9%\n\n\nNorth Pleasant Street\nStreet Light\nNA\nNA\n4.5\nNA\nNA\n\n\nAmherst Landfill\nPublic Works\n5.3\n4.2\n4.1\n−23.4%\n−4.4%\n\n\nMunson Library\nLibrary\n8.9\n5.9\n2.9\n−67.5%\n−51.3%\n\n\nRed Shed\nPublic Works\n5.2\n1.1\n2.7\n−48.0%\n145.5%\n\n\nTown Common\nPark\nNA\nNA\n2.4\nNA\nNA\n\n\nDPW Parks and Rec garage\nPublic Works\n2.6\n2.3\n2.3\n−9.0%\n−1.1%\n\n\nSweetser Park\nPark\n2.2\n2.2\n1.0\n−52.2%\n−51.9%\n\n\nRuxton\nPublic Works\n1.3\n1.1\n1.0\n−23.4%\n−4.6%\n\n\nConservation Dept Shop\nOther\n1.1\n0.6\n0.6\n−44.3%\n−9.7%\n\n\nHeartland Farm\nOther\n0.6\n0.5\n0.5\n−16.2%\n−1.9%\n\n\nEast St School\nOther\n2.0\n0.4\n0.2\n−90.0%\n−51.0%\n\n\nDowntown Wireless\nOutdoor Recreation\n0.1\n0.1\n0.1\n−22.9%\n−10.8%\n\n\nPlumbrook Conservation Area\nOutdoor Recreation\n0.2\n0.0\n0.0\n−90.0%\nInf%\n\n\nE. Pleasant St. Water Tank\nDrinking Water Pumping\n0.0\n0.0\n0.0\n0.0%\n0.0%\n\n\nSouth Amherst Campus School\nSchool\n9.3\nNA\nNA\nNA\nNA",
+    "crumbs": [
+      "Municipal Inventory",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Municipal Stationary Energy</span>"
+    ]
+  },
+  {
+    "objectID": "municipal/overview.html#emissions-by-sector",
+    "href": "municipal/overview.html#emissions-by-sector",
+    "title": "2  Municipal Overview",
+    "section": "2.2 Emissions by Sector",
+    "text": "2.2 Emissions by Sector\nMunicipal emissions fall into two categories: stationary energy and transportation. Stationary energy accounted for 73.9% of total emissions in 2025, up from 68.6% in 2022. As it has been reported, electricity usage from electric vehicles (EVs) has been absorbed into stationary energy, so this increase in electricity consumption may reflect the increased adoption of EVs and their miscategorization as stationary energy, rather than a simple reduction in transportation emissions.\n\n\n\n\n\n\n\n\nFigure 2.2: Municipal GHG emissions (MTCO2e) by reporting year, excluding transmission and distribution losses",
+    "crumbs": [
+      "Municipal Inventory",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Municipal Overview</span>"
+    ]
+  },
+  {
+    "objectID": "municipal/overview.html#emissions-by-fuel-type",
+    "href": "municipal/overview.html#emissions-by-fuel-type",
+    "title": "2  Municipal Overview",
+    "section": "2.3 Emissions by Fuel Type",
+    "text": "2.3 Emissions by Fuel Type\nAs shown in Figure 2.3, the composition of fuel usage has changed over time within the municipality. Most notably, electricity has seen an increased share of total emissions, from 36% in 2022 to 46% in 2025, while the relative shares of gasoline and diesel have decreased. This is consistent with the Town’s move toward more renewable energy sources.\n\n\n\n\n\n\n\n\nFigure 2.3: Share of greenhouse gas emissions by fuel source, excluding transmission and distribution losses.\n\n\n\n\n\n\n\n\n\n\nFuel consumption in original units, with percent change relative to 2016 and 2022 inventories.\n\n\nFuel Type\nUnits\nFY 2016\nFY 2022\nFY 2025\nChange Since 2016\nChange Since 2022\n\n\n\n\nTransportation\n\n\nDiesel\nGallons\n49,278.0\n43,582.0\n37,403.0\n−24.1%\n−14.2%\n\n\nGasoline\nGallons\n79,926.0\n85,325.0\n64,641.0\n−19.1%\n−24.2%\n\n\nBuildings & Stationary Infrastructure\n\n\nElectric\nMWh\n6,397.8\n5,674.3\n6,241.9\n−2.4%\n10.0%\n\n\nGas\nTherms\n106,312.0\n108,331.0\n112,052.0\n5.4%\n3.4%\n\n\nOil\nGallons\n79,309.0\n65,450.0\n61,138.0\n−22.9%\n−6.6%\n\n\nPropane\nGallons\n1,654.0\n1,017.0\n1,062.0\n−35.8%\n4.4%",
+    "crumbs": [
+      "Municipal Inventory",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Municipal Overview</span>"
+    ]
+  },
+  {
+    "objectID": "municipal/stationary.html#buildings",
+    "href": "municipal/stationary.html#buildings",
+    "title": "3  Municipal Stationary Energy",
+    "section": "",
+    "text": "3.1.1 Electricity",
+    "crumbs": [
+      "Municipal Inventory",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Municipal Stationary Energy</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#background",
+    "href": "index.html#background",
+    "title": "Greenhouse Gas Inventory FY 2025",
+    "section": "1.1 Background",
+    "text": "1.1 Background\nThe Town of Amherst Massachusetts seeks to achieve net zero community emissions by 2050, an ambitious goal set by the Town’s Energy and Climate Action Committee (ECAC) in their 2021 Climate Action, Adaptation, and Resilience Plan (CAARP). Using the 2016 emissions inventory as a baseline, the intermediary goals of 25% reduction in emissions by 2025 and 50% reduction in emissions by 2030 were set as well.\nTo accurately assess progress toward the ultimate goal of carbon neutrality, periodic emissions inventories are essential for tracking emissions trends and evaluating the effectiveness of climate action initiatives. This report seeks to determine whether the Town has achieved their 2025 target, to evaluate progress toward future milestones, to identify areas of success, and to identify areas that require further intervention.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#progress-so-far",
+    "href": "index.html#progress-so-far",
+    "title": "Greenhouse Gas Inventory FY 2025",
+    "section": "1.2 Progress So Far",
+    "text": "1.2 Progress So Far\nThe Town has made significant progress toward achieving its 2025 emissions reduction target. There are numbers that exist to support this, but I have not finalized them, so this paragraph is really just a placeholder so I can get a sense of how things look before I get the aforementioned numbers.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#municipal-emissions",
+    "href": "index.html#municipal-emissions",
+    "title": "Greenhouse Gas Inventory FY 2025",
+    "section": "2.1 Municipal Emissions",
+    "text": "2.1 Municipal Emissions\nEmissions and energy consumption data for the Town of Amherst Municipality comes from MassEnergyInsight (MEI), a tool managed by the Massachusetts Department of Energy Resources (DOER).",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#community-emissions",
+    "href": "index.html#community-emissions",
+    "title": "Greenhouse Gas Inventory FY 2025",
+    "section": "2.2 Community Emissions",
+    "text": "2.2 Community Emissions",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]

@@ -1,5 +1,5 @@
 ---
-title: "Stationary Energy"
+title: "Community Stationary Energy"
 ---
 
 ```{r}

@@ -1,5 +1,5 @@
 ---
-title: "Waste"
+title: "Community Waste"
 ---
 
 ```{r}

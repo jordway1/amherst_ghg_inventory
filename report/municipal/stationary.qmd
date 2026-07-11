@@ -6,5 +6,120 @@ title: "Municipal Stationary Energy"
 #| include: false
 source("../params.R")
 library(tidyverse)
-ghg_emissions <- read_csv("../ghg_emissions.csv")
+mei_final <- read_csv("../mei_final.csv") 
+mei_stationary <- mei_final %>% filter(fiscal_year %in% c(2016, 2022, 2025), supercategory == "stationary_energy")
 ```
+
+Stationary emissions accounted for 3,195 MTCO2e in 2016, and 2,704 MTCO2e in 2025, representing a **15.4% reduction**. Notably, despite an overall reduction in municipal emissions since 2022, stationary energy emissions were slightly higher in 2025 than they were in 2022, an increase of 78 MTCO2e. 
+
+```{r}
+#| echo: false
+#| tbl-cap: Stationary GHG emissions by year, along with percentage reductions relative to the 2016 baseline.
+mei_stationary %>%
+  group_by(fiscal_year) %>%
+  summarize(total = sum(emission_mtco2e, na.rm = TRUE)) %>%
+  mutate(percent_change = percent((total - first(total))/first(total))) %>% 
+  gt() %>%
+  cols_label(fiscal_year = "Inventory Year", total = "Stationary MTCO2e", percent_change = "Percent Reduction") %>%
+  fmt_number(columns = total, decimals = 0, use_seps=TRUE)
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-building-category
+#| fig-cap: "Municipal GHG emissions (MTCO2e) by building category"
+
+p <- mei_stationary %>%
+  group_by(fiscal_year_string) %>%
+  mutate(
+    year_total = sum(emission_mtco2e),
+    pct = emission_mtco2e/year_total * 100
+  ) %>%
+  group_by(fiscal_year_string, building_category) %>%
+  summarize(
+   emission_mtco2e = sum(emission_mtco2e),
+   pct = sum(pct),
+   year_total = first(year_total),
+   .groups="drop"
+  ) %>% 
+  mutate(
+    building_category = factor(building_category, levels = c("Open Space",  "Street/Traffic Lights", "Water/Sewer", "Building"))
+  ) %>%
+  ggplot(aes(fiscal_year_string, emission_mtco2e, fill = building_category,
+             text = paste0("Category: ", building_category, "<br>",
+                           "Emissions: ", round(emission_mtco2e, 1), " MTCO2e<br>",
+                           "Share: ", round(pct, 1), "%"))) +
+  geom_col() +
+  scale_fill_amherst() +
+  labs(y = "MTCO2e", fill = NULL) +
+  theme(axis.title.x = element_blank())
+
+ggplotly(p, tooltip = "text")
+```
+
+## Buildings
+
+```{r}
+top_emitters <- mei_stationary %>%
+  filter(fiscal_year == 2025) %>%
+  group_by(building) %>%
+  summarize(total_emissions = sum(emission_mtco2e)) %>%
+  arrange(desc(total_emissions)) %>%
+  head(10) %>%
+  pull(building)
+
+top_building_emissions <- mei_stationary %>%
+  filter(building %in% top_emitters, fiscal_year == 2025) %>%
+  summarize(total_emissions = sum(emission_mtco2e)) %>%
+  pull(total_emissions)
+ 
+emissions_2025 <- mei_final %>% filter(fiscal_year == 2025) %>% pull(emission_mtco2e) %>% sum()
+```
+
+
+The 10 municipal buildings with the highest emissions account for `r round(top_building_emissions, 1)` MTCO2e in 2025, which accounts for `r round(top_building_emissions/emissions_2025 * 100)`% of total municipal emissions.
+
+
+```{r}
+#| tbl-cap: Emissions (MTCO2e) data for highest-emissions buildings, with percent change in emissions from both 2016 and 2022 inventories.
+top_emitters <- mei_stationary %>%
+  filter(fiscal_year == 2025) %>%
+  group_by(building) %>%
+  summarize(total_emissions = sum(emission_mtco2e)) %>%
+  arrange(desc(total_emissions)) %>%
+  head(10) %>%
+  pull(building)
+
+mei_stationary %>% 
+  filter(building %in% top_emitters) %>%
+  group_by(fiscal_year, building, building_subcategory) %>% 
+  summarize(emissions = sum(emission_mtco2e), .groups = "drop") %>%
+  pivot_wider(names_from = fiscal_year, values_from = emissions) %>%
+  mutate(pct_change_2016 = ((`2025` - `2016`) / `2016`),
+         pct_change_2022 = ((`2025` - `2022`) / `2022`)) %>%
+  arrange(desc(`2025`)) %>%
+  gt() %>%
+  cols_label(building = "Building", building_subcategory = "Building Subcategory", 
+             `2016` = "FY 2016", `2022` = "FY 2022", `2025` = "FY 2025",
+             pct_change_2016 = "Change Since 2016", pct_change_2022 = "Change Since 2022") %>%
+  fmt_number(columns = `2016`:`2025`, decimals = 1, use_seps=TRUE) %>%
+  fmt_percent(columns = pct_change_2016:pct_change_2022, decimals = 1) %>%
+  data_color(
+    columns = c(pct_change_2016, pct_change_2022),
+    direction = "column",
+    palette = c("#2ca25f", "#ffffff", "#de2d26"), 
+    domain = c(-0.7, 0.7)
+  )
+```
+
+
+
+
+### Electricity
+
+
+```{r}
+
+```
+

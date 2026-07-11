@@ -12,14 +12,13 @@ emissions_factors         <- read_xlsx(tmp, sheet = "emissions_factors")
 transmission_loss_factors <- read_xlsx(tmp, sheet = "transmission_loss_factors") %>%
   select(fuel_type, type, loss_factor, input_year)
 
-mei_efs <- activity_emissions_key %>%
-  left_join(select(emissions_factors, emissions_factor, total_co2e_ef), by = "emissions_factor") %>%
-  select(activity, total_co2e_ef, input_year)
 
-# read and clean local MEI export
-mei_clean <- read_csv("use_and_costs-export.csv") %>%
+mei_clean <- read_csv("output_doer_report_2026-07-06.csv") %>%
   mutate(
-    year = year(usage_end),
+    usage_usage_start = coalesce(usage_usage_start, usage_usage_end - days(usage_days)),
+    fiscal_year = if_else(month(usage_usage_end) >= 7,
+                          year(usage_usage_end) + 1,
+                          year(usage_usage_end)),
     activity = case_when(
       account_fuel == "Electric"  ~ "electricity",
       account_fuel == "Oil"       ~ "dist_oil",
@@ -28,38 +27,25 @@ mei_clean <- read_csv("use_and_costs-export.csv") %>%
       account_fuel == "Gasoline"  ~ "gasoline",
       account_fuel == "Propane"   ~ "lpg"
     ),
-    use = case_when(
-      account_fuel == "Electric" ~ use / 1000,
-      .default = use
+    use_updated_units = case_when(
+      account_fuel == "Electric" ~ usage_use / 1000,
+      .default = usage_use
     ),
-    units = case_when(
+    updated_units = case_when(             #shockingly, they don't include units in their document... ridiculous
       account_fuel == "Electric" ~ "MWh",
-      .default = default_units
-    )
-  ) %>%
-  filter(year %in% c(2016, 2022, 2025))
+      account_fuel == "Oil" ~ "gallons",
+      account_fuel == "Gas" ~ "therms",
+      account_fuel == "Diesel" ~ "gallons",
+      account_fuel == "Gasoline" ~ "gallons",
+      account_fuel == "Propane" ~ "gallons"
+    ),
+    supercategory = case_when(
+      account_fuel %in% c("Electric", "Gas", "Oil", "Propane") ~ "stationary_energy",
+      account_fuel %in% c("Diesel", "Gasoline") ~ "transportation"
+    ),
+    fiscal_year_string = str_c("FY ", fiscal_year)
+  )
 
-# direct emissions
-mei_direct <- mei_clean %>%
-  left_join(mei_efs, by = c("activity", "year" = "input_year")) %>%
-  mutate(total_mtco2e = use * total_co2e_ef)
 
-# transmission/distribution losses for electricity and natural gas
-mei_losses <- mei_clean %>%
-  inner_join(transmission_loss_factors, by = c("activity" = "fuel_type", "year" = "input_year")) %>%
-  mutate(
-    use      = use * loss_factor,
-    activity = str_c(activity, type, sep = "_")
-  ) %>%
-  select(-loss_factor, -type) %>%
-  left_join(mei_efs, by = c("activity", "year" = "input_year")) %>%
-  mutate(total_mtco2e = use * total_co2e_ef)
 
-mei_final <- bind_rows(mei_direct, mei_losses) %>%
-  mutate(fiscal_year = factor(str_c("FY ", as.character(year))),
-         department = case_when(
-           facility %in% c("Amherst Bangs (Senior Ctr.)", "AmherstTown Hall") ~ "Administration",
-           facility == "Parking" ~ "Parking",
-           .default = department
-         ))
-
+write_csv(mei_clean, "mei_final.csv")

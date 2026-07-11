@@ -1,70 +1,72 @@
 supercategory,subcategory,gpc_ref,scope,activity,entity,amount,units,input_year,total_co2e_ef,total_mtco2e,fiscal_year
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,dist_oil,amherst_college,5114,gal (US)/year,2022,0.01024268,52.38106552,FY 2022
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,lpg,amherst_college,3772,gal (US)/year,2022,0.005741980000000001,21.658748560000003,FY 2022
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,resid_fuel_oil,amherst_college,14342,gal (US)/year,2022,0.011306450000000001,162.1571059,FY 2022
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.2,2,electricity,amherst_college,9240,MWh/year,2022,0.24666316,2279.1675984,FY 2022
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,natural_gas,amherst_college,2457500,therms/year,2016,0.005310179999999999,13049.767349999998,FY 2016
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,dist_oil,amherst_college,6439,gal (US)/year,2016,0.01024268,65.95261652,FY 2016
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,lpg,amherst_college,4749,gal (US)/year,2016,0.005741980000000001,27.26866302,FY 2016
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,resid_fuel_oil,amherst_college,18060,gal (US)/year,2016,0.011306450000000001,204.194487,FY 2016
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.2,2,electricity,amherst_college,11635,MWh/year,2016,0.2617135128,3045.036721428,FY 2016
-Stationary Energy,residential_buildings,I.1.1,1,natural_gas,community,1321107,therms/year,2016,0.005310179999999999,7015.315969259999,FY 2016
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,natural_gas,amherst_college,2065119,therms/year,2022,0.005310179999999999,10966.153611419999,FY 2022
-Stationary Energy,residential_buildings,I.1.1,1,natural_gas,community,1440869,therms/year,2022,0.005310179999999999,7651.273746419999,FY 2022
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,natural_gas,community,3965872,therms/year,2016,0.005310179999999999,21059.494176959997,FY 2016
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,natural_gas,community,2986184,therms/year,2022,0.005310179999999999,15857.174553119998,FY 2022
-Stationary Energy,residential_buildings,I.1.2,2,electricity,community,66286.449,MWh/year,2016,0.2617135128,17348.059418828045,FY 2016
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.2,2,electricity,community,21665.823000000004,MWh/year,2016,0.2617135128,5670.238645033035,FY 2016
-Stationary Energy,residential_buildings,I.1.2,2,electricity,community,75595,MWh/year,2022,0.24666316,18646.501580199998,FY 2022
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.2,2,electricity,community,25056.663,MWh/year,2022,0.24666316,6180.55567463508,FY 2022
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.2,2,electricity,hampshire_college,6642.508,MWh/year,2016,0.2617135128,1738.4341024821024,FY 2016
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,natural_gas,municipal,112359,therms/year,2016,0.005310179999999999,596.64651462,FY 2016
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,dist_oil,municipal,83951,gal (US)/year,2016,0.01024268,859.88322868,FY 2016
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.2,2,electricity,municipal,6436.237,MWh/year,2016,0.2617135128,1684.4501944833335,FY 2016
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,natural_gas,hampshire_college,313920,therms/year,2022,0.005310179999999999,1666.9717055999997,FY 2022
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.2,2,electricity,hampshire_college,6118,MWh/year,2022,0.24666316,1509.08521288,FY 2022
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,natural_gas,municipal,110587,therms/year,2022,0.005310179999999999,587.2368756599999,FY 2022
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,dist_oil,municipal,63510,gal (US)/year,2022,0.01024268,650.5126068000001,FY 2022
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.2,2,electricity,municipal,5766.167,MWh/year,2022,0.24666316,1422.3009733077201,FY 2022
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,natural_gas,umass,15775163,therms/year,2022,0.005310179999999999,83768.95505933999,FY 2022
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,lng,umass,1882000,gal (US)/year,2022,0.00446,8393.720000000001,FY 2022
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,dist_oil,umass,706500,gal (US)/year,2022,0.01024268,7236.453420000001,FY 2022
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,lpg,umass,99325,gal (US)/year,2022,0.005741980000000001,570.3221635000001,FY 2022
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.2,2,electricity,umass,34359,MWh/year,2022,0.24666316,8475.09951444,FY 2022
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,natural_gas,umass,16227910,therms/year,2016,0.005310179999999999,86173.12312379999,FY 2016
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,lng,umass,2011961,gal (US)/year,2016,0.00446,8973.346060000002,FY 2016
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,dist_oil,umass,23859,gal (US)/year,2016,0.01024268,244.38010212,FY 2016
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,lpg,umass,31092,gal (US)/year,2016,0.005741980000000001,178.52964216,FY 2016
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,diesel_oil,umass,737509,gal (US)/year,2016,0.01024268,7554.06868412,FY 2016
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.2,2,electricity,umass,48651.545,MWh/year,2016,0.2617135128,12732.766745097275,FY 2016
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,natural_gas,municipal,107397,therms/year,2025,0.005310179999999999,570.29740146,FY 2025
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,dist_oil,municipal,53211,gal (US)/year,2025,0.01024268,545.02324548,FY 2025
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.2,2,electricity,municipal,6265.79,MWh/year,2025,0.24666316,1545.5395612964,FY 2025
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.3,3,electricity_trans_loss,amherst_college,415.8,MWh/year,2022,0.24666316,102.562541928,FY 2022
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,dist_oil,amherst_college,5114,gal (US)/year,2022,0.010201,52.167914,FY 2022
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,lpg,amherst_college,3772,gal (US)/year,2022,0.005797,21.866284,FY 2022
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,resid_fuel_oil,amherst_college,14342,gal (US)/year,2022,0.011856,170.03875200000002,FY 2022
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.2,2,electricity,amherst_college,9240,MWh/year,2022,0.2416,2232.384,FY 2022
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,natural_gas,amherst_college,2457500,therms/year,2016,0.005319,13071.4425,FY 2016
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,dist_oil,amherst_college,6439,gal (US)/year,2016,0.010201,65.684239,FY 2016
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,lpg,amherst_college,4749,gal (US)/year,2016,0.005797,27.529953,FY 2016
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,resid_fuel_oil,amherst_college,18060,gal (US)/year,2016,0.011856,214.11936,FY 2016
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.2,2,electricity,amherst_college,11635,MWh/year,2016,0.2767,3219.4045,FY 2016
+Stationary Energy,residential_buildings,I.1.1,1,natural_gas,community,1321107,therms/year,2016,0.005319,7026.968133,FY 2016
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,natural_gas,amherst_college,2065119,therms/year,2022,0.005319,10984.367961,FY 2022
+Stationary Energy,residential_buildings,I.1.1,1,natural_gas,community,1440869,therms/year,2022,0.005319,7663.982211,FY 2022
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,natural_gas,community,3965872,therms/year,2016,0.005319,21094.473168,FY 2016
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,natural_gas,community,2986184,therms/year,2022,0.005319,15883.512696,FY 2022
+Stationary Energy,residential_buildings,I.1.2,2,electricity,community,66286.449,MWh/year,2016,0.2767,18341.460438299997,FY 2016
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.2,2,electricity,community,21665.823000000004,MWh/year,2016,0.2767,5994.933224100001,FY 2016
+Stationary Energy,residential_buildings,I.1.2,2,electricity,community,75595,MWh/year,2022,0.2416,18263.752,FY 2022
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.2,2,electricity,community,25056.663,MWh/year,2022,0.2416,6053.6897808,FY 2022
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.2,2,electricity,hampshire_college,6642.508,MWh/year,2016,0.2767,1837.9819636,FY 2016
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,natural_gas,municipal,106312,therms/year,2016,0.005319,565.473528,FY 2016
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,dist_oil,municipal,79309,gal (US)/year,2016,0.010201,809.031109,FY 2016
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.2,2,electricity,municipal,6397.816,MWh/year,2016,0.2767,1770.2756872,FY 2016
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,natural_gas,hampshire_college,313920,therms/year,2022,0.005319,1669.74048,FY 2022
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.2,2,electricity,hampshire_college,6118,MWh/year,2022,0.2416,1478.1088,FY 2022
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,natural_gas,municipal,108331,therms/year,2022,0.005319,576.212589,FY 2022
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,dist_oil,municipal,65450,gal (US)/year,2022,0.010201,667.65545,FY 2022
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.2,2,electricity,municipal,5674.337,MWh/year,2022,0.2416,1370.9198192000001,FY 2022
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,natural_gas,umass,15775163,therms/year,2022,0.005319,83908.091997,FY 2022
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,lng,umass,1882000,gal (US)/year,2022,0.00445924,8392.28968,FY 2022
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,dist_oil,umass,706500,gal (US)/year,2022,0.010201,7207.0065,FY 2022
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,lpg,umass,99325,gal (US)/year,2022,0.005797,575.787025,FY 2022
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.2,2,electricity,umass,34359,MWh/year,2022,0.2416,8301.1344,FY 2022
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,natural_gas,umass,16227910,therms/year,2016,0.005319,86316.25329,FY 2016
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,lng,umass,2011961,gal (US)/year,2016,0.004524993,9104.109441273,FY 2016
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,dist_oil,umass,23859,gal (US)/year,2016,0.010201,243.385659,FY 2016
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,lpg,umass,31092,gal (US)/year,2016,0.005797,180.24032400000002,FY 2016
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,diesel_oil,umass,737509,gal (US)/year,2016,0.010201,7523.329309,FY 2016
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.2,2,electricity,umass,48651.545,MWh/year,2016,0.2767,13461.8825015,FY 2016
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,natural_gas,municipal,112052,therms/year,2025,0.005319,596.004588,FY 2025
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,dist_oil,municipal,61138,gal (US)/year,2025,0.010201,623.668738,FY 2025
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.2,2,electricity,municipal,6241.866,MWh/year,2025,0.2359,1472.4561894,FY 2025
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.3,3,electricity_trans_loss,amherst_college,415.8,MWh/year,2022,0.2416,100.45728000000001,FY 2022
 Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.8.1,1,natural_gas_trans_dist_loss,amherst_college,8894.801114008995,therms/year,2016,0.03969453,353.07494966406347,FY 2016
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.3,3,electricity_trans_loss,amherst_college,578.2595,MWh/year,2016,0.2617135128,151.3383250549716,FY 2016
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.3,3,electricity_trans_loss,amherst_college,578.2595,MWh/year,2016,0.2767,160.00440365,FY 2016
 Stationary Energy,residential_buildings,I.8.1,1,natural_gas_trans_dist_loss,community,4781.682203591081,therms/year,2016,0.03969453,189.80662768091227,FY 2016
 Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.8.1,1,natural_gas_trans_dist_loss,amherst_college,6523.700182947565,therms/year,2022,0.03969453,258.9552126230176,FY 2022
 Stationary Energy,residential_buildings,I.8.1,1,natural_gas_trans_dist_loss,community,4551.697678876362,therms/year,2022,0.03969453,180.6775000650881,FY 2022
 Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.8.1,1,natural_gas_trans_dist_loss,community,14354.279830566462,therms/year,2016,0.03969453,569.7863913628153,FY 2016
 Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.8.1,1,natural_gas_trans_dist_loss,community,9433.33972866217,therms/year,2022,0.03969453,374.45198685957234,FY 2022
-Stationary Energy,residential_buildings,I.2.3,3,electricity_trans_loss,community,3294.4365153,MWh/year,2016,0.2617135128,862.1985531157538,FY 2016
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.3,3,electricity_trans_loss,community,1076.7914031000003,MWh/year,2016,0.2617135128,281.81086065814185,FY 2016
-Stationary Energy,residential_buildings,I.2.3,3,electricity_trans_loss,community,3401.775,MWh/year,2022,0.24666316,839.092571109,FY 2022
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.3,3,electricity_trans_loss,community,1127.549835,MWh/year,2022,0.24666316,278.1250053585786,FY 2022
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.3,3,electricity_trans_loss,hampshire_college,330.1326476,MWh/year,2016,0.2617135128,86.40017489336049,FY 2016
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.8.1,1,natural_gas_trans_dist_loss,municipal,406.6779077798318,therms/year,2016,0.03969453,16.142888410703765,FY 2016
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.3,3,electricity_trans_loss,municipal,319.8809789,MWh/year,2016,0.2617135128,83.71717466582167,FY 2016
+Stationary Energy,residential_buildings,I.2.3,3,electricity_trans_loss,community,3294.4365153,MWh/year,2016,0.2767,911.57058378351,FY 2016
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.3,3,electricity_trans_loss,community,1076.7914031000003,MWh/year,2016,0.2767,297.9481812377701,FY 2016
+Stationary Energy,residential_buildings,I.2.3,3,electricity_trans_loss,community,3401.775,MWh/year,2022,0.2416,821.8688400000001,FY 2022
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.3,3,electricity_trans_loss,community,1127.549835,MWh/year,2022,0.2416,272.416040136,FY 2022
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.3,3,electricity_trans_loss,hampshire_college,330.1326476,MWh/year,2016,0.2767,91.34770359091999,FY 2016
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.8.1,1,natural_gas_trans_dist_loss,municipal,384.79108689014214,therms/year,2016,0.03969453,15.274101342293353,FY 2016
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.3,3,electricity_trans_loss,municipal,317.9714552,MWh/year,2016,0.2767,87.98270165384,FY 2016
 Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.8.1,1,natural_gas_trans_dist_loss,hampshire_college,991.6716477020934,therms/year,2022,0.03969453,39.363939969860176,FY 2022
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.3,3,electricity_trans_loss,hampshire_college,275.31,MWh/year,2022,0.24666316,67.9088345796,FY 2022
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.8.1,1,natural_gas_trans_dist_loss,municipal,349.34375797792876,therms/year,2022,0.03969453,13.867036281367632,FY 2022
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.3,3,electricity_trans_loss,municipal,259.477515,MWh/year,2022,0.24666316,64.00354379884739,FY 2022
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.3,3,electricity_trans_loss,hampshire_college,275.31,MWh/year,2022,0.2416,66.51489600000001,FY 2022
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.8.1,1,natural_gas_trans_dist_loss,municipal,342.21706570851006,therms/year,2022,0.03969453,13.584145581278424,FY 2022
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.3,3,electricity_trans_loss,municipal,255.345165,MWh/year,2022,0.2416,61.691391864,FY 2022
 Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.8.1,1,natural_gas_trans_dist_loss,umass,49833.65789047878,therms/year,2022,0.03969453,1978.1236281433467,FY 2022
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.3,3,electricity_trans_loss,umass,1546.155,MWh/year,2022,0.24666316,381.3794781498,FY 2022
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.3,3,electricity_trans_loss,umass,1546.155,MWh/year,2022,0.2416,373.551048,FY 2022
 Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.8.1,1,natural_gas_trans_dist_loss,umass,58736.12693633274,therms/year,2016,0.03969453,2331.5029527580677,FY 2016
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.3,3,electricity_trans_loss,umass,2417.9817865,MWh/year,2016,0.2617135128,632.8185072313346,FY 2016
-Stationary Energy,residential_buildings,I.1.1,1,dist_oil,community,1836020.338,gal(US)/year,2016,0.01024268,18805.76879562584,FY 2016
-Stationary Energy,residential_buildings,I.1.1,1,dist_oil,community,1544448.2076009957,gal(US)/year,2022,0.01024268,15819.288767030566,FY 2022
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.3,3,electricity_trans_loss,umass,2417.9817865,MWh/year,2016,0.2767,669.05556032455,FY 2016
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.8.1,1,natural_gas_trans_dist_loss,municipal,353.9716853603306,therms/year,2025,0.03969453,14.050739683686203,FY 2025
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.3,3,electricity_trans_loss,municipal,271.66105121706,MWh/year,2025,0.2359,64.08484198210445,FY 2025
+Stationary Energy,residential_buildings,I.1.1,1,dist_oil,community,1836020.338,gal(US)/year,2016,0.010201,18729.243467938,FY 2016
+Stationary Energy,residential_buildings,I.1.1,1,dist_oil,community,1544448.2076009957,gal(US)/year,2022,0.010201,15754.916165737757,FY 2022
 waste,biological_treatment_of_waste,III.2.2,2,compost,amherst_college,87.07482993197279,tonnes,2016,0.1915,16.674829931972788,FY 2016
 waste,solid_waste_disposal,III.1.2,2,landfill,amherst_college,369.295238095238,tonnes,2016,0.35106334,129.6460197318095,FY 2016
 waste,NA,NA,NA,recycle,amherst_college,344.3428571428571,tonnes,2016,NA,NA,FY 2016
@@ -91,8 +93,8 @@ waste,NA,NA,NA,recycle,umass,586.4676591611343,tonnes,2022,NA,NA,FY 2022
 waste,wastewater_treatment_and_discharge,III.4.1,1,wastewater_bod,community,6460.610179729167,kg,2016,0.0154238,99.64715929010671,FY 2016
 waste,wastewater_treatment_and_discharge,III.4.1,1,wastewater_bod,umass,2576.7815208333336,kg,2016,0.0154238,39.74376282102917,FY 2016
 waste,wastewater_treatment_and_discharge,III.4.1,1,wastewater_bod,community,4429.3306278,kg,2022,0.0140601,62.276831559930784,FY 2022
-Transportation,on_road_transportation,II.1.1,1,diesel,amherst_college,6423,gallons/year,2022,0.01757244,112.86778212000002,FY 2022
-Transportation,on_road_transportation,II.1.1,1,gasoline,amherst_college,15614,gallons/year,2022,0.00881184,137.58806976,FY 2022
+Transportation,on_road_transportation,II.1.1,1,diesel,amherst_college,6423,gallons/year,2022,0.01014827,65.18233821,FY 2022
+Transportation,on_road_transportation,II.1.1,1,gasoline,amherst_college,15614,gallons/year,2022,0.008908482,139.097037948,FY 2022
 Transportation,on_road_transportation,II.1.1,1,passenger_cars,community,113223359,VMT/year,2022,2.7238e-4,30839.778524420002,FY 2022
 Transportation,on_road_transportation,II.1.1,1,light_trucks,community,1538280,VMT/year,2022,3.8138e-4,586.6692264000001,FY 2022
 Transportation,on_road_transportation,II.1.1,1,motorcycles,community,213322,VMT/year,2022,1.7606e-4,37.55747132,FY 2022
@@ -103,40 +105,40 @@ Transportation,off_road_transportation,II.5.1,1,industrial_MOVES,community,12397
 Transportation,off_road_transportation,II.5.1,1,lawn_garden_MOVES,community,1957.9289941929514,MT CO2e/year,2022,1,1957.9289941929514,FY 2022
 Transportation,off_road_transportation,II.5.1,1,agriculture_MOVES,community,59.53468462206778,MT CO2e/year,2022,1,59.53468462206778,FY 2022
 Transportation,off_road_transportation,II.5.1,1,commercial_MOVES,community,1249.96315910167,MT CO2e/year,2022,1,1249.96315910167,FY 2022
-Transportation,on_road_transportation,II.1.1,1,diesel,hampshire_college,3206,gallons/year,2022,0.01757244,56.33724264000001,FY 2022
-Transportation,on_road_transportation,II.1.1,1,gasoline,hampshire_college,6926,gallons/year,2022,0.00881184,61.03080384,FY 2022
-Transportation,on_road_transportation,II.1.1,1,gasoline,municipal,78355,gallons/year,2022,0.00881184,690.4517232,FY 2022
-Transportation,on_road_transportation,II.1.1,1,diesel,municipal,40256,gallons/year,2022,0.01757244,707.3961446400001,FY 2022
-Transportation,off_road_transportation,II.5.1,1,lpg,municipal,1151,gallons/year,2022,0.005741980000000001,6.609018980000001,FY 2022
+Transportation,on_road_transportation,II.1.1,1,diesel,hampshire_college,3206,gallons/year,2022,0.01014827,32.535353619999995,FY 2022
+Transportation,on_road_transportation,II.1.1,1,gasoline,hampshire_college,6926,gallons/year,2022,0.008908482,61.700146332,FY 2022
+Transportation,on_road_transportation,II.1.1,1,gasoline,municipal,85325,gallons/year,2022,0.008908482,760.11622665,FY 2022
+Transportation,on_road_transportation,II.1.1,1,diesel,municipal,43582,gallons/year,2022,0.01014827,442.28190313999994,FY 2022
+Transportation,off_road_transportation,II.5.1,1,lpg,municipal,1017,gallons/year,2022,0.005797,5.895549,FY 2022
 Transportation,on_road_transportation,II.1.1,1,b100,umass,0,gallons/year,2022,0.0162644,0,FY 2022
-Transportation,on_road_transportation,II.1.1,1,diesel,umass,42729,gallons/year,2022,0.01757244,750.8527887600001,FY 2022
-Transportation,on_road_transportation,II.1.1,1,gasoline,umass,101724,gallons/year,2022,0.00881184,896.37561216,FY 2022
+Transportation,on_road_transportation,II.1.1,1,diesel,umass,42729,gallons/year,2022,0.01014827,433.62542883,FY 2022
+Transportation,on_road_transportation,II.1.1,1,gasoline,umass,101724,gallons/year,2022,0.008908482,906.2064229680001,FY 2022
 Transportation,on_road_transportation,II.1.1,1,passenger_cars,community,107491074.86328861,VMT/year,2016,3.2267e-4,34684.14512613734,FY 2016
 Transportation,on_road_transportation,II.1.1,1,light_trucks,community,35102515.21757814,VMT/year,2016,4.5424e-4,15944.966512432697,FY 2016
 Transportation,on_road_transportation,II.1.1,1,motorcycles,community,2673370.36425264,VMT/year,2016,1.7133e-4,458.02854450740483,FY 2016
 Transportation,on_road_transportation,II.1.1,1,heavy_trucks,community,1519337.8157087984,VMT/year,2016,0.00152797,2321.5026022685724,FY 2016
 Transportation,on_road_transportation,II.1.1,1,other_vehicles,community,3188118.695257806,VMT/year,2016,6.1831e-4,1971.245670464854,FY 2016
-Transportation,on_road_transportation,II.1.1,1,gasoline,municipal,82752,gallons/year,2016,0.00881184,729.1973836799999,FY 2016
-Transportation,on_road_transportation,II.1.1,1,diesel,municipal,44928,gallons/year,2016,0.01757244,789.4945843200001,FY 2016
+Transportation,on_road_transportation,II.1.1,1,gasoline,municipal,79926,gallons/year,2016,0.009039838,722.5180919879999,FY 2016
+Transportation,on_road_transportation,II.1.1,1,diesel,municipal,49278,gallons/year,2016,0.01029819,507.47420682,FY 2016
 Transportation,on_road_transportation,II.1.1,1,b100,umass,2611,gallons/year,2016,0.0162644,42.466348399999994,FY 2016
-Transportation,on_road_transportation,II.1.1,1,diesel,umass,50558,gallons/year,2016,0.01757244,888.42742152,FY 2016
-Transportation,on_road_transportation,II.1.1,1,gasoline,umass,143503,gallons/year,2016,0.00881184,1264.5254755199999,FY 2016
-Transportation,on_road_transportation,II.1.1,1,diesel,amherst_college,8088,gallons/year,2016,0.01757244,142.12589472000002,FY 2016
-Transportation,on_road_transportation,II.1.1,1,gasoline,amherst_college,15614,gallons/year,2016,0.00881184,137.58806976,FY 2016
+Transportation,on_road_transportation,II.1.1,1,diesel,umass,50558,gallons/year,2016,0.01029819,520.65589002,FY 2016
+Transportation,on_road_transportation,II.1.1,1,gasoline,umass,143503,gallons/year,2016,0.009039838,1297.243872514,FY 2016
+Transportation,on_road_transportation,II.1.1,1,diesel,amherst_college,8088,gallons/year,2016,0.01029819,83.29176072,FY 2016
+Transportation,on_road_transportation,II.1.1,1,gasoline,amherst_college,15614,gallons/year,2016,0.009039838,141.148030532,FY 2016
 Transportation,off_road_transportation,II.5.1,1,construction_MOVES,community,2308.6224548754935,MT CO2e/year,2016,1,2308.6224548754935,FY 2016
 Transportation,off_road_transportation,II.5.1,1,industrial_MOVES,community,1566.0875732705363,MT CO2e/year,2016,1,1566.0875732705363,FY 2016
 Transportation,off_road_transportation,II.5.1,1,lawn_garden_MOVES,community,1740.617658343904,MT CO2e/year,2016,1,1740.617658343904,FY 2016
 Transportation,off_road_transportation,II.5.1,1,agriculture_MOVES,community,113.05591126764975,MT CO2e/year,2016,1,113.05591126764975,FY 2016
 Transportation,off_road_transportation,II.5.1,1,commercial_MOVES,community,1674.5140769605312,MT CO2e/year,2016,1,1674.5140769605312,FY 2016
-Transportation,off_road_transportation,II.5.1,1,lpg,municipal,906,gallons/year,2016,0.005741980000000001,5.2022338800000005,FY 2016
+Transportation,off_road_transportation,II.5.1,1,lpg,municipal,1654,gallons/year,2016,0.005797,9.588238,FY 2016
 Transportation,on_road_transportation,II.1.1,1,NA,umass,1580.86,MTCDE,2025,NA,NA,FY 2025
 Transportation,on_road_transportation,NA,3,NA,umass,1846.75,MTCDE,2025,NA,NA,FY 2025
 Transportation,air_travel,NA,3,NA,umass,8017.17,MTCDE,2025,NA,NA,FY 2025
-Transportation,on_road_transportation,II.1.1,1,gasoline,municipal,38581,gallons/year,2025,0.00881184,339.96959904,FY 2025
-Transportation,on_road_transportation,II.1.1,1,diesel,municipal,19242,gallons/year,2025,0.01757244,338.12889048000005,FY 2025
-Transportation,off_road_transportation,II.5.1,1,lpg,municipal,612,gallons/year,2025,0.005741980000000001,3.5140917600000003,FY 2025
-Transportation,on_road_transportation,II.1.2,2,pvta_bus,community,145620.63866761365,gallons/year,2016,0.01757244,2558.909935748321,FY 2016
-Transportation,on_road_transportation,II.1.2,2,pvta_bus,community,153471.34261363637,gallons/year,2022,0.01757244,2696.8659597975684,FY 2022
+Transportation,on_road_transportation,II.1.1,1,gasoline,municipal,64641,gallons/year,2025,0.008908482,575.853184962,FY 2025
+Transportation,on_road_transportation,II.1.1,1,diesel,municipal,37403,gallons/year,2025,0.01014827,379.57574280999995,FY 2025
+Transportation,off_road_transportation,II.5.1,1,lpg,municipal,1062,gallons/year,2025,0.005797,6.156414,FY 2025
+Transportation,on_road_transportation,II.1.2,2,pvta_bus,community,145620.63866761365,gallons/year,2016,0.01029819,1499.6290049204322,FY 2016
+Transportation,on_road_transportation,II.1.2,2,pvta_bus,community,153471.34261363637,gallons/year,2022,0.01014827,1557.4686221056875,FY 2022
 agriculture_forestry_other_land_use,livestock,V.1,1,dairy_cattle_enteric_fermentation,community,61.40606727784595,animals,2016,3.584,220.0793451237999,FY 2016
 agriculture_forestry_other_land_use,livestock,V.1,1,other_cattle_enteric_fermentation,community,104.86999205948169,animals,2016,1.484,155.62706821627083,FY 2016
 agriculture_forestry_other_land_use,livestock,V.1,1,broilers_enteric_fermentation,community,43.24422507760052,animals,2016,0,0,FY 2016

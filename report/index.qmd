@@ -2,7 +2,26 @@
 title: "Introduction"
 format: html
 ---
+# Summary
 
-The Town of Amherst Massachusetts seeks to achieve **net zero community emissions by 2050**, an ambitious goal set by the Town's Energy and Climate Action Committee (ECAC) in their 2021 Climate Action, Adaptation, and Resilience Plan [(CAARP)](https://www.amherstma.gov/DocumentCenter/View/58981/Climate-Action-Adaptation-and-Resilience-Plan-Final-from-June-2021){.external target="_blank"}. Using the 2016 emissions inventory as a baseline, the intermediary goals of **25% reduction in emissions by 2025** and **50% reduction in emissions by 2030** were set. 
+## Background
+
+The Town of Amherst Massachusetts seeks to achieve **net zero community emissions by 2050**, an ambitious goal set by the Town's Energy and Climate Action Committee (ECAC) in their 2021 Climate Action, Adaptation, and Resilience Plan [(CAARP)](https://www.amherstma.gov/DocumentCenter/View/58981/Climate-Action-Adaptation-and-Resilience-Plan-Final-from-June-2021){.external target="_blank"}. Using the 2016 emissions inventory as a baseline, the intermediary goals of **25% reduction in emissions by 2025** and **50% reduction in emissions by 2030** were set as well. 
 
 To accurately assess progress toward the ultimate goal of carbon neutrality, periodic emissions inventories are essential for tracking emissions trends and evaluating the effectiveness of climate action initiatives. This report seeks to determine whether the Town has achieved their 2025 target, to evaluate progress toward future milestones, to identify areas of success, and to identify areas that require further intervention. 
+
+## Progress So Far
+
+The Town has made significant progress toward achieving its 2025 emissions reduction target. There are numbers that exist to support this, but I have not finalized them, so this paragraph is really just a placeholder so I can get a sense of how things look before I get the aforementioned numbers.
+
+# Data Sources
+
+## Municipal Emissions
+
+Emissions and energy consumption data for the Town of Amherst Municipality comes from MassEnergyInsight (MEI), a tool managed by the Massachusetts Department of Energy Resources (DOER). 
+
+## Community Emissions
+
+# Structure of This Report
+
+The first section of this report focuses on municipal emissions. Though municipal emissions only account for **a small percentage that I will determine** of the community total, it is important that the Town leads by example in the pursuit of carbon neutrality. The next section focuses on community-wide emissions, which includes university emissions and other sources such as transportation, residential, and commercial sectors. Badda bing, badda boom.

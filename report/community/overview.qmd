@@ -1,10 +1,36 @@
 ---
-title: "Overview"
+title: "Community Overview"
 ---
 
 ```{r}
 #| include: false
 source("../params.R")
 library(tidyverse)
-ghg_emissions <- read_csv("../ghg_emissions.csv")
+ghg_emissions <- read_csv("../ghg_emissions.csv") %>%
+  mutate(entity = factor(entity, levels = c("hampshire_college", "municipal", "amherst_college", "umass", "community")))
 ```
+
+```{r}
+amherst_cols <- c( "#2E7D8C","#8B2635", "#5A7A5E", "#C9A040", "#5B6F7E", "#B08050")
+
+df <- ghg_emissions %>%
+  filter(input_year == 2022) %>%
+  group_by(entity) %>%
+  summarize(emissions = sum(total_mtco2e, na.rm = TRUE), .groups = "drop") %>%
+  arrange(emissions)
+
+plot_ly(
+  data = df,
+  labels = ~entity,
+  values = ~emissions,
+  type = "pie",
+  sort = FALSE,
+  marker = list(colors = amherst_cols),
+  hovertemplate = paste(
+    "<b>%{label}</b><br>",
+    "Emissions: %{value:,.1f} MTCO2e<br>",
+    "Share: %{percent}<extra></extra>"
+  )
+)
+```
+
