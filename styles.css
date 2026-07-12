@@ -1,0 +1,15 @@
+.quarto-sidebar-header-nav a,
+.sidebar-header a,
+a.sidebar-logo-link {
+  height: 65px !important; 
+  width: 210px !important;
+  display: block !important;
+}
+
+.sidebar-logo, 
+.quarto-sidebar-header-nav img,
+.sidebar-header img {
+  height: 100% !important;
+  max-height: 80px !important; 
+  width: auto !important;
+}
