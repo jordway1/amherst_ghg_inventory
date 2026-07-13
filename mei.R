@@ -13,7 +13,7 @@ transmission_loss_factors <- read_xlsx(tmp, sheet = "transmission_loss_factors")
   select(fuel_type, type, loss_factor, input_year)
 
 
-mei_clean <- read_csv("output_doer_report_2026-07-06.csv") %>%
+mei_clean <- read_csv("output_doer_report_2026-07-11.csv") %>%
   mutate(
     usage_usage_start = coalesce(usage_usage_start, usage_usage_end - days(usage_days)),
     fiscal_year = if_else(month(usage_usage_end) >= 7,
@@ -43,9 +43,14 @@ mei_clean <- read_csv("output_doer_report_2026-07-06.csv") %>%
       account_fuel %in% c("Electric", "Gas", "Oil", "Propane") ~ "stationary_energy",
       account_fuel %in% c("Diesel", "Gasoline") ~ "transportation"
     ),
-    fiscal_year_string = str_c("FY ", fiscal_year)
-  )
-
+    fiscal_year_string = str_c("FY ", fiscal_year),
+    building = case_when(
+      building == "pump stations" ~ "Pump Stations",
+      .default = building
+    ),
+    inventory_year = ifelse(fiscal_year %in% c(2016,2022,2025), "1", "0")
+  ) %>%
+  filter(fiscal_year < 2026)
 
 
 write_csv(mei_clean, "mei_final.csv")

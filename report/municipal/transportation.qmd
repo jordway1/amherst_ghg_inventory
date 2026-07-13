@@ -6,6 +6,46 @@ title: "Municipal Transportation"
 #| include: false
 source("../params.R")
 library(tidyverse)
+mei_final <- read_csv("../mei_final.csv") 
+mei_stationary <- mei_final %>% filter(fiscal_year %in% c(2016, 2022, 2025), supercategory == "stationary_energy")
+```
+
+```{r}
+#| echo: false
+#| label: fig-transportation-emission-trends
+#| fig-cap: "Municipal transportation emissions (MTCO2e) trends by fiscal year."
+
+
+mei_final %>% 
+  filter(fiscal_year >= 2016, supercategory == "transportation") %>%
+  group_by(fiscal_year_string, inventory_year) %>%
+  summarize(total_emissions = sum(emission_mtco2e)) %>%
+  ggplot(aes(fiscal_year_string, total_emissions, group = 1)) +
+  geom_line() +
+  geom_point(
+    data = ~ filter(.x, inventory_year == "0"),
+    color = "black",
+    size = 2
+  ) +
+  geom_point(
+    data = ~ filter(.x, inventory_year == "1"),
+    color = "#C9A040",
+    size = 5,
+    shape = 18
+  ) +
+  labs(y = "MTCO2e") +
+  theme(
+    legend.position = "none",
+    axis.title.x = element_blank()
+  ) + 
+  scale_y_continuous(limits = c(800, 1400))
+```
+
+
+```{r}
+#| include: false
+source("../params.R")
+library(tidyverse)
 mei_transportation <- read_csv("../mei_final.csv") %>% filter(fiscal_year %in% c(2016, 2022, 2025), supercategory == "transportation")
 ```
 

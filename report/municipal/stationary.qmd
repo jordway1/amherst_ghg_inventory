@@ -10,7 +10,41 @@ mei_final <- read_csv("../mei_final.csv")
 mei_stationary <- mei_final %>% filter(fiscal_year %in% c(2016, 2022, 2025), supercategory == "stationary_energy")
 ```
 
+## Broad Trends in Stationary Emissions
+
 Stationary emissions accounted for 3,195 MTCO2e in 2016, and 2,704 MTCO2e in 2025, representing a **15.4% reduction**. Notably, despite an overall reduction in municipal emissions since 2022, stationary energy emissions were slightly higher in 2025 than they were in 2022, an increase of 78 MTCO2e. 
+
+```{r}
+#| echo: false
+#| label: fig-stationary-emission-trends
+#| fig-cap: "Municipal stationary emissions (MTCO2e) trends by fiscal year."
+
+
+mei_final %>% 
+  filter(fiscal_year >= 2016, supercategory == "stationary_energy") %>%
+  group_by(fiscal_year_string, inventory_year) %>%
+  summarize(total_emissions = sum(emission_mtco2e)) %>%
+  ggplot(aes(fiscal_year_string, total_emissions, group = 1)) +
+  geom_line() +
+  geom_point(
+    data = ~ filter(.x, inventory_year == "0"),
+    color = "black",
+    size = 2
+  ) +
+  geom_point(
+    data = ~ filter(.x, inventory_year == "1"),
+    color = "#C9A040",
+    size = 5,
+    shape = 18
+  ) +
+  labs(y = "MTCO2e") +
+  theme(
+    legend.position = "none",
+    axis.title.x = element_blank()
+  ) +
+  scale_y_continuous(limits = c(2250, 3500))
+```
+
 
 ```{r}
 #| echo: false
@@ -24,6 +58,53 @@ mei_stationary %>%
   fmt_number(columns = total, decimals = 0, use_seps=TRUE)
 ```
 
+### Emissions by Fuel Type
+
+```{r}
+#| label: fig-stationary-fuel-type
+#| fig-cap: "Stationary emissions by year by fuel type"
+
+p <- mei_final %>%
+  filter(fiscal_year >= 2016, supercategory == "stationary_energy") %>%
+  mutate(account_fuel = factor(account_fuel, levels = c("Propane", "Oil", "Gas", "Electric")),
+         inventory_year = as.character(inventory_year)) %>%
+  group_by(fiscal_year_string, inventory_year, account_fuel) %>%
+  summarize(total_emissions = sum(emission_mtco2e), .groups = "drop") %>%
+  group_by(fiscal_year_string) %>%
+  mutate(pct = total_emissions/sum(total_emissions)*100,
+         tooltip = paste0("Fuel: ", account_fuel, "<br>",
+                          "Emissions: ", total_emissions, "<br>",
+                          "Share: ", round(pct,1), "%<br>")) %>%
+  ggplot(aes(fiscal_year_string, total_emissions, 
+             fill = account_fuel, text = tooltip,
+             alpha = inventory_year)) +
+  geom_col() + 
+  scale_alpha_manual(values = c("1" = 1, "0" = 0.7)) +
+  scale_fill_amherst() +
+  labs(y = "MTCO2e") +
+  theme(legend.title = element_blank(),
+        axis.title.x = element_blank())
+
+plt <- ggplotly(p, tooltip = "text") %>%
+  layout(legend = list(title=list(text="")))
+
+plt$x$data[[1]]$name <- "Propane"
+plt$x$data[[2]]$name <- "Oil"
+plt$x$data[[3]]$name <- "Methane Gas"
+plt$x$data[[4]]$name <- "Electricity"
+
+for (i in 1:4)  plt$x$data[[i]]$showlegend <- TRUE
+for (i in 5:8)  plt$x$data[[i]]$showlegend <- FALSE
+
+plt
+```
+
+
+### Emissions by Facility Category
+
+Buildings are responsible for the largest share of municipal emissions, accounting for 59.5% of the total for FY 2025. The next largest share is accounted for by water and sewer facilities, which amounts to 36.6% in FY 2025. The remaining emissions are attributed to open spaces and street/traffic lights, which account for the remaining 3.9%.
+
+
 ```{r}
 #| echo: false
 #| warning: false
@@ -32,20 +113,14 @@ mei_stationary %>%
 
 p <- mei_stationary %>%
   group_by(fiscal_year_string) %>%
-  mutate(
-    year_total = sum(emission_mtco2e),
-    pct = emission_mtco2e/year_total * 100
-  ) %>%
+  mutate(year_total = sum(emission_mtco2e),
+    pct = emission_mtco2e/year_total * 100) %>%
   group_by(fiscal_year_string, building_category) %>%
-  summarize(
-   emission_mtco2e = sum(emission_mtco2e),
+  summarize(emission_mtco2e = sum(emission_mtco2e),
    pct = sum(pct),
    year_total = first(year_total),
-   .groups="drop"
-  ) %>% 
-  mutate(
-    building_category = factor(building_category, levels = c("Open Space",  "Street/Traffic Lights", "Water/Sewer", "Building"))
-  ) %>%
+   .groups="drop") %>% 
+  mutate(building_category = factor(building_category, levels = c("Open Space",  "Street/Traffic Lights", "Water/Sewer", "Building"))) %>%
   ggplot(aes(fiscal_year_string, emission_mtco2e, fill = building_category,
              text = paste0("Category: ", building_category, "<br>",
                            "Emissions: ", round(emission_mtco2e, 1), " MTCO2e<br>",
@@ -58,7 +133,7 @@ p <- mei_stationary %>%
 ggplotly(p, tooltip = "text")
 ```
 
-## Buildings
+## Facilities
 
 ```{r}
 top_emitters <- mei_stationary %>%
@@ -78,11 +153,11 @@ emissions_2025 <- mei_final %>% filter(fiscal_year == 2025) %>% pull(emission_mt
 ```
 
 
-The 10 municipal buildings with the highest emissions account for `r round(top_building_emissions, 1)` MTCO2e in 2025, which accounts for `r round(top_building_emissions/emissions_2025 * 100)`% of total municipal emissions.
+The 10 municipal facilities with the highest emissions account for `r round(top_building_emissions, 1)` MTCO2e in 2025, which accounts for `r round(top_building_emissions/emissions_2025 * 100)`% of total municipal emissions.
 
 
 ```{r}
-#| tbl-cap: Emissions (MTCO2e) data for highest-emissions buildings, with percent change in emissions from both 2016 and 2022 inventories.
+#| tbl-cap: Emissions (MTCO2e) data for highest-emissions facilities, with percent change in emissions from both 2016 and 2022 inventories.
 top_emitters <- mei_stationary %>%
   filter(fiscal_year == 2025) %>%
   group_by(building) %>%
@@ -100,7 +175,7 @@ mei_stationary %>%
          pct_change_2022 = ((`2025` - `2022`) / `2022`)) %>%
   arrange(desc(`2025`)) %>%
   gt() %>%
-  cols_label(building = "Building", building_subcategory = "Building Subcategory", 
+  cols_label(building = "Facility", building_subcategory = "Facility Subcategory", 
              `2016` = "FY 2016", `2022` = "FY 2022", `2025` = "FY 2025",
              pct_change_2016 = "Change Since 2016", pct_change_2022 = "Change Since 2022") %>%
   fmt_number(columns = `2016`:`2025`, decimals = 1, use_seps=TRUE) %>%
@@ -116,10 +191,186 @@ mei_stationary %>%
 
 
 
-### Electricity
+## Electricity
+
+Electricity consumption increased significantly from 5674 megawatt hours (MWh) in FY 2022 to 6242 MWh in FY 2025, though this still represents a decrease from the FY 2016 consumption of 6398 MWh. Electricity consumption has increased steadily since the sharp decline in FY 2020 and FY 2021 due to the COVID-19 pandemic, and current levels in FY 2025 are much more typical of pre-pandemic usage. 
+
+```{r}
+#| echo: false
+#| label: fig-electricity-trends
+#| fig-cap: "Municipal electricity usage (MWh) trends by fiscal year."
+
+
+mei_final %>% 
+  filter(account_fuel == "Electric", fiscal_year >= 2016) %>%
+  group_by(fiscal_year_string, inventory_year, account_fuel, updated_units) %>%
+  summarize(total_usage = sum(use_updated_units)) %>%
+  ggplot(aes(fiscal_year_string, total_usage, group = 1)) +
+  geom_line() +
+  geom_point(data = ~ filter(.x, inventory_year == "0"),
+    color = "black",
+    size = 2) +
+  geom_point(data = ~ filter(.x, inventory_year == "1"),
+    color = "#C9A040",
+    size = 5,
+    shape = 18) +
+  labs(y = "Usage (MWh)") +
+  theme(legend.position = "none",
+    axis.title.x = element_blank()) +
+  scale_y_continuous(limits = c(4500, 7000))
+```
+
+### Electricity Top Consumers
 
 
 ```{r}
+#| label: fig-electric-consumers
+#| fig-cap: "Highest electricity-consuming facilities (MWh) in 2025."
+mei_final %>%
+  filter(account_fuel == "Electric", fiscal_year == 2025) %>%
+  group_by(building) %>%
+  summarize(electricity_usage = sum(use_updated_units), .groups="drop") %>%
+  arrange(desc(electricity_usage)) %>%
+  slice_max(electricity_usage, n = 10) %>%
+  ggplot(aes(electricity_usage, forcats::fct_reorder(building, electricity_usage))) +
+  geom_col(fill = "#C9A040") + 
+  labs(x = "Electricity Usage (MWh)") +
+  theme(axis.title.y = element_blank())
+```
 
+```{r}
+#| label: tbl-electricity-consumers
+#| tbl-cap: "Highest electricity-consuming (MWh) facilities in 2025, with their associated emissions (MTCO2e)."
+
+mei_final %>%
+  filter(account_fuel == "Electric", fiscal_year == 2025) %>%
+  group_by(building) %>%
+  summarize(electricity_usage = sum(use_updated_units), 
+            emissions_mtco2e = sum(emission_mtco2e),
+            .groups="drop") %>%
+  slice_max(electricity_usage, n=10) %>%
+  gt() %>%
+  cols_label(building = "Facility", electricity_usage = "Electricity Usage (MWh)", emissions_mtco2e = "Emissions (MTCO2e)") %>%
+  fmt_number(columns = electricity_usage:emissions_mtco2e, decimals = 1, use_seps = TRUE)
+```
+
+
+## Methane Gas
+
+```{r}
+#| echo: false
+#| label: fig-gas-trends
+#| fig-cap: "Municipal methane gas usage (therms) by fiscal year."
+
+
+mei_final %>% 
+  filter(account_fuel == "Gas", fiscal_year >= 2016) %>%
+  group_by(fiscal_year_string, inventory_year, account_fuel, updated_units) %>%
+  summarize(total_usage = sum(use_updated_units)) %>%
+  ggplot(aes(fiscal_year_string, total_usage, group = 1)) +
+  geom_line() +
+  geom_point(data = ~ filter(.x, inventory_year == "0"),
+    color = "black",
+    size = 2) +
+  geom_point(data = ~ filter(.x, inventory_year == "1"),
+    color = "#C9A040",
+    size = 5,
+    shape = 18) +
+  labs(y = "Usage (therms)") +
+  theme(legend.position = "none",
+    axis.title.x = element_blank()) +
+  scale_y_continuous(limits = c(90000, 130000))
+```
+### Methane Gas Top Consumers
+
+```{r}
+#| label: fig-gas-consumers
+#| fig-cap: "Highest electricity-consuming facilities (therms) in 2025."
+mei_final %>%
+  filter(account_fuel == "Gas", fiscal_year == 2025) %>%
+  group_by(building) %>%
+  summarize(electricity_usage = sum(use_updated_units), .groups="drop") %>%
+  arrange(desc(electricity_usage)) %>%
+  slice_max(electricity_usage, n = 10) %>%
+  ggplot(aes(electricity_usage, forcats::fct_reorder(building, electricity_usage))) +
+  geom_col(fill = "#5A7A5E") + 
+  labs(x = "Methane Gas Usage (therms)") +
+  theme(axis.title.y = element_blank())
+```
+
+```{r}
+#| label: tbl-gas-consumers
+#| tbl-cap: "Highest methane gas-consuming (therms) facilities in 2025, with their associated emissions (MTCO2e)."
+
+mei_final %>%
+  filter(account_fuel == "Gas", fiscal_year == 2025) %>%
+  group_by(building) %>%
+  summarize(usage = sum(use_updated_units), 
+            emissions_mtco2e = sum(emission_mtco2e),
+            .groups="drop") %>%
+  slice_max(usage, n=10) %>%
+  gt() %>%
+  cols_label(building = "Facility", usage = "Methane Gas Usage (therms)", emissions_mtco2e = "Emissions (MTCO2e)") %>%
+  fmt_number(columns = usage:emissions_mtco2e, decimals = 1, use_seps = TRUE)
+```
+
+
+## Oil
+
+```{r}
+#| echo: false
+#| label: fig-oil-trends
+#| fig-cap: "Municipal methane gas usage (therms) by fiscal year."
+
+
+mei_final %>% 
+  filter(account_fuel == "Oil", fiscal_year >= 2016) %>%
+  group_by(fiscal_year_string, inventory_year, account_fuel, updated_units) %>%
+  summarize(total_usage = sum(use_updated_units)) %>%
+  ggplot(aes(fiscal_year_string, total_usage, group = 1)) +
+  geom_line() +
+  geom_point(data = ~ filter(.x, inventory_year == "0"),
+    color = "black",
+    size = 2) +
+  geom_point(data = ~ filter(.x, inventory_year == "1"),
+    color = "#C9A040",
+    size = 5,
+    shape = 18) +
+  labs(y = "Usage (gallons)") +
+  theme(legend.position = "none",
+    axis.title.x = element_blank()) +
+  scale_y_continuous(limits = c(50000, 100000))
+```
+
+
+```{r}
+#| label: fig-oil-consumers
+#| fig-cap: "Highest oil-consuming facilities (therms) in 2025."
+mei_final %>%
+  filter(account_fuel == "Oil", fiscal_year == 2025) %>%
+  group_by(building) %>%
+  summarize(electricity_usage = sum(use_updated_units), .groups="drop") %>%
+  arrange(desc(electricity_usage)) %>%
+  slice_max(electricity_usage, n = 10) %>%
+  ggplot(aes(electricity_usage, forcats::fct_reorder(building, electricity_usage))) +
+  geom_col(fill = "#2E7D8C") + 
+  labs(x = "Oil Usage (gallons)") +
+  theme(axis.title.y = element_blank())
+```
+
+```{r}
+#| label: tbl-oil-consumers
+#| tbl-cap: "Highest oil-consuming (gallons) facilities in 2025, with their associated emissions (MTCO2e)."
+
+mei_final %>%
+  filter(account_fuel == "Oil", fiscal_year == 2025) %>%
+  group_by(building) %>%
+  summarize(usage = sum(use_updated_units), 
+            emissions_mtco2e = sum(emission_mtco2e),
+            .groups="drop") %>%
+  slice_max(usage, n=10) %>%
+  gt() %>%
+  cols_label(building = "Facility", usage = "Oil Usage (gallons)", emissions_mtco2e = "Emissions (MTCO2e)") %>%
+  fmt_number(columns = usage:emissions_mtco2e, decimals = 1, use_seps = TRUE)
 ```
 
