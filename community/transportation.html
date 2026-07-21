@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>6&nbsp; Community Transportation – Greenhouse Gas Inventory FY 2025</title>
+<title>8&nbsp; Community Transportation – Greenhouse Gas Inventory FY 2025</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -33,8 +33,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../community/stationary.html" rel="next">
-<link href="../community/overview.html" rel="prev">
+<link href="../community/waste.html" rel="next">
+<link href="../community/stationary.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -72,6 +72,15 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<link href="../site_libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+<script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="../site_libs/plotly-binding-4.12.0/plotly.js"></script>
+<script src="../site_libs/typedarray-0.1/typedarray.min.js"></script>
+<script src="../site_libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="../site_libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+<script src="../site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+<link href="../site_libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="../site_libs/plotly-main-2.25.2/plotly-latest.min.js"></script>
 
 
 <link rel="stylesheet" href="../styles.css">
@@ -86,7 +95,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../community/overview.html">Community Inventory</a></li><li class="breadcrumb-item"><a href="../community/transportation.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Community Transportation</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../community/overview.html">Community Inventory</a></li><li class="breadcrumb-item"><a href="../community/transportation.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Community Transportation</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -148,6 +157,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Municipal Transportation</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../municipal/key_findings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Municipal Key Findings</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -162,13 +177,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../community/overview.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Community Overview</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../community/transportation.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Community Transportation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Community Overview</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -179,14 +188,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../community/transportation.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Community Transportation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../community/waste.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Community Waste</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Community Waste</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../community/agriculture.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Community Agriculture</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Community Agriculture</span></span></a>
   </div>
 </li>
       </ul>
@@ -202,9 +217,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../community/overview.html">Community Inventory</a></li><li class="breadcrumb-item"><a href="../community/transportation.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Community Transportation</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../community/overview.html">Community Inventory</a></li><li class="breadcrumb-item"><a href="../community/transportation.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Community Transportation</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Community Transportation</span></h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Community Transportation</span></h1>
 </div>
 
 
@@ -221,6 +236,1013 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="cell">
+<div id="fig-transportation-community" class="cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-transportation-community-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-0d4893a1ca70a31ea0b6" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-0d4893a1ca70a31ea0b6">{"x":{"data":[{"orientation":"v","width":[0.89999999999999991,0.90000000000000013],"base":[67382.361783191402,55712.170291405411],"x":[1,2],"y":[224.43979125200713,204.27937615800329],"text":["Entity: Amherst College<br>Emissions: 224 MTCO2e<br>Share: 0.3%","Entity: Amherst College<br>Emissions: 204 MTCO2e<br>Share: 0.4%"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(139,38,53,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Amherst College","legendgroup":"Amherst College","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.89999999999999991,0.90000000000000013,0.90000000000000036],"base":[66142.781246383398,54503.876612615408,1580.8599999999999],"x":[1,2,3],"y":[1239.5805368080037,1208.2936787900035,961.58534177199977],"text":["Entity: Municipal<br>Emissions: 1,240 MTCO2e<br>Share: 1.8%","Entity: Municipal<br>Emissions: 1,208 MTCO2e<br>Share: 2.2%","Entity: Municipal<br>Emissions: 962 MTCO2e<br>Share: 37.8%"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(46,125,140,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Municipal","legendgroup":"Municipal","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.89999999999999991,0.90000000000000013,0.90000000000000036],"base":[64282.415135449395,53164.044760817407,0],"x":[1,2,3],"y":[1860.3661109340028,1339.8318517980006,1580.8599999999999],"text":["Entity: UMass<br>Emissions: 1,860 MTCO2e<br>Share: 2.8%","Entity: UMass<br>Emissions: 1,340 MTCO2e<br>Share: 2.4%","Entity: UMass<br>Emissions: 1,581 MTCO2e<br>Share: 62.2%"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(90,122,94,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"UMass","legendgroup":"UMass","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.89999999999999991,0.90000000000000013],"base":[0,94.235499951999998],"x":[1,2],"y":[64282.415135449395,53069.809260865404],"text":["Entity: Community<br>Emissions: 64,282 MTCO2e<br>Share: 95.1%","Entity: Community<br>Emissions: 53,070 MTCO2e<br>Share: 94.9%"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(201,160,64,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Community","legendgroup":"Community","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":0.90000000000000013,"base":0,"x":[2],"y":[94.235499951999998],"text":"Entity: Hampshire College<br>Emissions: 94 MTCO2e<br>Share: 0.2%","type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(91,111,126,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Hampshire College","legendgroup":"Hampshire College","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":22.648401826484022,"l":60.639269406392714},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"Georgia","size":14.611872146118724},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,3.6000000000000001],"tickmode":"array","ticktext":["FY 2016","FY 2022","FY 2025"],"tickvals":[1,2,3],"categoryorder":"array","categoryarray":["FY 2016","FY 2022","FY 2025"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"Georgia","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":null,"family":null,"size":0}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-3380.3400787221708,70987.141653165585],"tickmode":"array","ticktext":["0","20,000","40,000","60,000"],"tickvals":[-4.5474735088646412e-13,20000,40000,60000],"categoryorder":"array","categoryarray":["0","20,000","40,000","60,000"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"Georgia","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"MTCO2e","font":{"color":"rgba(0,0,0,1)","family":"Georgia","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"Georgia","size":11.68949771689498},"title":{"text":"","font":{"color":null,"family":null,"size":0}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"3bf819bb06a":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"}},"cur_data":"3bf819bb06a","visdat":{"3bf819bb06a":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-transportation-community-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.1: Community transportation emissions by entity and inventory year.
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell" data-tbl-cap="Community transportation emissions by inventory year.">
+<div class="cell-output-display">
+<div id="yuxvdrpfiq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#yuxvdrpfiq table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#yuxvdrpfiq thead, #yuxvdrpfiq tbody, #yuxvdrpfiq tfoot, #yuxvdrpfiq tr, #yuxvdrpfiq td, #yuxvdrpfiq th {
+  border-style: none;
+}
+
+#yuxvdrpfiq p {
+  margin: 0;
+  padding: 0;
+}
+
+#yuxvdrpfiq .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#yuxvdrpfiq .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#yuxvdrpfiq .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#yuxvdrpfiq .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#yuxvdrpfiq .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#yuxvdrpfiq .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#yuxvdrpfiq .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#yuxvdrpfiq .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#yuxvdrpfiq .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#yuxvdrpfiq .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#yuxvdrpfiq .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#yuxvdrpfiq .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#yuxvdrpfiq .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#yuxvdrpfiq .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#yuxvdrpfiq .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#yuxvdrpfiq .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#yuxvdrpfiq .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#yuxvdrpfiq .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#yuxvdrpfiq .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#yuxvdrpfiq .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#yuxvdrpfiq .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#yuxvdrpfiq .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#yuxvdrpfiq .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#yuxvdrpfiq .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#yuxvdrpfiq .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#yuxvdrpfiq .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#yuxvdrpfiq .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#yuxvdrpfiq .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#yuxvdrpfiq .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#yuxvdrpfiq .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#yuxvdrpfiq .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#yuxvdrpfiq .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#yuxvdrpfiq .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#yuxvdrpfiq .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#yuxvdrpfiq .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#yuxvdrpfiq .gt_left {
+  text-align: left;
+}
+
+#yuxvdrpfiq .gt_center {
+  text-align: center;
+}
+
+#yuxvdrpfiq .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#yuxvdrpfiq .gt_font_normal {
+  font-weight: normal;
+}
+
+#yuxvdrpfiq .gt_font_bold {
+  font-weight: bold;
+}
+
+#yuxvdrpfiq .gt_font_italic {
+  font-style: italic;
+}
+
+#yuxvdrpfiq .gt_super {
+  font-size: 65%;
+}
+
+#yuxvdrpfiq .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#yuxvdrpfiq .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#yuxvdrpfiq .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#yuxvdrpfiq .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#yuxvdrpfiq .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#yuxvdrpfiq .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#yuxvdrpfiq .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#yuxvdrpfiq .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#yuxvdrpfiq div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<caption>Community transportation emissions by inventory year.</caption>
+<thead>
+<tr class="gt_col_headings header">
+<th id="fiscal_year" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Inventory Year</th>
+<th id="total" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Total MTCO2e</th>
+<th id="percent_change" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Percent Reduction</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="fiscal_year">FY 2016</td>
+<td class="gt_row gt_right" headers="total">67,607</td>
+<td class="gt_row gt_right" headers="percent_change">0%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="fiscal_year">FY 2022</td>
+<td class="gt_row gt_right" headers="total">55,916</td>
+<td class="gt_row gt_right" headers="percent_change">-17%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="fiscal_year">FY 2025</td>
+<td class="gt_row gt_right" headers="total">2,542</td>
+<td class="gt_row gt_right" headers="percent_change">-96%</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-tbl-cap="Transportation emissions by entity and inventory year, with percent changes since FY 2016 and FY 2022 inventories.">
+<div class="cell-output-display">
+<div id="mijofcprws" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#mijofcprws table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#mijofcprws thead, #mijofcprws tbody, #mijofcprws tfoot, #mijofcprws tr, #mijofcprws td, #mijofcprws th {
+  border-style: none;
+}
+
+#mijofcprws p {
+  margin: 0;
+  padding: 0;
+}
+
+#mijofcprws .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#mijofcprws .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#mijofcprws .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#mijofcprws .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#mijofcprws .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mijofcprws .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mijofcprws .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mijofcprws .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#mijofcprws .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#mijofcprws .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#mijofcprws .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#mijofcprws .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#mijofcprws .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#mijofcprws .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#mijofcprws .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#mijofcprws .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#mijofcprws .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#mijofcprws .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#mijofcprws .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mijofcprws .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#mijofcprws .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#mijofcprws .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#mijofcprws .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mijofcprws .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#mijofcprws .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#mijofcprws .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mijofcprws .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mijofcprws .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#mijofcprws .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mijofcprws .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#mijofcprws .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mijofcprws .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mijofcprws .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mijofcprws .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mijofcprws .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mijofcprws .gt_left {
+  text-align: left;
+}
+
+#mijofcprws .gt_center {
+  text-align: center;
+}
+
+#mijofcprws .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#mijofcprws .gt_font_normal {
+  font-weight: normal;
+}
+
+#mijofcprws .gt_font_bold {
+  font-weight: bold;
+}
+
+#mijofcprws .gt_font_italic {
+  font-style: italic;
+}
+
+#mijofcprws .gt_super {
+  font-size: 65%;
+}
+
+#mijofcprws .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#mijofcprws .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#mijofcprws .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#mijofcprws .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#mijofcprws .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#mijofcprws .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#mijofcprws .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#mijofcprws .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#mijofcprws div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<caption>Transportation emissions by entity and inventory year, with percent changes since FY 2016 and FY 2022 inventories.</caption>
+<thead>
+<tr class="gt_col_headings header">
+<th id="entity" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Entity</th>
+<th id="a2016" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">FY 2016</th>
+<th id="a2022" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">FY 2022</th>
+<th id="a2025" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">FY 2025</th>
+<th id="pct_change_2016" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Change Since 2016</th>
+<th id="pct_change_2022" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Change Since 2022</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="entity">UMass</td>
+<td class="gt_row gt_right" headers="2016">1,860.4</td>
+<td class="gt_row gt_right" headers="2022">1,339.8</td>
+<td class="gt_row gt_right" headers="2025">1,580.9</td>
+<td class="gt_row gt_right" headers="pct_change_2016" style="background-color: #D6EBDB; color: #000000">−15.0%</td>
+<td class="gt_row gt_right" headers="pct_change_2022" style="background-color: #FFCEC3; color: #000000">18.0%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="entity">Municipal</td>
+<td class="gt_row gt_right" headers="2016">1,239.6</td>
+<td class="gt_row gt_right" headers="2022">1,208.3</td>
+<td class="gt_row gt_right" headers="2025">961.6</td>
+<td class="gt_row gt_right" headers="pct_change_2016" style="background-color: #C1E2CA; color: #000000">−22.4%</td>
+<td class="gt_row gt_right" headers="pct_change_2022" style="background-color: #C7E4CE; color: #000000">−20.4%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="entity">Amherst College</td>
+<td class="gt_row gt_right" headers="2016">224.4</td>
+<td class="gt_row gt_right" headers="2022">204.3</td>
+<td class="gt_row gt_right" headers="2025">NA</td>
+<td class="gt_row gt_right" headers="pct_change_2016" style="background-color: #808080; color: #FFFFFF">NA</td>
+<td class="gt_row gt_right" headers="pct_change_2022" style="background-color: #808080; color: #FFFFFF">NA</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="entity">Community</td>
+<td class="gt_row gt_right" headers="2016">64,282.4</td>
+<td class="gt_row gt_right" headers="2022">53,069.8</td>
+<td class="gt_row gt_right" headers="2025">NA</td>
+<td class="gt_row gt_right" headers="pct_change_2016" style="background-color: #808080; color: #FFFFFF">NA</td>
+<td class="gt_row gt_right" headers="pct_change_2022" style="background-color: #808080; color: #FFFFFF">NA</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="entity">Hampshire College</td>
+<td class="gt_row gt_right" headers="2016">NA</td>
+<td class="gt_row gt_right" headers="2022">94.2</td>
+<td class="gt_row gt_right" headers="2025">NA</td>
+<td class="gt_row gt_right" headers="pct_change_2016" style="background-color: #808080; color: #FFFFFF">NA</td>
+<td class="gt_row gt_right" headers="pct_change_2022" style="background-color: #808080; color: #FFFFFF">NA</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
 
 
 
@@ -627,13 +1649,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../community/overview.html" class="pagination-link" aria-label="Community Overview">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Community Overview</span></span>
+      <a href="../community/stationary.html" class="pagination-link" aria-label="Community Stationary Energy">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Community Stationary Energy</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../community/stationary.html" class="pagination-link" aria-label="Community Stationary Energy">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Community Stationary Energy</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../community/waste.html" class="pagination-link" aria-label="Community Waste">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Community Waste</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

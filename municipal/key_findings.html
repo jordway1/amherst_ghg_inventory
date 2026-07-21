@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>10&nbsp; Community Agriculture – Greenhouse Gas Inventory FY 2025</title>
+<title>5&nbsp; Municipal Key Findings – Greenhouse Gas Inventory FY 2025</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -33,7 +33,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../community/waste.html" rel="prev">
+<link href="../community/overview.html" rel="next">
+<link href="../municipal/transportation.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -71,6 +72,15 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<link href="../site_libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+<script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="../site_libs/plotly-binding-4.12.0/plotly.js"></script>
+<script src="../site_libs/typedarray-0.1/typedarray.min.js"></script>
+<script src="../site_libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="../site_libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+<script src="../site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+<link href="../site_libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="../site_libs/plotly-main-2.25.2/plotly-latest.min.js"></script>
 
 
 <link rel="stylesheet" href="../styles.css">
@@ -85,7 +95,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../community/overview.html">Community Inventory</a></li><li class="breadcrumb-item"><a href="../community/agriculture.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Community Agriculture</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../municipal/overview.html">Municipal Inventory</a></li><li class="breadcrumb-item"><a href="../municipal/key_findings.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Municipal Key Findings</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -149,7 +159,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../municipal/key_findings.html" class="sidebar-item-text sidebar-link">
+  <a href="../municipal/key_findings.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Municipal Key Findings</span></span></a>
   </div>
 </li>
@@ -190,7 +200,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../community/agriculture.html" class="sidebar-item-text sidebar-link active">
+  <a href="../community/agriculture.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Community Agriculture</span></span></a>
   </div>
 </li>
@@ -206,16 +216,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#agriculture-forestry-and-other-land-use-afolu-emissions" id="toc-agriculture-forestry-and-other-land-use-afolu-emissions" class="nav-link active" data-scroll-target="#agriculture-forestry-and-other-land-use-afolu-emissions"><span class="header-section-number">10.1</span> Agriculture, Forestry and Other Land Use (AFOLU) Emissions</a></li>
+  <li><a href="#key-findings" id="toc-key-findings" class="nav-link active" data-scroll-target="#key-findings"><span class="header-section-number">5.1</span> Key Findings</a></li>
+  <li><a href="#municipal-emissions-in-context" id="toc-municipal-emissions-in-context" class="nav-link" data-scroll-target="#municipal-emissions-in-context"><span class="header-section-number">5.2</span> Municipal Emissions in Context</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../community/overview.html">Community Inventory</a></li><li class="breadcrumb-item"><a href="../community/agriculture.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Community Agriculture</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../municipal/overview.html">Municipal Inventory</a></li><li class="breadcrumb-item"><a href="../municipal/key_findings.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Municipal Key Findings</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Community Agriculture</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Municipal Key Findings</span></h1>
 </div>
 
 
@@ -232,498 +243,24 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="agriculture-forestry-and-other-land-use-afolu-emissions" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="agriculture-forestry-and-other-land-use-afolu-emissions"><span class="header-section-number">10.1</span> Agriculture, Forestry and Other Land Use (AFOLU) Emissions</h2>
-<p>AFOLU emissions, like waste, are largely modeled and derived from secondary data sources, so these figures should be viewed as low-resolution indications of emissions rather than precise measurements.</p>
+<section id="key-findings" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="key-findings"><span class="header-section-number">5.1</span> Key Findings</h2>
+<ul>
+<li>Municipal emissions fell by 16.8% from FY 2016 to FY 2025, falling short of the 25% reduction target outlined in the CAARP.</li>
+<li>Stationary energy emissions fell 15.4% between FY 2016 and FY 2025, though they have slightly increased by 78 MTCO2e since FY 2022.</li>
+<li>Buildings accounted for approximately 60% of all municipal emissions in FY 2025.</li>
+<li>Elementary schools were responsible for 795.5 MTCO2e emissions in 2025. Once the new, more energy efficient, elementary school is in use, the reduction in emissions could meaningfully change the trajectory of municipal emissions as a whole.</li>
+<li>Transportation related municipal emissions dropped by 22.3% between FY 2016 and FY 2025.</li>
+<li>The Fire Department is the only major fleet group (others groups include Police Department, Public Works, and School) that has increased their emissions since 2016, all others reduced emissions.</li>
+</ul>
+</section>
+<section id="municipal-emissions-in-context" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="municipal-emissions-in-context"><span class="header-section-number">5.2</span> Municipal Emissions in Context</h2>
+<p>While it is important to analyze and address municipal emissions, as this is what the Town has direct control over, it is also important to understand the Town’s place in the context of broader community emissions. <strong>Municipal emissions only account for about 3.13% of total community emissions.</strong> Since the Town directly controls only a small fraction of emissions, achieving community-wide emissions goals requires action by residents, institutions, businesses, and higher education partners in addition to municipal action.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-afolu-trend" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-afolu-trend-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="agriculture_files/figure-html/fig-afolu-trend-1.png" class="img-fluid figure-img" width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-afolu-trend-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;10.1: AFOLU emissions (MTCO2e) over time.
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div id="tlpvcvyjme" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#tlpvcvyjme table {
-  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#tlpvcvyjme thead, #tlpvcvyjme tbody, #tlpvcvyjme tfoot, #tlpvcvyjme tr, #tlpvcvyjme td, #tlpvcvyjme th {
-  border-style: none;
-}
-
-#tlpvcvyjme p {
-  margin: 0;
-  padding: 0;
-}
-
-#tlpvcvyjme .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#tlpvcvyjme .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#tlpvcvyjme .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#tlpvcvyjme .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#tlpvcvyjme .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#tlpvcvyjme .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#tlpvcvyjme .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#tlpvcvyjme .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#tlpvcvyjme .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#tlpvcvyjme .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#tlpvcvyjme .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#tlpvcvyjme .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#tlpvcvyjme .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-
-#tlpvcvyjme .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#tlpvcvyjme .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#tlpvcvyjme .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#tlpvcvyjme .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#tlpvcvyjme .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#tlpvcvyjme .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#tlpvcvyjme .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#tlpvcvyjme .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#tlpvcvyjme .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#tlpvcvyjme .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#tlpvcvyjme .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#tlpvcvyjme .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#tlpvcvyjme .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#tlpvcvyjme .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#tlpvcvyjme .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#tlpvcvyjme .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
-}
-
-#tlpvcvyjme .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#tlpvcvyjme .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#tlpvcvyjme .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#tlpvcvyjme .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#tlpvcvyjme .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#tlpvcvyjme .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#tlpvcvyjme .gt_left {
-  text-align: left;
-}
-
-#tlpvcvyjme .gt_center {
-  text-align: center;
-}
-
-#tlpvcvyjme .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#tlpvcvyjme .gt_font_normal {
-  font-weight: normal;
-}
-
-#tlpvcvyjme .gt_font_bold {
-  font-weight: bold;
-}
-
-#tlpvcvyjme .gt_font_italic {
-  font-style: italic;
-}
-
-#tlpvcvyjme .gt_super {
-  font-size: 65%;
-}
-
-#tlpvcvyjme .gt_footnote_marks {
-  font-size: 75%;
-  vertical-align: 0.4em;
-  position: initial;
-}
-
-#tlpvcvyjme .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#tlpvcvyjme .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#tlpvcvyjme .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#tlpvcvyjme .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#tlpvcvyjme .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#tlpvcvyjme .gt_indent_5 {
-  text-indent: 25px;
-}
-
-#tlpvcvyjme .katex-display {
-  display: inline-flex !important;
-  margin-bottom: 0.75em !important;
-}
-
-#tlpvcvyjme div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-  height: 0px !important;
-}
-</style>
-
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
-<thead>
-<tr class="gt_col_headings header">
-<th id="fiscal_year" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Inventory Year</th>
-<th id="total" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Total MTCO2e</th>
-<th id="percent_change" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Percent Reduction</th>
-</tr>
-</thead>
-<tbody class="gt_table_body">
-<tr class="odd">
-<td class="gt_row gt_left" headers="fiscal_year">FY 2016</td>
-<td class="gt_row gt_right" headers="total">842</td>
-<td class="gt_row gt_right" headers="percent_change">0.0%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="fiscal_year">FY 2022</td>
-<td class="gt_row gt_right" headers="total">907</td>
-<td class="gt_row gt_right" headers="percent_change">7.6%</td>
-</tr>
-</tbody>
-</table>
-
-</div>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-f259e48d2719870a2261" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-f259e48d2719870a2261">{"x":{"visdat":{"3b9e180c385b":["function () ","plotlyVisDat"]},"cur_data":"3b9e180c385b","attrs":{"3b9e180c385b":{"labels":{},"values":{},"sort":false,"marker":{"colors":["#5A7A5E","#8B2635"]},"hole":0.40000000000000002,"textinfo":"percent","hovertemplate":"<b>%{label}<\/b><br> Emissions: %{value:,.1f} MTCO2e<br> Share: %{percent}<extra><\/extra>","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"pie"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"showlegend":true,"legend":{"title":{"text":""}},"hovermode":"closest"},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"labels":["All Other Sources","Municipal"],"values":[115658.41,3731.8504388377905],"sort":false,"marker":{"color":"rgba(31,119,180,1)","colors":["#5A7A5E","#8B2635"],"line":{"color":"rgba(255,255,255,1)"}},"hole":0.40000000000000002,"textinfo":"percent","hovertemplate":["<b>%{label}<\/b><br> Emissions: %{value:,.1f} MTCO2e<br> Share: %{percent}<extra><\/extra>","<b>%{label}<\/b><br> Emissions: %{value:,.1f} MTCO2e<br> Share: %{percent}<extra><\/extra>"],"type":"pie","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 
@@ -1133,11 +670,14 @@ Figure&nbsp;10.1: AFOLU emissions (MTCO2e) over time.
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../community/waste.html" class="pagination-link" aria-label="Community Waste">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Community Waste</span></span>
+      <a href="../municipal/transportation.html" class="pagination-link" aria-label="Municipal Transportation">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Municipal Transportation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../community/overview.html" class="pagination-link" aria-label="Community Overview">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Community Overview</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
