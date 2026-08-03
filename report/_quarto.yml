@@ -15,8 +15,8 @@ format:
 book:
   title: "Greenhouse Gas Inventory FY 2025"
   sidebar:
-    logo: amherst_seal.png        # <-- Moving it here fixes the validation error
-    style: docked                 # Optional: Creates a structured background block for the menu
+    logo: amherst_seal.png        
+    style: docked                 
     background: light
   chapters:
     - index.qmd
@@ -25,10 +25,12 @@ book:
         - municipal/overview.qmd
         - municipal/stationary.qmd
         - municipal/transportation.qmd
+        - municipal/key_findings.qmd
     - part: "Community Inventory"
       chapters:
         - community/overview.qmd
+        - community/stationary.qmd        
         - community/transportation.qmd
-        - community/stationary.qmd
         - community/waste.qmd
         - community/agriculture.qmd
+    - final_summary.qmd

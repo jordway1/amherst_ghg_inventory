@@ -17,7 +17,8 @@ activity_map <- read_xlsx(tmp, sheet = "activity_map")
 
 
 transportation_inputs_clean <- transportation_inputs %>%
-  left_join(activity_map, by = 'activity')
+  left_join(activity_map, by = 'activity') %>%
+  mutate(activity_recoded = ifelse(is.na(activity_recoded), activity, activity_recoded))
 
 transportation_hardcoded <- transportation_inputs_clean %>%
   select(supercategory, subcategory, gpc_ref, scope, activity=activity_recoded, entity, amount, units, input_year)

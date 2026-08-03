@@ -5,32 +5,149 @@ title: "Community Overview"
 ```{r}
 #| include: false
 source("../params.R")
-library(tidyverse)
 ghg_emissions <- read_csv("../ghg_emissions.csv") |>
-  mutate(entity = factor(entity, levels = c("hampshire_college", "municipal", "amherst_college", "umass", "community")))
+  mutate(entity = case_when(
+    entity == "municipal" ~ "Municipal",
+    entity == "umass" ~ "UMass", 
+    entity == "hampshire_college" ~ "Hampshire College",
+    entity == "amherst_college" ~ "Amherst College",
+    entity == "community" ~ "Community"
+  ),
+  entity = factor(entity, levels = c("Hampshire College", "Municipal", "Amherst College", "UMass", "Community")),
+  supercategory = factor(supercategory, levels = c("AFOLU", "Waste", "Transportation", "Stationary Energy"))
+  )
+```
+
+## Progress to Date
+
+```{r}
+community_summary <- ghg_emissions |>
+  group_by(input_year) |>
+  summarize(total = sum(total_mtco2e, na.rm = TRUE)) 
+
+community_targets <- tibble(
+  input_year = c(2016, 2025, 2030, 2050),
+  target = c(
+  first(community_summary$total),
+  first(community_summary$total) * 0.75,
+  first(community_summary$total) * 0.5,
+  0))
+
+ggplot() +
+  geom_point(data = community_summary, aes(input_year, total, color = "Actual Emissions")) +
+  geom_line(data = community_summary, aes(input_year, total, color = "Actual Emissions")) +
+  geom_point(data = community_targets, aes(input_year, target, color = "Target Emissions")) +
+  geom_line(data = community_targets, aes(input_year, target, color = "Target Emissions"), linetype = "dotted") +
+  scale_color_manual(values = c("Actual Emissions" = "black", "Target Emissions" = "#8B2635")) +
+  labs(y = "MTCO2e") +
+  theme(legend.title = element_blank(),
+        axis.title.x = element_blank()) + 
+  scale_y_continuous(labels = label_comma())
+```
+
+
+```{r}
+#| echo: false
+#| tbl-cap: Community GHG emissions by year, along with percentage reductions relative to the 2016 baseline.
+ghg_emissions |>
+  group_by(fiscal_year) |>
+  summarize(total = sum(total_mtco2e, na.rm = TRUE)) |>
+  mutate(percent_change = percent((total - first(total))/first(total))) |> 
+  gt() |>
+  cols_label(fiscal_year = "Inventory Year", total = "Community MTCO2e", percent_change = "Percent Reduction") |>
+  fmt_number(columns = total, decimals = 0, use_seps = TRUE)
+```
+
+## Emissions by Sector
+
+```{r}
+#| label: fig-community-emissions-sector
+#| fig-cap: "Emissions (MTCO2e) by sector for each inventory year."
+p <- ghg_emissions |> 
+  group_by(fiscal_year, supercategory) |> 
+  summarize(emissions = sum(total_mtco2e, na.rm=TRUE), .groups = "drop") |> 
+  group_by(fiscal_year) |> 
+  mutate(pct = emissions/sum(emissions) * 100) |> 
+  ggplot(aes(fiscal_year, emissions, fill = supercategory,
+             text = paste0("Sector: ", supercategory, "<br>",
+                           "Emissions: ", comma(round(emissions,1)), "<br>",
+                           "Share: ", round(pct, 1), "%"))) +
+  geom_col() +
+  scale_fill_amherst() +
+  labs(y = "MTCO2e",
+       fill = NULL) +
+  theme(axis.title.x = element_blank(),
+        legend.title = element_blank()) +
+  scale_y_continuous(labels = label_comma())
+
+ggplotly(p, tooltip = "text")
 ```
 
 ```{r}
-amherst_cols <- c( "#2E7D8C","#8B2635", "#5A7A5E", "#C9A040", "#5B6F7E", "#B08050")
-
-df <- ghg_emissions |>
-  filter(input_year == 2022) |>
-  group_by(entity) |>
-  summarize(emissions = sum(total_mtco2e, na.rm = TRUE), .groups = "drop") |>
-  arrange(emissions) 
-
-plot_ly(
-  data = df,
-  labels = ~entity,
-  values = ~emissions,
-  type = "pie",
-  sort = FALSE,
-  marker = list(colors = amherst_cols),
-  hovertemplate = paste(
-    "<b>%{label}</b><br>",
-    "Emissions: %{value:,.1f} MTCO2e<br>",
-    "Share: %{percent}<extra></extra>"
+#| tbl-cap: "Emissions (MTCO2e) per inventory year by sector, along with percent changes from FY 2016 and FY 2022."
+ghg_emissions |>
+  group_by(input_year, supercategory) |>
+  summarize(emissions = sum(total_mtco2e, na.rm = TRUE), .groups = "drop") |> 
+  pivot_wider(names_from = input_year, values_from = emissions) |> 
+  mutate(pct_change_2016 = ((`2025` - `2016`) / `2016`),
+         pct_change_2022 = ((`2025` - `2022`) / `2022`)) |>
+  arrange(desc(`2025`)) |>
+  gt() |> 
+  cols_label(supercategory = "Sector", `2016` = "FY 2016", `2022` = "FY 2022", `2025` = "FY 2025",
+             pct_change_2016 = "Change Since 2016", pct_change_2022 = "Change Since 2022") |>
+  fmt_number(columns = `2016`:`2025`, decimals = 1, use_seps=TRUE) |>
+  fmt_percent(columns = pct_change_2016:pct_change_2022, decimals = 1) |>
+  data_color(
+    columns = c(pct_change_2016, pct_change_2022),
+    direction = "column",
+    palette = c("#2ca25f", "#ffffff", "#de2d26"), 
+    domain = c(-0.7, 0.7)
   )
-)
+```
+
+
+## Emissions by Entity
+
+```{r}
+p <- ghg_emissions |> 
+  group_by(fiscal_year, entity) |> 
+  summarize(emissions = sum(total_mtco2e, na.rm=TRUE), .groups = "drop") |> 
+  group_by(fiscal_year) |> 
+  mutate(pct = emissions/sum(emissions) * 100) |> 
+  ggplot(aes(fiscal_year, emissions, fill = entity,
+             text = paste0("Entity: ", entity, "<br>",
+                           "Emissions: ", comma(round(emissions,1)), "<br>",
+                           "Share: ", round(pct, 1), "%"))) +
+  geom_col() +
+  scale_fill_amherst() +
+  labs(y = "MTCO2e",
+       fill = NULL) +
+  theme(axis.title.x = element_blank(),
+        legend.title = element_blank()) +
+  scale_y_continuous(labels = label_comma())
+
+ggplotly(p, tooltip = "text")
+```
+
+```{r}
+#| tbl-cap: "Emissions (MTCO2e) per inventory year by entity, along with percent changes from FY 2016 and FY 2022."
+ghg_emissions |>
+  group_by(input_year, entity) |>
+  summarize(emissions = sum(total_mtco2e, na.rm = TRUE), .groups = "drop") |> 
+  pivot_wider(names_from = input_year, values_from = emissions) |> 
+  mutate(pct_change_2016 = ((`2025` - `2016`) / `2016`),
+         pct_change_2022 = ((`2025` - `2022`) / `2022`)) |>
+  arrange(desc(`2025`)) |>
+  gt() |> 
+  cols_label(entity = "Entity", `2016` = "FY 2016", `2022` = "FY 2022", `2025` = "FY 2025",
+             pct_change_2016 = "Change Since 2016", pct_change_2022 = "Change Since 2022") |>
+  fmt_number(columns = `2016`:`2025`, decimals = 1, use_seps=TRUE) |>
+  fmt_percent(columns = pct_change_2016:pct_change_2022, decimals = 1) |>
+  data_color(
+    columns = c(pct_change_2016, pct_change_2022),
+    direction = "column",
+    palette = c("#2ca25f", "#ffffff", "#de2d26"), 
+    domain = c(-0.7, 0.7)
+  )
 ```
 

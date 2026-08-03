@@ -7,4 +7,34 @@ title: "Community Waste"
 source("../params.R")
 library(tidyverse)
 ghg_emissions <- read_csv("../ghg_emissions.csv")
+waste_emissions <- ghg_emissions |> filter(supercategory == "Waste")
 ```
+
+
+## Waste Emissions Over Time
+
+Unlike stationary and transportation emissions data, which is derived from utility and fuel records, waste emissions are largely estimated using modeling approaches and secondary datasets. For example, the models used to produce these figures rely on nation-wide 
+averages of per-capita waste generation and state-wide disposal methods, which may not be accurate for the Town of Amherst. These figures are meant to provide a low resolution estimate of waste-related emissions for the Town, but any stronger conclusions should be weighed against the quality of the data. 
+
+```{r}
+#| label: fig-waste-trend
+#| fig-cap: "Waste emissions (MTCO2e) over time."
+waste_emissions |> 
+  group_by(fiscal_year) |> 
+  summarize(emissions = sum(total_mtco2e, na.rm = TRUE)) |> 
+  ggplot(aes(fiscal_year, emissions)) +
+  geom_col(fill = "#5A7A5E") +
+  labs(y = "MTCO2e") +
+  theme(axis.title.x = element_blank())
+```
+
+```{r}
+waste_emissions |>
+  group_by(fiscal_year) |>
+  summarize(total = sum(total_mtco2e, na.rm = TRUE)) |>
+  mutate(percent_change = percent((total - first(total))/first(total))) |> 
+  gt() |>
+  cols_label(fiscal_year = "Inventory Year", total = "Total MTCO2e", percent_change = "Percent Reduction") |>
+  fmt_number(columns = total, decimals = 0, use_seps=TRUE)
+```
+

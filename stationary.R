@@ -18,7 +18,8 @@ activity_map <- read_xlsx(tmp, sheet = "activity_map")
 
 # recoding activity names for my own sanity
 stationary_inputs_clean <- stationary_inputs %>%
-  left_join(activity_map, by = 'activity')
+  left_join(activity_map, by = 'activity') %>%
+  mutate(activity_recoded = ifelse(is.na(activity_recoded), activity, activity_recoded))
 
 # preparing in format for final output
 stationary_hardcoded <- stationary_inputs_clean %>%

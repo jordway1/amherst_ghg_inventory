@@ -20,7 +20,8 @@ ghg_emissions <- bind_rows(
          supercategory = case_when(
            supercategory == "stationary_energy" ~ "Stationary Energy",
            supercategory == "transportation" ~ "Transportation",
-           .default = supercategory
+           supercategory == "agriculture_forestry_other_land_use" ~ "AFOLU",
+           supercategory == "waste" ~ "Waste"
          )
   )
 

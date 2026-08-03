@@ -7,4 +7,33 @@ title: "Community Agriculture"
 source("../params.R")
 library(tidyverse)
 ghg_emissions <- read_csv("../ghg_emissions.csv")
+afolu_emissions <- ghg_emissions |> filter(supercategory == "AFOLU")
 ```
+
+## Agriculture, Forestry and Other Land Use (AFOLU) Emissions
+
+AFOLU emissions, like waste, are largely modeled and derived from secondary data sources, so these figures should be viewed as low-resolution indications of emissions rather than precise measurements. The emissions reported here mostly have to do with livestock and crop fertilization. The current data suggests a steady but relatively modest increase in emissions related to livestock and agriculture, which may well be the case. When interpreting this information, it is important to keep in mind the uncertainty of the data, the fact that these emissions account for less than a single percentage point of overall community emissions, and the lack of policy implications. 
+
+```{r}
+#| label: fig-afolu-trend
+#| fig-cap: "AFOLU emissions (MTCO2e) over time."
+afolu_emissions |> 
+  group_by(fiscal_year) |> 
+  summarize(emissions = sum(total_mtco2e, na.rm = TRUE)) |> 
+  ggplot(aes(fiscal_year, emissions)) +
+  geom_col(fill = "#5A7A5E") +
+  labs(y = "MTCO2e") +
+  theme(axis.title.x = element_blank())
+```
+
+```{r}
+afolu_emissions |>
+  group_by(fiscal_year) |>
+  summarize(total = sum(total_mtco2e, na.rm = TRUE)) |>
+  mutate(percent_change = percent((total - first(total))/first(total))) |> 
+  gt() |>
+  cols_label(fiscal_year = "Inventory Year", total = "Total MTCO2e", percent_change = "Percent Reduction") |>
+  fmt_number(columns = total, decimals = 0, use_seps=TRUE)
+```
+
+

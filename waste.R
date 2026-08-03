@@ -28,7 +28,7 @@ wastewater_chemicals <- read_xlsx(tmp, sheet = "wastewater_chemicals")
 
 # I'm initializing the data table here. I'll join the data from the input sheets and make calculations from here. 
 # Hampshire college doesn't exist anymore, so that needs to be updated in future iterations
-input_year <- c(2016, 2022)
+input_year <- c(2016, 2022, 2025)
 entity <- c("community", "umass", "amherst_college", "hampshire_college")
 waste_type <- c("paper", "plastic", "food_waste", "yard_waste", "metal", "glass", "construction_demo", "haz_waste", "electronics", "other_waste")
 disposal_method <- c("recycle", "open_dump", "landfill", "compost", "incineration", "open_burning")

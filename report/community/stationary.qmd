@@ -6,5 +6,77 @@ title: "Community Stationary Energy"
 #| include: false
 source("../params.R")
 library(tidyverse)
-ghg_emissions <- read_csv("../ghg_emissions.csv")
+ghg_emissions <- read_csv("../ghg_emissions.csv") |>
+  mutate(entity = case_when(
+    entity == "municipal" ~ "Municipal",
+    entity == "umass" ~ "UMass", 
+    entity == "hampshire_college" ~ "Hampshire College",
+    entity == "amherst_college" ~ "Amherst College",
+    entity == "community" ~ "Community"
+  ),
+  supercategory = factor(supercategory, levels = c("AFOLU", "Waste", "Transportation", "Stationary Energy"))
+  )
+stationary_emissions <- ghg_emissions |> filter(supercategory == "Stationary Energy")
 ```
+
+
+** percentage of households using heating oil dropped significantly, but number of households increased
+
+
+```{r}
+#| label: fig-stationary-community
+#| fig-cap: "Community stationary emissions by entity and inventory year."
+p <- stationary_emissions |>
+  group_by(fiscal_year, entity) |>
+  summarize(emissions = sum(total_mtco2e), .groups = "drop") |> 
+  group_by(fiscal_year) |> 
+  mutate(entity = fct_reorder(entity, emissions, .fun=min),
+         pct = emissions/sum(emissions)*100) |> 
+  ggplot(aes(fiscal_year, emissions, fill = entity,
+             text = paste0("Entity: ", entity, "<br>",
+                           "Emissions: ", comma(round(emissions, 1)), " MTCO2e<br>",
+                           "Share: ", round(pct, 1), "%"))) +
+  geom_col() +
+  scale_fill_amherst() + 
+  labs(y = "MTCO2e", fill = NULL) +
+  scale_y_continuous(labels = comma) + 
+  theme(axis.title.x = element_blank(),
+        legend.title = element_blank()) 
+
+ggplotly(p, tooltip = "text")
+```
+
+```{r}
+#| tbl-cap: "Community stationary emissions by inventory year."
+stationary_emissions |>
+  group_by(fiscal_year) |>
+  summarize(total = sum(total_mtco2e, na.rm = TRUE)) |>
+  mutate(percent_change = percent((total - first(total))/first(total))) |> 
+  gt() |>
+  cols_label(fiscal_year = "Inventory Year", total = "Total MTCO2e", percent_change = "Percent Reduction") |>
+  fmt_number(columns = total, decimals = 0, use_seps=TRUE)
+```
+
+```{r}
+#| tbl-cap: "Stationary emissions by entity and inventory year, with percent changes since FY 2016 and FY 2022 inventories."
+stationary_emissions |> 
+  group_by(input_year, entity) |> 
+  summarize(emissions = sum(total_mtco2e), .groups = "drop") |>
+  pivot_wider(names_from = input_year, values_from = emissions) |>
+  mutate(pct_change_2016 = ((`2025` - `2016`) / `2016`),
+         pct_change_2022 = ((`2025` - `2022`) / `2022`)) |>
+  arrange(desc(`2025`)) |>
+  gt() |>
+  cols_label(entity = "Entity", `2016` = "FY 2016", `2022` = "FY 2022", `2025` = "FY 2025",
+             pct_change_2016 = "Change Since 2016", pct_change_2022 = "Change Since 2022") |>
+  fmt_number(columns = `2016`:`2025`, decimals = 1, use_seps=TRUE) |>
+  fmt_percent(columns = pct_change_2016:pct_change_2022, decimals = 1) |>
+  data_color(
+    columns = c(pct_change_2016, pct_change_2022),
+    direction = "column",
+    palette = c("#2ca25f", "#ffffff", "#de2d26"), 
+    domain = c(-0.7, 0.7))
+```
+
+
+

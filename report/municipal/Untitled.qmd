@@ -1,0 +1,52 @@
+---
+title: "SARIMAX Modeling"
+format: html
+editor: visual
+---
+
+```{r}
+source("../params.R")
+library(forecast)
+library(readnoaa)
+mei_final <- read_csv("../mei_final.csv") 
+
+amherst_station <- "USC00190120"
+
+```
+
+```{r}
+`%notin%` <- Negate(`%in%`)
+monthly_data <- mei_final |> 
+  mutate(month_year = floor_date(usage_usage_end, unit = "month")) |> 
+  filter(fiscal_year >= 2013, fiscal_year %notin% c(2020, 2021)) |> 
+  group_by(month_year) |> 
+  summarize(emissions = sum(emission_mtco2e)) 
+monthly_data |> 
+  ggplot(aes(month_year, emissions)) +
+  geom_line()
+```
+
+```{r}
+y <- ts(monthly_data$emissions, frequency = 12)
+
+fit1 <- auto.arima(y)
+
+fc <- forecast(fit1, h=60)
+autoplot(fc)
+```
+
+```{r}
+annual_data <- mei_final |> 
+  filter(fiscal_year >= 2013) |> 
+  group_by(fiscal_year) |> 
+  summarize(emissions = sum(emission_mtco2e)) 
+
+y2 <- ts(annual_data$emissions)
+annual_fit1 <- auto.arima(y2)
+fc <- forecast(annual_fit1, h=10)
+autoplot(fc)
+
+linear_fit <- lm(emissions ~ fiscal_year, data = annual_data)
+
+
+```

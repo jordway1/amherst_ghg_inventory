@@ -5,10 +5,35 @@ title: "Municipal Transportation"
 ```{r}
 #| include: false
 source("../params.R")
-library(tidyverse)
 mei_final <- read_csv("../mei_final.csv") 
-mei_stationary <- mei_final %>% filter(fiscal_year %in% c(2016, 2022, 2025), supercategory == "stationary_energy")
+mei_transportation<- mei_final |> filter(supercategory == "transportation")
+
+mei_transportation <- mei_transportation |>
+  mutate(
+    fleet_group = case_when(
+      is.na(usage_reading_type) & department == "Police Department" ~ "Police",
+      is.na(usage_reading_type) & department == "Public Works" ~ "Public Works",
+      str_to_lower(usage_reading_type) %in% c("fire") ~ "Fire",
+      str_to_lower(usage_reading_type) %in% c("police") ~ "Police",
+      str_to_lower(usage_reading_type) %in% c("cons") ~ "Conservation",
+      str_to_lower(usage_reading_type) %in% c("maint") ~ "Maintenance",
+      str_to_lower(usage_reading_type) %in% c("school", "schools") ~ "Schools",
+      str_to_lower(usage_reading_type) %in% c("dpw") ~ "Public Works",
+      str_to_lower(usage_reading_type) %in% c("library", "lib") ~ "Library",
+      str_to_lower(usage_reading_type) %in% c("coa", "sen ctr", "sr ctr") ~ "Senior Center",
+      str_to_lower(usage_reading_type) %in% c("rec") ~ "Recreation",
+      str_to_lower(usage_reading_type) %in% c("cherry hill", "ch hill") ~ "Cherry Hill Golf Course",
+      str_to_lower(usage_reading_type) %in% c("it") ~ "Information Technology",
+      str_to_lower(usage_reading_type) %in% c("lsse") ~ "LSSE",
+      str_to_lower(usage_reading_type) %in% c("cress") ~ "CRESS",
+      TRUE ~ usage_reading_type
+    )
+  )
 ```
+
+## Broad Trends in Transportation Emissions
+
+Municipal emissions related to transportation decreased from 1,230 MTCO2e in FY 2016 to 955 MTCO2e in FY 2025, representing a **22.3% decrease** over that period.
 
 ```{r}
 #| echo: false
@@ -16,10 +41,10 @@ mei_stationary <- mei_final %>% filter(fiscal_year %in% c(2016, 2022, 2025), sup
 #| fig-cap: "Municipal transportation emissions (MTCO2e) trends by fiscal year."
 
 
-mei_final %>% 
-  filter(fiscal_year >= 2016, supercategory == "transportation") %>%
-  group_by(fiscal_year_string, inventory_year) %>%
-  summarize(total_emissions = sum(emission_mtco2e)) %>%
+mei_final |> 
+  filter(fiscal_year >= 2016, supercategory == "transportation") |>
+  group_by(fiscal_year_string, inventory_year) |>
+  summarize(total_emissions = sum(emission_mtco2e)) |>
   ggplot(aes(fiscal_year_string, total_emissions, group = 1)) +
   geom_line() +
   geom_point(
@@ -43,29 +68,99 @@ mei_final %>%
 
 
 ```{r}
-#| include: false
-source("../params.R")
-library(tidyverse)
-mei_transportation <- read_csv("../mei_final.csv") %>% filter(fiscal_year %in% c(2016, 2022, 2025), supercategory == "transportation")
-```
-
-```{r}
 #| echo: false
 #| tbl-cap: Transportation GHG emissions by year, along with percentage reductions relative to the 2016 baseline.
-mei_transportation %>%
-  group_by(fiscal_year) %>%
-  summarize(total = sum(emission_mtco2e, na.rm = TRUE)) %>%
-  mutate(percent_change = percent((total - first(total))/first(total))) %>% 
-  gt() %>%
-  cols_label(fiscal_year = "Inventory Year", total = "Transportation MTCO2e", percent_change = "Percent Reduction") %>%
+mei_transportation |>
+  filter(inventory_year == 1) |>
+  group_by(fiscal_year) |>
+  summarize(total = sum(emission_mtco2e, na.rm = TRUE)) |>
+  mutate(percent_change = percent((total - first(total))/first(total))) |> 
+  gt() |>
+  cols_label(fiscal_year = "Inventory Year", total = "Transportation MTCO2e", percent_change = "Percent Reduction") |>
   fmt_number(columns = total, decimals = 0, use_seps=TRUE)
 ```
 
 
 ```{r}
-mei_transportation %>% group_by(fiscal_year_string, department) %>% summarize(emission = sum(emission_mtco2e)) %>%
-  ggplot(aes(fiscal_year_string, emission, fill = department)) + 
-  geom_col() +
-  scale_fill_amherst()
+#| label: fig-transportation-fuel
+#| fig-cap: "Municipal transportation emissions per year by fuel type."
+
+p <- mei_final |>
+  filter(fiscal_year >= 2016, supercategory == "transportation") |>
+  mutate(account_fuel = factor(account_fuel, levels = c("Diesel", "Gasoline")),
+         inventory_year = as.character(inventory_year)) |>
+  group_by(fiscal_year_string, inventory_year, account_fuel) |>
+  summarize(total_emissions = sum(emission_mtco2e), .groups = "drop") |>
+  group_by(fiscal_year_string) |>
+  mutate(pct = total_emissions/sum(total_emissions)*100,
+         tooltip = paste0("Fuel: ", account_fuel, "<br>",
+                          "Emissions: ", total_emissions, "<br>",
+                          "Share: ", round(pct,1), "%<br>")) |>
+  ggplot(aes(fiscal_year_string, total_emissions, 
+             fill = account_fuel, text = tooltip,
+             alpha = inventory_year)) +
+  geom_col() + 
+  scale_alpha_manual(values = c("1" = 1, "0" = 0.7)) +
+  scale_fill_amherst() +
+  labs(y = "MTCO2e") +
+  theme(legend.title = element_blank(),
+        axis.title.x = element_blank())
+
+plt <- ggplotly(p, tooltip = "text") |>
+  layout(legend = list(title=list(text="")))
+
+plt$x$data[[3]]$name <- "Diesel"
+plt$x$data[[4]]$name <- "Gasoline"
+
+for (i in 1:2)  plt$x$data[[i]]$showlegend <- FALSE
+for (i in 3:4)  plt$x$data[[i]]$showlegend <- TRUE
+
+plt
+```
+
+
+## Transportation Emissions by Fleet Group
+
+96% of transportation-related emissions can be accounted for by the four highest-consumption fleet categories: Public Works, Fire Department, Police Department, and Schools. With the exception of Fire Department vehicles, each of these fleet groups have decreased their emissions since FY 2016. 
+
+```{r}
+#| label: fig-fleet-group-trends
+#| fig-cap: "Municipal emissions (MTCO2e) by fleet group over time."
+mei_transportation |> 
+  filter(fleet_group %in% c("Public Works", "Fire", "Police", "Schools"), fiscal_year >= 2016) |> 
+  group_by(fiscal_year_string, fleet_group) |> 
+  summarize(emissions = sum(emission_mtco2e), .groups="drop") |> 
+  mutate(fleet_group = fct_reorder2(fleet_group, fiscal_year_string, emissions)) |>
+  ggplot(aes(fiscal_year_string, emissions, color = fleet_group, group = fleet_group)) + 
+  geom_point() + 
+  geom_line() + 
+  scale_color_amherst() +
+  labs(y = "MTCO2e") +
+  theme(axis.title.x = element_blank(),
+        legend.title = element_blank(),
+        axis.text.x = element_text(angle = 0))
+```
+
+
+```{r}
+mei_transportation |> 
+  filter(fiscal_year %in% c(2016, 2022, 2025)) |>
+  group_by(fiscal_year, fleet_group) |> 
+  summarize(emissions = sum(emission_mtco2e), .groups = "drop") |>
+  pivot_wider(names_from = fiscal_year, values_from = emissions) |>
+  mutate(pct_change_2016 = ((`2025` - `2016`) / `2016`),
+         pct_change_2022 = ((`2025` - `2022`) / `2022`)) |>
+  arrange(desc(`2025`)) |>
+  slice_max(`2025`, n=6) |>
+  gt() |>
+  cols_label(fleet_group = "Fleet Group", 
+             `2016` = "FY 2016", `2022` = "FY 2022", `2025` = "FY 2025",
+             pct_change_2016 = "Change Since 2016", pct_change_2022 = "Change Since 2022") |>
+  fmt_number(columns = `2016`:`2025`, decimals = 1, use_seps=TRUE) |>
+  fmt_percent(columns = pct_change_2016:pct_change_2022, decimals = 1) |>
+  data_color(columns = c(pct_change_2016, pct_change_2022),
+    direction = "column",
+    palette = c("#2ca25f", "#ffffff", "#de2d26"), 
+    domain = c(-0.7, 0.7))
 ```
 

@@ -5,6 +5,7 @@ library(plotly)
 
 theme_set(theme_minimal(base_family = "Georgia"))
 theme_update(plot.title = element_text(hjust = 0.5))
+options(scipen = 999)
 current_year  <- 2025
 baseline_year <- 2016
 amherst_colors <- c("#8B2635", "#2E7D8C", "#5A7A5E", "#C9A040", "#5B6F7E", "#B08050")

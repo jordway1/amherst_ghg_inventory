@@ -1,0 +1,58 @@
+---
+title: "Municipal Key Findings"
+---
+
+```{r}
+source("../params.R")
+mei_final <- read_csv("../mei_final.csv")
+ghg_emissions <- read_csv("../ghg_emissions.csv") 
+
+school_emissions_2025 <- mei_final %>% filter(fiscal_year == 2025, supercategory == "stationary_energy", building %in% c("Wildwood ES", "Fort River ES")) %>% pull(emission_mtco2e) %>% sum()
+community_emissions <- ghg_emissions %>% filter(input_year == current_year) %>% pull(total_mtco2e) %>% sum(na.rm = TRUE)
+town_emissions <- ghg_emissions %>% filter(input_year == current_year, entity == "municipal") %>% pull(total_mtco2e) %>% sum(na.rm = TRUE)
+
+```
+
+
+## Key Findings
+
+- Municipal emissions fell by 16.8% from FY 2016 to FY 2025, falling short of the 25% reduction target outlined in the CAARP.
+- Buildings accounted for approximately 60% of all municipal emissions in FY 2025, and are thus the greatest opportunities for emissions reductions.
+- The construction of net zero emissions Amethyst Brook Elementary School should be completed by the end of 2026, replacing Wildwood and Fort River Elementary Schools. These two schools account for `r round(school_emissions_2025, 1)` MTCO2e for FY 2025, so future reports should show a significant reduction in emissions, depending on how the existing buildings are repurposed.
+- Transportation related municipal emissions dropped by 22.3% between FY 2016 and FY 2025.
+- The Fire Department is the only major fleet group (others groups include Police Department, Public Works, and School) that has increased their emissions since 2016, all others reduced emissions.
+
+## Municipal Emissions in Context
+
+While it is important to analyze and address municipal emissions, as this is what the Town has direct control over, it is also important to understand the Town's place in the context of broader community emissions. **Municipal emissions only account for about `r round(town_emissions/community_emissions*100, 2)`% of total community emissions.** Since the Town directly controls only a small fraction of emissions, achieving community-wide emissions goals requires action by residents, institutions, businesses, and higher education partners in addition to municipal action.
+
+```{r}
+df <- ghg_emissions |>
+  filter(input_year == current_year) |>
+  mutate(category = if_else(entity == "municipal",
+                       "Municipal",
+                       "All Other Sources")) |>
+  group_by(category) |>
+  summarize(emissions = sum(total_mtco2e, na.rm = TRUE),
+    .groups = "drop")
+
+plot_ly(data = df,
+  labels = ~category,
+  values = ~emissions,
+  type = "pie",
+  sort = FALSE,
+  marker = list(
+    colors = c( "#5A7A5E", "#8B2635")),
+  hole = 0.4,
+  textinfo = "percent",
+  hovertemplate = paste(
+    "<b>%{label}</b><br>",
+    "Emissions: %{value:,.1f} MTCO2e<br>",
+    "Share: %{percent}<extra></extra>"
+  )
+) |>
+  layout(
+    showlegend = TRUE,
+    legend = list(title = list(text = "")))
+```
+
