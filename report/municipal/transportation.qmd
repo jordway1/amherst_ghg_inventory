@@ -164,3 +164,7 @@ mei_transportation |>
     domain = c(-0.7, 0.7))
 ```
 
+### Fire Department Fleet
+
+The fire department fleet's increase in fuel consumption in recent years has come despite noteworthy efforts to integrate hybrid vehicles into its fleet. The department currently has eight hybrid vehicles, including two fire engines, one ladder truck, and two ambulances that utilize idle-mitigation systems, with two more ambulances that utilize this technology on order. Several of these vehicles were introduced into the fleet in 2025 and may not be fully reflected in the data. Lindsay Stromgren, the current Fire Chief, suggested that the recent increase in fuel consumption is likely due to the increased call volume that the department has been experiencing, mostly from EMS calls. The department's policy is to continue to order hybrid vehicles as current vehicles need replacement.
+

@@ -78,5 +78,23 @@ stationary_emissions |>
     domain = c(-0.7, 0.7))
 ```
 
+## University of Massachusetts Amherst Initiatives
 
+While the UMass Amherst has maintained relatively steady emissions since 2016, 
+
+
+## Resident Heating Oil Consumption
+
+Emissions related to residential heating oil have fallen from 18,729 MTCO2e in FY 2016, to 13,506 MTCO2e in FY 2025, a 28% decrease. Despite an increase in households, the percentage of households using heating oil fell from 32% in FY 2016 to 24% in Fy 2025, which accounts for the decline in emissions.
+
+```{r}
+stationary_emissions |>
+  filter(entity == "Community", activity == "dist_oil") |> 
+  group_by(fiscal_year) |>
+  summarize(total = sum(total_mtco2e, na.rm = TRUE)) |>
+  mutate(percent_change = percent((total - first(total))/first(total))) |> 
+  gt() |>
+  cols_label(fiscal_year = "Inventory Year", total = "Total MTCO2e", percent_change = "Percent Reduction") |>
+  fmt_number(columns = total, decimals = 0, use_seps=TRUE)
+```
 

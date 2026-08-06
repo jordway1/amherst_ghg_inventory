@@ -48,9 +48,32 @@ mei_clean <- read_csv("output_doer_report_2026-07-11.csv") %>%
       building == "pump stations" ~ "Pump Stations",
       .default = building
     ),
-    inventory_year = ifelse(fiscal_year %in% c(2016,2022,2025), "1", "0")
+    inventory_year = ifelse(fiscal_year %in% c(2016,2022,2025), "1", "0"), #just add the next inventory year to this vector
+    emission_mtco2e_factor = case_when(
+      activity == "electricity" & fiscal_year == 2016 ~ 0.000277,
+      .default = emission_mtco2e_factor
+    )
   ) %>%
   filter(fiscal_year < 2026)
 
+# transmission losses - this will need to be updated when new data arrives
+transmission_losses <- mei_clean |> 
+  mutate(loss_year = case_when(
+    fiscal_year <= 2016 ~ 2016,
+    fiscal_year <= 2022 ~ 2022,
+    fiscal_year <= 2025 ~ 2025,
+    .default = 2025  # anything after 2025 also falls back to the most recent factor
+  )) |> 
+  inner_join(transmission_loss_factors, by = c("activity" = "fuel_type", "loss_year" = "input_year")) |> 
+  mutate(loss_amount = use_updated_units * loss_factor) |> 
+  left_join(select(activity_emissions_key, activity, input_year, emissions_factor), by = c("activity" = "activity", "fiscal_year" = "input_year")) |> 
+  left_join(select(emissions_factors, emissions_factor, total_co2e_ef), by = "emissions_factor") |> 
+  mutate(emission_mtco2e = loss_amount * total_co2e_ef,
+         activity = str_c(activity, "_", type)) |> 
+  select(-c(total_co2e_ef, emissions_factor, loss_amount, loss_factor, type, loss_year))
 
-write_csv(mei_clean, "mei_final.csv")
+
+mei_final <- bind_rows(mei_clean, transmission_losses) |> 
+  filter(!is.na(emission_mtco2e))
+
+write_csv(mei_final, "mei_final.csv")

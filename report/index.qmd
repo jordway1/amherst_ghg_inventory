@@ -13,6 +13,8 @@ To accurately assess progress toward the ultimate goal of carbon neutrality, per
 
 ## Progress So Far
 
+Talk about how it's not a linear path, that it'll look like a stepwise function
+
 The Town has made significant progress toward achieving its 2025 emissions reduction target. There are numbers that exist to support this, but I have not finalized them, so this paragraph is really just a placeholder so I can get a sense of how things look before I get the aforementioned numbers.
 
 # Data Sources

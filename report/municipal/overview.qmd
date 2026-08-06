@@ -18,7 +18,7 @@ baseline <- municipal_emissions |> filter(input_year == baseline_year) |> select
 current <- municipal_emissions |> filter(input_year == current_year) |> select(total_mtco2e) |> pull() |> sum(na.rm=TRUE)
 ```
 
-The Town of Amherst Municipality was responsible for `r round(baseline, 1)` Metric Tons of CO2 Equivalent emissions in FY 2016. In FY `r current_year`, this number was `r comma(round(current,1))`. This represents a **`r round(100*(baseline-current)/baseline, 1)`% decrease in municipal emissions** relative to the 2016 baseline, which failed to meet the Town's 25% emissions reduction goal for 2025. To meet the 2030 goal, the Town would need to reach 2,244 MTCO2e emissions, which represents a near 40% decrease in current emissions over the span of 5 years. 
+The Town of Amherst Municipality was responsible for `r comma(round(baseline, 1))` Metric Tons of CO2 Equivalent emissions in FY 2016. In FY `r current_year`, this number was `r comma(round(current,1))`. This represents a **`r round(100*(baseline-current)/baseline, 1)`% decrease in municipal emissions** relative to the 2016 baseline, which fell short of the Town's 25% emissions reduction goal for 2025. Fortunately, the Town currently has major, net-zero emission, construction and renovation projects underway that will bring municipal emissions much closer to these targets upon their completion. These projects will be discussed later in this report.
 
 ```{r}
 #| echo: false
@@ -67,11 +67,10 @@ municipal_emissions |>
 
 *Note: Previous inventories reported 4,389 and 3,852 MTCO2e for FY 2016 and FY 2022, respectively. These numbers were updated to reflect the latest data sources and methodologies.*
 
-*Note: The emissions totals reported above are based on the Town's greenhouse gas inventory methodology and include transmission and distribution (T&D) losses associated with electricity and methane gas consumption. The sector and fuel analyses below, and in the following municipal sections of the report, are based directly on MassEnergyInsight facility-level data, which excludes T&D losses. As a result, totals shown in the following figures may differ slightly from the headline inventory totals.*
 
 ## Emissions by Sector
 
-Municipal emissions fall into two categories: stationary energy and transportation. Stationary energy accounted for 73.9% of total emissions in 2025, up from 68.6% in 2022. As it has been reported, electricity usage from electric vehicles (EVs) has been absorbed into stationary energy, so this increase in electricity consumption may reflect the increased adoption of EVs and their miscategorization as stationary energy, rather than a simple reduction in transportation emissions.
+Municipal emissions fall into two categories: stationary energy and transportation. Stationary energy accounted for 74% of total emissions in 2025, up from 69% in 2022. 
 
 ```{r}
 #| echo: false
@@ -80,6 +79,10 @@ Municipal emissions fall into two categories: stationary energy and transportati
 #| fig-cap: "Municipal GHG emissions (MTCO2e) by reporting year, excluding transmission and distribution losses"
 
 p <- mei_final |>
+  mutate(supercategory = case_when(
+    supercategory == "stationary_energy" ~ "Stationary Energy",
+    supercategory == "transportation" ~ "Transportation"
+  )) |> 
   group_by(fiscal_year_string) |>
   mutate(
     year_total = sum(emission_mtco2e),
@@ -99,14 +102,14 @@ p <- mei_final |>
   geom_col() +
   scale_fill_amherst() +
   labs(y = "MTCO2e", fill = NULL) +
-  theme(axis.title.x = element_blank())
+  theme(axis.title.x = element_blank()) 
 
 ggplotly(p, tooltip = "text")
 ```
 
 ## Emissions by Fuel Type
 
-As shown in @fig-fuel-mix, the composition of fuel usage has changed over time within the municipality. Most notably, electricity has seen an increased share of total emissions, from 36% in 2022 to 46% in 2025, while the relative shares of gasoline and diesel have decreased. This is consistent with the Town's move toward more renewable energy sources.
+The composition of fuel usage has changed over time within the municipality. Most notably, electricity has seen an increased share of total emissions, while the relative shares of gasoline and diesel have decreased. This is consistent with the Town's move toward more renewable energy sources.
 
 ```{r}
 #| label: fig-fuel-mix

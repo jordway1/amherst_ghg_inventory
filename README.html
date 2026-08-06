@@ -354,14 +354,131 @@ display: none;
 
 <div id="town-of-amherst-ghg-inventory" class="section level1">
 <h1>Town of Amherst GHG Inventory</h1>
-<p>Welcome to the back end of the Amherst GHG report. I inherited this
-project as a massive excel document with 213 sheets, which I found to be
-unacceptable, if sufficiently effective. My goals during this fellowship
-were to rework this process into a reproducible format that abides by
-data hygiene standards, and to produce a final report that utilizes
-reporting tools with R (ggplot2, markdown books, etc.) that will be more
-insightful and be itself more reproducible than the existing long pdf
-format.</p>
+<p>This repository contains the data pipeline and Quarto report for the
+Town of Amherst’s annual Greenhouse Gas (GHG) Inventory. It covers both
+the <strong>Municipal Inventory</strong> (town government operations)
+and the <strong>Community Inventory</strong> (town-wide emissions), and
+produces an interactive HTML book as its final output.</p>
+<p>The project was originally built during the 2025–26 Amherst
+Fellowship, replacing a 213-sheet Excel workbook with a reproducible,
+code-driven pipeline.</p>
+<hr />
+<div id="repository-structure" class="section level2">
+<h2>Repository Structure</h2>
+<pre><code>.
+├── run_all.R                   # Master script: sources all sector scripts, writes output CSVs
+├── params.R                    # Shared parameters (fiscal year, colors, ggplot theme)
+├── stationary.R                # Stationary energy emissions
+├── transportation.R            # Transportation emissions
+├── waste.R                     # Waste emissions
+├── agriculture.R               # AFOLU emissions
+├── mei.R                       # Municipal Energy Inventory (DOER/Mass Energy Insights)
+├── output_doer_report_*.csv    # Raw DOER CSV export (manually downloaded each year)
+├── ghg_emissions.csv           # Output: community + municipal GHG emissions
+├── mei_emissions.csv           # Output: municipal energy inventory
+└── report/
+    ├── _quarto.yml             # Quarto book configuration
+    ├── index.qmd               # Introduction chapter
+    ├── final_summary.qmd       # Summary chapter
+    ├── municipal/              # Municipal inventory chapters
+    └── community/              # Community inventory chapters</code></pre>
+<hr />
+</div>
+<div id="data-sources" class="section level2">
+<h2>Data Sources</h2>
+<table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Source</th>
+<th>Format</th>
+<th>Access</th>
+<th>Used by</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>clean_in_the_sheets.xlsx</code></td>
+<td>Excel (OneDrive)</td>
+<td>Microsoft 365 account</td>
+<td><code>stationary.R</code>, <code>transportation.R</code>,
+<code>waste.R</code>, <code>agriculture.R</code>,
+<code>mei.R</code></td>
+</tr>
+<tr class="even">
+<td><code>waste_model_inputs.xlsx</code></td>
+<td>Excel (OneDrive)</td>
+<td>Microsoft 365 account</td>
+<td><code>waste.R</code></td>
+</tr>
+<tr class="odd">
+<td><code>livestock_agriculture_inputs.xlsx</code></td>
+<td>Excel (OneDrive)</td>
+<td>Microsoft 365 account</td>
+<td><code>agriculture.R</code></td>
+</tr>
+<tr class="even">
+<td>DOER report CSV</td>
+<td>CSV (local)</td>
+<td>Downloaded from Mass Energy Insights</td>
+<td><code>mei.R</code></td>
+</tr>
+</tbody>
+</table>
+<p>The OneDrive spreadsheets are the primary data entry point. A future
+user should populate these with updated activity data before running the
+pipeline.</p>
+<hr />
+</div>
+<div id="prerequisites" class="section level2">
+<h2>Prerequisites</h2>
+<ul>
+<li><strong>R</strong> (≥ 4.1) with the following packages:
+<ul>
+<li><code>tidyverse</code>, <code>Microsoft365R</code>,
+<code>readxl</code>, <code>gt</code>, <code>plotly</code>,
+<code>scales</code></li>
+</ul></li>
+<li><strong>Quarto</strong> (for rendering the report)</li>
+<li>A <strong>Microsoft 365 account</strong> with access to the shared
+OneDrive folder</li>
+<li>The <strong>DOER CSV export</strong> downloaded from <a href="https://www.massenergy.org/">Mass Energy Insights</a> and placed
+in the project root</li>
+</ul>
+<hr />
+</div>
+<div id="quick-start" class="section level2">
+<h2>Quick Start</h2>
+<p>See <a href="WORKFLOW.md">WORKFLOW.md</a> for the full step-by-step
+annual update process, including every file that needs to be
+changed.</p>
+<p>In brief: 1. Enter new fiscal year’s data into the OneDrive
+spreadsheets 2. Download the new DOER CSV from Mass Energy Insights and
+place it in the project root 3. Update year references in
+<code>params.R</code> and the five sector/MEI scripts 4. Run
+<code>run_all.R</code> 5. Update the Quarto book title and narrative
+text, then render</p>
+<hr />
+</div>
+<div id="output" class="section level2">
+<h2>Output</h2>
+<p>Running <code>run_all.R</code> produces two CSV files used by the
+report:</p>
+<ul>
+<li><strong><code>ghg_emissions.csv</code></strong> — all community and
+municipal emissions by sector, subcategory, scope, and activity</li>
+<li><strong><code>mei_emissions.csv</code></strong> — municipal energy
+usage and emissions from Mass Energy Insights (used for the municipal
+section of the report due to its richer detail)</li>
+</ul>
+<p>The Quarto book is rendered from the <code>report/</code> directory
+and outputs an HTML book to <code>report/_book/</code>.</p>
+</div>
 </div>
 
 

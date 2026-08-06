@@ -37,11 +37,6 @@ Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,
 Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,dist_oil,umass,706500,gal (US)/year,2022,0.010201,7207.0065,NA,FY 2022
 Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,lpg,umass,99325,gal (US)/year,2022,0.005797,575.787025,NA,FY 2022
 Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.2,2,electricity,umass,34359,MWh/year,2022,0.2416,8301.1344,NA,FY 2022
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,co_gen_electricity_mtcde,umass,123.35,MTCDE,2025,1,123.35,NA,FY 2025
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,co_gen_steam_mtcde,umass,99074.76,MTCDE,2025,1,99074.76,NA,FY 2025
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,other_stationary_mtcde,umass,503.17,MTCDE,2025,1,503.17,NA,FY 2025
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.2,2,purchased_electricity_mtcde,umass,14271,MTCDE,2025,1,14271,NA,FY 2025
-Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,refrigerants_and_chemicals_mtcde,umass,105.27,MTCDE,2025,1,105.27,NA,FY 2025
 Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,natural_gas,municipal,112052,therms/year,2025,0.005319,596.004588,NA,FY 2025
 Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,dist_oil,municipal,61138,gal (US)/year,2025,0.010201,623.668738,NA,FY 2025
 Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.2,2,electricity,municipal,6241.866,MWh/year,2025,0.2359,1472.4561894,NA,FY 2025
@@ -49,6 +44,18 @@ Stationary Energy,residential_buildings,I.1.2,2,electricity,community,64814,MWh/
 Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.2,2,electricity,community,34632.76,MWh/year,2025,0.2359,8169.868084000001,NA,FY 2025
 Stationary Energy,residential_buildings,I.1.1,1,natural_gas,community,1433633,therms/year,2025,0.005319,7625.4939269999995,NA,FY 2025
 Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,natural_gas,community,2177370,therms/year,2025,0.005319,11581.43103,NA,FY 2025
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,dist_oil,amherst_college,5114,gal (US)/year,2025,0.010201,52.167914,NA,FY 2025
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,lpg,amherst_college,3772,gal (US)/year,2025,0.005797,21.866284,NA,FY 2025
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,resid_fuel_oil,amherst_college,14342,gal (US)/year,2025,0.011856,170.03875200000002,NA,FY 2025
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.2,2,electricity,amherst_college,9240,MWh/year,2025,0.2359,2179.716,NA,FY 2025
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,natural_gas,amherst_college,2065119,therms/year,2025,0.005319,10984.367961,NA,FY 2025
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,other_stationary_mtcde,hampshire_college,2122,MTCDE,2025,1,2122,NA,FY 2025
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,natural_gas,umass,15519070,therms/year,2025,0.005319,82545.93333,NA,FY 2025
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,lng,umass,1907964.819,gal (US)/year,2025,0.00445924,8508.073039477558,NA,FY 2025
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,dist_oil,umass,18392,gal (US)/year,2025,0.010201,187.616792,NA,FY 2025
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,lpg,umass,99385,gal (US)/year,2025,0.005797,576.134845,NA,FY 2025
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.2,2,electricity,umass,48246.24,MWh/year,2025,0.2359,11381.288015999999,NA,FY 2025
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.1,1,diesel_oil,umass,387920,gal (US)/year,2025,0.010201,3957.1719199999998,NA,FY 2025
 Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.8.1,1,natural_gas_trans_dist_loss,amherst_college,8894.801114008995,therms/year,2016,0.03969453,353.07494966406347,NA,FY 2016
 Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.3,3,electricity_trans_loss,amherst_college,578.2595,MWh/year,2016,0.2767,160.00440365,NA,FY 2016
 Stationary Energy,residential_buildings,I.8.1,1,natural_gas_trans_dist_loss,community,4781.682203591081,therms/year,2016,0.03969453,189.80662768091227,NA,FY 2016
@@ -78,40 +85,44 @@ Stationary Energy,residential_buildings,I.2.3,3,electricity_trans_loss,community
 Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.3,3,electricity_trans_loss,community,1507.3011801516,MWh/year,2025,0.2359,355.5723483977624,NA,FY 2025
 Stationary Energy,residential_buildings,I.8.1,1,natural_gas_trans_dist_loss,community,4528.839192501578,therms/year,2025,0.03969453,179.77014319192963,NA,FY 2025
 Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.8.1,1,natural_gas_trans_dist_loss,community,6878.30050827315,therms/year,2025,0.03969453,273.0309058746638,NA,FY 2025
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.3,3,electricity_trans_loss,amherst_college,402.14706839999997,MWh/year,2025,0.2359,94.86649343555999,NA,FY 2025
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.8.1,1,natural_gas_trans_dist_loss,amherst_college,6523.700182947565,therms/year,2025,0.03969453,258.9552126230176,NA,FY 2025
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.8.1,1,natural_gas_trans_dist_loss,umass,49024.661435092145,therms/year,2025,0.03969453,1946.0108940751081,NA,FY 2025
+Stationary Energy,commercial_and_institutional_buildings_and_facilities,I.2.3,3,electricity_trans_loss,umass,2099.7926382384,MWh/year,2025,0.2359,495.3410833604385,NA,FY 2025
 Stationary Energy,residential_buildings,I.1.1,1,dist_oil,community,1836020.338,gal(US)/year,2016,0.010201,18729.243467938,NA,FY 2016
 Stationary Energy,residential_buildings,I.1.1,1,dist_oil,community,1544448.2076009957,gal(US)/year,2022,0.010201,15754.916165737757,NA,FY 2022
 Stationary Energy,residential_buildings,I.1.1,1,dist_oil,community,1323997.6741298395,gal(US)/year,2025,0.010201,13506.100273798493,NA,FY 2025
-Waste,biological_treatment_of_waste,III.2.2,2,compost,amherst_college,87.07482993197279,tonnes,2016,0.1915,16.674829931972788,NA,FY 2016
-Waste,solid_waste_disposal,III.1.2,2,landfill,amherst_college,369.295238095238,tonnes,2016,0.35106334,129.6460197318095,NA,FY 2016
+Waste,biological_treatment_of_waste,III.2.2,2,compost,amherst_college,87.07482993197279,tonnes,2016,-0.294,-25.599999999999998,NA,FY 2016
+Waste,solid_waste_disposal,III.1.2,2,landfill,amherst_college,369.295238095238,tonnes,2016,0.6472,239.00787809523803,NA,FY 2016
 Waste,NA,NA,NA,recycle,amherst_college,344.3428571428571,tonnes,2016,NA,NA,NA,FY 2016
-Waste,biological_treatment_of_waste,III.2.2,2,compost,community,2053.2393700634357,tonnes,2016,0.1915,393.19533936714794,NA,FY 2016
-Waste,incineration_and_open_burning,III.3.2,2,incineration,community,9415.569111290899,tonnes,2016,0.39589203,3727.54876907425,NA,FY 2016
-Waste,solid_waste_disposal,III.1.2,2,landfill,community,4311.802677133216,tonnes,2016,0.35106334,1513.7158492553285,NA,FY 2016
-Waste,NA,NA,NA,recycle,community,6130.386119189401,tonnes,2016,NA,NA,NA,FY 2016
-Waste,biological_treatment_of_waste,III.2.2,2,compost,umass,2103.180285634276,tonnes,2016,0.1915,402.75902469896386,NA,FY 2016
-Waste,solid_waste_disposal,III.1.2,2,landfill,umass,2688.848501820219,tonnes,2016,0.35106334,943.9561358030022,NA,FY 2016
+Waste,biological_treatment_of_waste,III.2.2,2,compost,community,2364.0735871495663,tonnes,2016,-0.294,-695.0376346219724,NA,FY 2016
+Waste,incineration_and_open_burning,III.3.2,2,incineration,community,10840.966021071585,tonnes,2016,0.43,4661.615389060781,NA,FY 2016
+Waste,solid_waste_disposal,III.1.2,2,landfill,community,4964.554533014089,tonnes,2016,0.6472,3213.0596937667187,NA,FY 2016
+Waste,NA,NA,NA,recycle,community,7058.448281632276,tonnes,2016,NA,NA,NA,FY 2016
+Waste,biological_treatment_of_waste,III.2.2,2,compost,umass,2103.180285634276,tonnes,2016,-0.294,-618.3350039764771,NA,FY 2016
+Waste,solid_waste_disposal,III.1.2,2,landfill,umass,2688.848501820219,tonnes,2016,0.6472,1740.2227503780457,NA,FY 2016
 Waste,NA,NA,NA,recycle,umass,1686.9712125455058,tonnes,2016,NA,NA,NA,FY 2016
-Waste,biological_treatment_of_waste,III.2.2,2,compost,amherst_college,35.168,tonnes,2022,0.1915,6.734672,NA,FY 2022
-Waste,solid_waste_disposal,III.1.2,2,landfill,amherst_college,224.51000000000002,tonnes,2022,0.19179531,43.059965048100004,NA,FY 2022
+Waste,biological_treatment_of_waste,III.2.2,2,compost,amherst_college,35.168,tonnes,2022,-0.294,-10.339391999999998,NA,FY 2022
+Waste,solid_waste_disposal,III.1.2,2,landfill,amherst_college,224.51000000000002,tonnes,2022,0.6472,145.302872,NA,FY 2022
 Waste,NA,NA,NA,recycle,amherst_college,54.322,tonnes,2022,NA,NA,NA,FY 2022
-Waste,biological_treatment_of_waste,III.2.2,2,compost,community,3032.9042422867515,tonnes,2022,0.1915,580.8011623979129,NA,FY 2022
-Waste,incineration_and_open_burning,III.3.2,2,incineration,community,10615.16484800363,tonnes,2022,0.10825317999999999,1149.1253510206095,NA,FY 2022
-Waste,solid_waste_disposal,III.1.2,2,landfill,community,8188.8414541742295,tonnes,2022,0.19179531,1570.581385244197,NA,FY 2022
+Waste,biological_treatment_of_waste,III.2.2,2,compost,community,3032.9042422867515,tonnes,2022,-0.294,-891.6738472323049,NA,FY 2022
+Waste,incineration_and_open_burning,III.3.2,2,incineration,community,10615.16484800363,tonnes,2022,0.43,4564.520884641561,NA,FY 2022
+Waste,solid_waste_disposal,III.1.2,2,landfill,community,8188.8414541742295,tonnes,2022,0.6472,5299.818189141562,NA,FY 2022
 Waste,NA,NA,NA,recycle,community,8492.131878402906,tonnes,2022,NA,NA,NA,FY 2022
-Waste,biological_treatment_of_waste,III.2.2,2,compost,hampshire_college,54.99,tonnes,2022,0.1915,10.530585,NA,FY 2022
-Waste,solid_waste_disposal,III.1.2,2,landfill,hampshire_college,125.96000000000001,tonnes,2022,0.19179531,24.1585372476,NA,FY 2022
+Waste,biological_treatment_of_waste,III.2.2,2,compost,hampshire_college,54.99,tonnes,2022,-0.294,-16.16706,NA,FY 2022
+Waste,solid_waste_disposal,III.1.2,2,landfill,hampshire_college,125.96000000000001,tonnes,2022,0.6472,81.52131200000001,NA,FY 2022
 Waste,NA,NA,NA,recycle,hampshire_college,54.050000000000004,tonnes,2022,NA,NA,NA,FY 2022
-Waste,biological_treatment_of_waste,III.2.2,2,compost,umass,422.2195865328724,tonnes,2022,0.1915,80.85505082104507,NA,FY 2022
-Waste,solid_waste_disposal,III.1.2,2,landfill,umass,620.275377061217,tonnes,2022,0.19179531,118.965908228823,NA,FY 2022
+Waste,biological_treatment_of_waste,III.2.2,2,compost,umass,422.2195865328724,tonnes,2022,-0.294,-124.13255844066448,NA,FY 2022
+Waste,solid_waste_disposal,III.1.2,2,landfill,umass,620.275377061217,tonnes,2022,0.6472,401.44222403401966,NA,FY 2022
 Waste,NA,NA,NA,recycle,umass,586.4676591611343,tonnes,2022,NA,NA,NA,FY 2022
-Waste,biological_treatment_of_waste,III.2.2,2,compost,community,4881.241715063521,tonnes,2025,0.1915,934.7577884346643,NA,FY 2025
-Waste,incineration_and_open_burning,III.3.2,2,incineration,community,10031.150958811251,tonnes,2025,0.10825317999999999,1085.903990351367,NA,FY 2025
-Waste,solid_waste_disposal,III.1.2,2,landfill,community,10958.122004509982,tonnes,2025,0.19179531,2101.7164068728134,NA,FY 2025
+Waste,biological_treatment_of_waste,III.2.2,2,compost,community,4881.241715063521,tonnes,2025,-0.294,-1435.085064228675,NA,FY 2025
+Waste,incineration_and_open_burning,III.3.2,2,incineration,community,10031.150958811251,tonnes,2025,0.43,4313.394912288838,NA,FY 2025
+Waste,solid_waste_disposal,III.1.2,2,landfill,community,10958.122004509982,tonnes,2025,0.6472,7092.09656131886,NA,FY 2025
 Waste,NA,NA,NA,recycle,community,7272.053983666063,tonnes,2025,NA,NA,NA,FY 2025
 Waste,wastewater_treatment_and_discharge,III.4.1,1,wastewater_bod,community,6460.610179729167,kg,2016,0.0154238,99.64715929010671,NA,FY 2016
 Waste,wastewater_treatment_and_discharge,III.4.1,1,wastewater_bod,umass,2576.7815208333336,kg,2016,0.0154238,39.74376282102917,NA,FY 2016
-Waste,wastewater_treatment_and_discharge,III.4.1,1,wastewater_bod,community,4429.3306278,kg,2022,0.0140601,62.276831559930784,NA,FY 2022
-Waste,wastewater_treatment_and_discharge,III.4.1,1,wastewater_bod,community,4429.3306278,kg,2025,0.0140601,62.276831559930784,gotta update this,FY 2025
+Waste,wastewater_treatment_and_discharge,III.4.1,1,wastewater_bod,community,4429.3306278,kg,2022,0.0140601,62.276831559930784,using most recent EF,FY 2022
+Waste,wastewater_treatment_and_discharge,III.4.1,1,wastewater_bod,community,17102.01116000001,kg,2025,0.0140601,240.45598711071614,gotta update this,FY 2025
 Transportation,on_road_transportation,II.1.1,1,diesel,amherst_college,6423,gallons/year,2022,0.01014827,65.18233821,NA,FY 2022
 Transportation,on_road_transportation,II.1.1,1,gasoline,amherst_college,15614,gallons/year,2022,0.008908482,139.097037948,NA,FY 2022
 Transportation,on_road_transportation,II.1.1,1,passenger_cars,community,113223359,VMT/year,2022,2.7238e-4,30839.778524420002,NA,FY 2022
@@ -163,6 +174,7 @@ Transportation,off_road_transportation,II.5.1,1,industrial_MOVES,community,12397
 Transportation,off_road_transportation,II.5.1,1,lawn_garden_MOVES,community,1957.9289941929514,MT CO2e/year,2025,1,1957.9289941929514,NA,FY 2025
 Transportation,off_road_transportation,II.5.1,1,agriculture_MOVES,community,59.53468462206778,MT CO2e/year,2025,1,59.53468462206778,NA,FY 2025
 Transportation,off_road_transportation,II.5.1,1,commercial_MOVES,community,1249.96315910167,MT CO2e/year,2025,1,1249.96315910167,NA,FY 2025
+Transportation,on_road_transportation,II.1.1,1,direct_transportation_mtcde,hampshire_college,54,MTCDE,2025,1,54,NA,FY 2025
 Transportation,on_road_transportation,II.1.2,2,pvta_bus,community,145620.63866761365,gallons/year,2016,0.01029819,1499.6290049204322,NA,FY 2016
 Transportation,on_road_transportation,II.1.2,2,pvta_bus,community,153471.34261363637,gallons/year,2022,0.01014827,1557.4686221056875,NA,FY 2022
 Transportation,on_road_transportation,II.1.2,2,pvta_bus,community,153471.34261363637,gallons/year,2025,0.01014827,1557.4686221056875,NA,FY 2025

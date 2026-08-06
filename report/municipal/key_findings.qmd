@@ -4,6 +4,7 @@ title: "Municipal Key Findings"
 
 ```{r}
 source("../params.R")
+library(ggrepel)
 mei_final <- read_csv("../mei_final.csv")
 ghg_emissions <- read_csv("../ghg_emissions.csv") 
 
@@ -20,7 +21,95 @@ town_emissions <- ghg_emissions %>% filter(input_year == current_year, entity ==
 - Buildings accounted for approximately 60% of all municipal emissions in FY 2025, and are thus the greatest opportunities for emissions reductions.
 - The construction of net zero emissions Amethyst Brook Elementary School should be completed by the end of 2026, replacing Wildwood and Fort River Elementary Schools. These two schools account for `r round(school_emissions_2025, 1)` MTCO2e for FY 2025, so future reports should show a significant reduction in emissions, depending on how the existing buildings are repurposed.
 - Transportation related municipal emissions dropped by 22.3% between FY 2016 and FY 2025.
-- The Fire Department is the only major fleet group (others groups include Police Department, Public Works, and School) that has increased their emissions since 2016, all others reduced emissions.
+- The Fire Department is the only major fleet group (others groups include Police Department, Public Works, and School) that has increased their emissions since 2016, all others reduced emissions. This increase comes despite increased integration of hybrid vehicles into the fleet, and is most likely due to an increase in EMS call volume.
+
+## Municipal Forecasting
+
+While municipal emissions fell short of the 2025 target, the completion of the ongoing net-zero emissions projects of the Amethyst Brook Elementary School and the Jones Library will likely bring the Town much closer to its emissions reduction goals than the existing data would suggest. The figure below plots the current trend of municipal emissions reduction, while taking into account future drops in emissions from these projects. This model projects 2,427.3 MTCO2e in municipal emissions by 2030, a 46.2% reduction from the 2016 baseline, and 466.3 MTCO2e by 2050, an 89.7% reduction from the baseline. 
+
+```{r}
+#| warning: FALSE
+#| label: fig-municipal-forecast
+#| fig-cap: Current trend of municipal emissions reductions, incorporating planned completions of net-zero building projects. 
+ 
+municipal_summary <- mei_final |> 
+  filter(fiscal_year >= 2011, fiscal_year != 2021, fiscal_year != 2020) |> 
+  group_by(input_year = fiscal_year) |> 
+  summarize(total = sum(emission_mtco2e, na.rm = TRUE), .groups = "drop")
+
+baseline_mtco2e <- municipal_summary |> filter(input_year == 2016) |> pull(total) 
+  
+amherst_targets <- tibble(
+  fiscal_year = c(2016, 2025, 2030, 2050),
+  target = c(
+  first(baseline_mtco2e),
+  first(baseline_mtco2e) * 0.75,
+  first(baseline_mtco2e) * 0.5,
+  0))
+
+# regression line for baseline trend
+reg <- lm(total ~ input_year, data = municipal_summary)
+slope <- coef(reg)[["input_year"]]
+intercept <- coef(reg)[["(Intercept)"]]
+trend <- function(year) intercept + slope * year
+
+# creating segments so I can have drops
+segment1 <- tibble(input_year = 2011:2026) |>
+  mutate(total = trend(input_year), segment = "seg1")
+
+segment2 <- tibble(input_year = 2026:2027) |>
+  mutate(total = trend(input_year) - 588, segment = "seg2")
+
+segment3 <- tibble(input_year = 2027:2050) |>
+  mutate(total = trend(input_year) - 588 - 119, segment = "seg3")
+
+piecewise <- bind_rows(segment1, segment2, segment3)
+
+#drop info
+drops <- tibble(
+  input_year = c(2026, 2027),
+  y_start = c(trend(2026), trend(2027) - 588),
+  y_end   = c(trend(2026) - 588, trend(2027) - 588 - 119),
+  label = c("Amethyst Brook ES Construction",
+            "Jones Library Renovation")
+)
+
+# plot
+ggplot() +
+  geom_point(data = municipal_summary, aes(input_year, total, color = "Actual Emissions")) +
+  geom_line(data = municipal_summary, aes(input_year, total, color = "Actual Emissions")) +
+  geom_point(data = amherst_targets, aes(fiscal_year, target, color = "Target Emissions")) +
+  geom_line(data = amherst_targets, aes(fiscal_year, target, color = "Target Emissions"), linetype = "dotted") +
+  geom_line(data = piecewise, aes(input_year, total, group = segment, color = "Projected Emissions")) +
+  geom_segment(data = drops,
+               aes(x = input_year, xend = input_year, y = y_start, yend = y_end),
+               linetype = "dashed", color = "gray40") +
+  geom_label_repel(data = drops,
+                    aes(x = input_year, y = y_start, label = label),
+                    size = 3,
+                    color = "gray20",
+                    fill = "white",
+                    label.size = 0.3,
+                    segment.color = "gray40",
+                    nudge_y = 400,
+                   nudge_x = 6,
+                    direction = "both",     
+                    box.padding = 0.5,
+                    point.padding = 0.3,
+                    min.segment.length = 0,
+                    arrow = arrow(length = unit(0.01, "npc")))  +
+  scale_y_continuous(limits = c(0, 5000)) +
+  scale_x_continuous(limits = c(2011, 2050)) +
+  scale_color_manual(values = c("Actual Emissions" = "black",
+                                 "Target Emissions" = "#8B2635",
+                                 "Projected Emissions" = "steelblue")) +
+  labs(y = "MTCO2e") +
+  theme(legend.title = element_blank(),
+        axis.title.x = element_blank())
+```
+
+*Note: This model assumes that the existing emissions of the buildings that are being replaced will be eliminated entirely, meaning that the buildings will not be repurposed. This model also assumes that emissions will continue to decline at the same rate that they have been in recent years. Data from 2020 and 2021 were omitted.*
+
 
 ## Municipal Emissions in Context
 
