@@ -20,8 +20,13 @@ stationary_emissions <- ghg_emissions |> filter(supercategory == "Stationary Ene
 ```
 
 
-** percentage of households using heating oil dropped significantly, but number of households increased
+```{r}
+community_stationary_2016 <- stationary_emissions |> filter(input_year == 2016) |> pull(total_mtco2e) |> sum() |> round(1)
+community_stationary_2025 <- stationary_emissions |> filter(input_year == 2025) |> pull(total_mtco2e) |> sum() |> round(1)
+stationary_pct_decrease <- round((community_stationary_2016 - community_stationary_2025)/community_stationary_2016*100, 1)
+```
 
+Community stationary emissions fell from `r comma(community_stationary_2016)` MTCO2e in FY 2016 to `r comma(community_stationary_2025)` MTCO2e in FY 2025, a **`r stationary_pct_decrease`% decrease**.  
 
 ```{r}
 #| label: fig-stationary-community
@@ -57,19 +62,27 @@ stationary_emissions |>
   fmt_number(columns = total, decimals = 0, use_seps=TRUE)
 ```
 
+## Emissions by Entity
+
+- Community (non-college) stationary emissions experienced the most significant decreases in emissions. This is primarily due to reduced consumption of natural gas and oil.
+- UMass emissions have decreased since FY 2016, but have remained relatively constant since FY 2022. Still, UMass has invested heavily in sustainable infrastructure, discussed previously, and these figures are expected to decrease significantly in coming years once these projects are reflected in the data.
+- The current Amherst College stationary figure is a placeholder that will be updated once FY 2025 data is made available.
+- Hampshire College emissions will go away due to the closure of the college after the Fall 2026 semester. Future emissions depend on if and how their facilities are repurposed.
+
 ```{r}
 #| tbl-cap: "Stationary emissions by entity and inventory year, with percent changes since FY 2016 and FY 2022 inventories."
 stationary_emissions |> 
   group_by(input_year, entity) |> 
   summarize(emissions = sum(total_mtco2e), .groups = "drop") |>
   pivot_wider(names_from = input_year, values_from = emissions) |>
-  mutate(pct_change_2016 = ((`2025` - `2016`) / `2016`),
-         pct_change_2022 = ((`2025` - `2022`) / `2022`)) |>
-  arrange(desc(`2025`)) |>
+  rename(current = !!sym(as.character(current_year))) |>
+  mutate(pct_change_2016 = ((current - `2016`) / `2016`),
+         pct_change_2022 = ((current - `2022`) / `2022`)) |>
+  arrange(desc(current)) |>
   gt() |>
-  cols_label(entity = "Entity", `2016` = "FY 2016", `2022` = "FY 2022", `2025` = "FY 2025",
+  cols_label(entity = "Entity", `2016` = "FY 2016", `2022` = "FY 2022", current = paste0("FY ", current_year),
              pct_change_2016 = "Change Since 2016", pct_change_2022 = "Change Since 2022") |>
-  fmt_number(columns = `2016`:`2025`, decimals = 1, use_seps=TRUE) |>
+  fmt_number(columns = c(`2016`, `2022`, current), decimals = 1, use_seps=TRUE) |>
   fmt_percent(columns = pct_change_2016:pct_change_2022, decimals = 1) |>
   data_color(
     columns = c(pct_change_2016, pct_change_2022),
@@ -78,14 +91,64 @@ stationary_emissions |>
     domain = c(-0.7, 0.7))
 ```
 
-## University of Massachusetts Amherst Initiatives
 
-While the UMass Amherst has maintained relatively steady emissions since 2016, 
+## Highest-Emission Fuel Types
+
+```{r}
+top_three_fuels <- c("natural_gas", "dist_oil", "electricity")
+top_three_emissions <- stationary_emissions |> 
+  filter(activity %in% top_three_fuels, input_year == current_year) |> 
+  pull(total_mtco2e) |> 
+  sum()
+total_emissions <- stationary_emissions |> 
+  filter(input_year == current_year) |> 
+  pull(total_mtco2e) |> 
+  sum()
+```
+
+`r round(top_three_emissions/total_emissions*100, 1)`% of stationary emissions come from natural gas, electricity, and oil fuel consumption. Both natural gas and heating oil have seen significant reductions in consumption in recent years, which has driven the overall decrease in emissions. Electricity consumption has remained relatively constant. This is consistent with a broad transition away from high-emission fuel sources and toward renewable energy.
+
+```{r}
+#| label: fig-topthree-emissions
+#| fig-cap: Emissions (MTCO2e) from natural gas, oil and electricity
+stationary_emissions |> 
+  filter(activity %in% c("natural_gas", "dist_oil", "electricity")) |> 
+  group_by(fiscal_year, activity) |> 
+  summarize(emissions = sum(total_mtco2e)) |> 
+  ggplot(aes(fiscal_year, emissions, fill = activity)) + 
+  geom_col(position = position_dodge2(padding = 0.1)) +
+  scale_fill_amherst(labels = c("dist_oil" = "Distillate Oil",
+                                "natural_gas" = "Natural Gas",
+                                "electricity" = "Electricity")) +
+  labs(y = "MTCO2e", fill = NULL) +
+  theme(axis.title.x = element_blank())
+```
 
 
-## Resident Heating Oil Consumption
+## Non-College Community Emissions
 
-Emissions related to residential heating oil have fallen from 18,729 MTCO2e in FY 2016, to 13,506 MTCO2e in FY 2025, a 28% decrease. Despite an increase in households, the percentage of households using heating oil fell from 32% in FY 2016 to 24% in Fy 2025, which accounts for the decline in emissions.
+The previously-discussed trend in the mix of fuel usage is especially true among non-college community emissions. In FY 2022, emissions from natural gas consumption fell below those for electricity consumption, and this gap has only widened since. 
+
+```{r}
+stationary_emissions |> 
+  filter(entity == "Community", activity %in% c("dist_oil", "electricity", "natural_gas")) |> 
+  group_by(input_year, activity) |> 
+  summarize(emissions = sum(total_mtco2e)) |> 
+  ggplot(aes(input_year, emissions, color = activity)) +
+  geom_line() +
+  geom_point() +
+  scale_color_amherst(labels = c("dist_oil" = "Distillate Oil",
+                                "natural_gas" = "Natural Gas",
+                                "electricity" = "Electricity")) +
+  labs(y = "MTCO2e", fill = NULL) +
+  theme(axis.title.x = element_blank())  +
+  scale_x_continuous(breaks = scales::breaks_width(1))
+```
+
+
+### Resident Heating Oil Consumption
+
+Emissions related to residential heating oil have fallen from 18,729 MTCO2e in FY 2016, to 13,506 MTCO2e in FY 2025, a 28% decrease. Despite an increase in households, the percentage of households using heating oil fell from 32% in FY 2016 to 24% in FY 2025, which accounts for the decline in emissions. These are regional estimates, not specific to Amherst.
 
 ```{r}
 stationary_emissions |>

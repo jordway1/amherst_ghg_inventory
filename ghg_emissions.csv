@@ -175,6 +175,8 @@ Transportation,off_road_transportation,II.5.1,1,lawn_garden_MOVES,community,1957
 Transportation,off_road_transportation,II.5.1,1,agriculture_MOVES,community,59.53468462206778,MT CO2e/year,2025,1,59.53468462206778,NA,FY 2025
 Transportation,off_road_transportation,II.5.1,1,commercial_MOVES,community,1249.96315910167,MT CO2e/year,2025,1,1249.96315910167,NA,FY 2025
 Transportation,on_road_transportation,II.1.1,1,direct_transportation_mtcde,hampshire_college,54,MTCDE,2025,1,54,NA,FY 2025
+Transportation,on_road_transportation,II.1.1,1,diesel,amherst_college,6423,gallons/year,2025,0.01014827,65.18233821,NA,FY 2025
+Transportation,on_road_transportation,II.1.1,1,gasoline,amherst_college,15614,gallons/year,2025,0.008908482,139.097037948,NA,FY 2025
 Transportation,on_road_transportation,II.1.2,2,pvta_bus,community,145620.63866761365,gallons/year,2016,0.01029819,1499.6290049204322,NA,FY 2016
 Transportation,on_road_transportation,II.1.2,2,pvta_bus,community,153471.34261363637,gallons/year,2022,0.01014827,1557.4686221056875,NA,FY 2022
 Transportation,on_road_transportation,II.1.2,2,pvta_bus,community,153471.34261363637,gallons/year,2025,0.01014827,1557.4686221056875,NA,FY 2025

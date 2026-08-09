@@ -2,13 +2,15 @@ library(tidyverse)
 library(Microsoft365R)
 library(readxl)
 
-# connecting to Onedrive and reading waste inputs
+if (!exists("onedrive_folder")) source("params.R")
 if (!exists("od")) od <- get_business_onedrive()
-item <- od$get_item("2026_GHG_update/waste_model_inputs.xlsx")
+
+# connecting to Onedrive and reading waste inputs
+item <- od$get_item(paste0(onedrive_folder, "/waste_model_inputs.xlsx"))
 tmp <- tempfile(fileext = ".xlsx")
 item$download(dest = tmp)
 
-item2 <- od$get_item("2026_GHG_update/clean_in_the_sheets.xlsx")
+item2 <- od$get_item(paste0(onedrive_folder, "/clean_in_the_sheets.xlsx"))
 tmp2 <- tempfile(fileext = ".xlsx")
 item2$download(dest = tmp2)
 
@@ -28,7 +30,7 @@ wastewater_chemicals <- read_xlsx(tmp, sheet = "wastewater_chemicals")
 
 # I'm initializing the data table here. I'll join the data from the input sheets and make calculations from here. 
 # Hampshire college doesn't exist anymore, so that needs to be updated in future iterations
-input_year <- c(2016, 2022, 2025)
+input_year <- inventory_years
 entity <- c("community", "umass", "amherst_college", "hampshire_college")
 waste_type <- c("paper", "plastic", "food_waste", "yard_waste", "metal", "glass", "construction_demo", "haz_waste", "electronics", "other_waste")
 disposal_method <- c("recycle", "open_dump", "landfill", "compost", "incineration", "open_burning")

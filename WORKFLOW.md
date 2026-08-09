@@ -14,7 +14,7 @@ Before running any code, the underlying activity data must be updated for the ne
 | `waste_model_inputs.xlsx` | Solid waste tonnages, composition, and disposal method breakdown |
 | `livestock_agriculture_inputs.xlsx` | Livestock counts, acreage, and fertilization percentages |
 
-Add a new row for the current fiscal year in each relevant sheet. Refer to existing year entries and associated comments as a template for structure and units.
+Add a new row (or new data column) for the current fiscal year in each relevant sheet. Refer to existing year entries as a template for structure and units.
 
 ------------------------------------------------------------------------
 
@@ -26,40 +26,30 @@ The municipal energy inventory (`mei.R`) requires a CSV export from **Mass Energ
 2.  Export the full usage report for the Town of Amherst
 3.  Save the CSV to the project root directory (alongside `run_all.R`)
 
-The filename will include the export date (e.g., `output_doer_report_2027-07-10.csv`). Note the exact filename — you will need it in Step 4.
+The filename will include the export date (e.g., `output_doer_report_2027-07-10.csv`). Note the exact filename — you will need it in Step 3.
 
 ------------------------------------------------------------------------
 
-## Step 3 — Update Year References in the R Scripts
+## Step 3 — Update `params.R`
 
-Several files have the fiscal year or the OneDrive folder path hardcoded. Update all of the following before running the pipeline.
-
-### `params.R` — line 9
+All year-specific configuration is now centralized in `params.R`. This is the **only file** that needs year and path updates — all sector scripts read from it automatically.
 
 ``` r
-current_year  <- 2025   # ← change to new fiscal year (e.g., 2026)
-baseline_year <- 2016   # ← only change if the baseline year is being redefined (it won't be)
+current_year    <- 2025                # ← change to new fiscal year (e.g., 2026)
+baseline_year   <- 2016                # ← only change if the baseline year is being redefined
+inventory_years <- c(2016, 2022, 2025) # ← append the new fiscal year (e.g., c(2016, 2022, 2025, 2028))
+onedrive_folder <- "2026_GHG_update"  # ← change to match the new OneDrive folder name
 ```
 
-### OneDrive folder path — five scripts
+`current_year` automatically propagates to: - The MEI fiscal year filter (`mei.R`) - The transmission loss factor lookup in `mei.R` - Plot labels and targets calculations in the Quarto report
 
-The folder name on OneDrive (e.g., `"2026_GHG_update/"`) must match the folder where the new spreadsheets are stored. Update the path in each of the following files:
+`inventory_years` automatically propagates to: - The waste model's crossing table (`waste.R`) - The MEI inventory year flag (`mei.R`)
 
-| File | Line | What to change |
-|------------------------|------------------------|------------------------|
-| `stationary.R` | 7 | `od$get_item("2026_GHG_update/clean_in_the_sheets.xlsx")` |
-| `transportation.R` | 7 | `od$get_item("2026_GHG_update/clean_in_the_sheets.xlsx")` |
-| `waste.R` | 7 | `od$get_item("2026_GHG_update/waste_model_inputs.xlsx")` |
-| `waste.R` | 11 | `od$get_item("2026_GHG_update/clean_in_the_sheets.xlsx")` |
-| `agriculture.R` | 7 | `od$get_item("2026_GHG_update/livestock_agriculture_inputs.xlsx")` |
-| `agriculture.R` | 11 | `od$get_item("2026_GHG_update/clean_in_the_sheets.xlsx")` |
-| `mei.R` | 7 | `od$get_item("2026_GHG_update/clean_in_the_sheets.xlsx")` |
+`onedrive_folder` automatically propagates to all five sector scripts.
 
-Replace `"2026_GHG_update"` with the name of the new OneDrive folder for the current year.
+### Also update: DOER CSV filename in `mei.R`
 
-### `mei.R` — line 16
-
-Update the filename to match the DOER CSV downloaded in Step 2:
+One value still requires a manual update — the filename of the DOER CSV downloaded in Step 2. Find this line in `mei.R` and update it:
 
 ``` r
 mei_clean <- read_csv("output_doer_report_2026-07-11.csv")   # ← update filename
@@ -71,13 +61,14 @@ mei_clean <- read_csv("output_doer_report_2026-07-11.csv")   # ← update filena
 
 Open `run_all.R` in RStudio and run the entire script (Ctrl+Shift+Enter / Cmd+Shift+Enter). This will:
 
-1.  Connect to OneDrive (you will need administrator permission from IT)
-2.  Source all five sector scripts in sequence
-3.  Combine the outputs into a single `ghg_emissions` data frame
-4.  Write `ghg_emissions.csv` and `mei_emissions.csv` to the project root
-5.  Clear all intermediate objects from the environment, leaving only the two final data frames
+1.  Load shared parameters from `params.R`
+2.  Connect to OneDrive (a browser authentication window may open on first run)
+3.  Source all five sector scripts in sequence
+4.  Combine the outputs into a single `ghg_emissions` data frame
+5.  Write `ghg_emissions.csv` and `mei_emissions.csv` to the project root
+6.  Clear all intermediate objects from the environment, leaving only the two final data frames
 
-If any script throws an error, check: - That the OneDrive folder path is spelled correctly (Step 3) - That the DOER CSV filename matches exactly (Step 3) - That the new fiscal year's data has been entered in all relevant OneDrive sheets (Step 1)
+If any script throws an error, check: - That the OneDrive folder name in `params.R` is spelled correctly and exists on OneDrive - That the DOER CSV filename in `mei.R` matches the file in the project root exactly - That the new fiscal year's data has been entered in all relevant OneDrive sheets (Step 1)
 
 ------------------------------------------------------------------------
 
@@ -117,3 +108,14 @@ quarto render
 The rendered HTML book will be output to `report/_book/`. Open `report/_book/index.html` to preview.
 
 ------------------------------------------------------------------------
+
+## Summary Checklist
+
+- [ ] New fiscal year data entered in OneDrive spreadsheets
+- [ ] DOER CSV downloaded and placed in project root
+- [ ] `current_year`, `inventory_years`, and `onedrive_folder` updated in `params.R`
+- [ ] DOER CSV filename updated in `mei.R`
+- [ ] `run_all.R` run successfully; `ghg_emissions.csv` and `mei_emissions.csv` regenerated
+- [ ] Book title updated in `report/_quarto.yml`
+- [ ] Narrative text reviewed and updated in `.qmd` chapters
+- [ ] Report rendered; output reviewed in `report/_book/`

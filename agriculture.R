@@ -2,13 +2,15 @@ library(tidyverse)
 library(Microsoft365R)
 library(readxl)
 
-# connecting to Onedrive and reading inputs
+if (!exists("onedrive_folder")) source("params.R")
 if (!exists("od")) od <- get_business_onedrive()
-item <- od$get_item("2026_GHG_update/livestock_agriculture_inputs.xlsx")
+
+# connecting to Onedrive and reading inputs
+item <- od$get_item(paste0(onedrive_folder, "/livestock_agriculture_inputs.xlsx"))
 tmp <- tempfile(fileext = ".xlsx")
 item$download(dest = tmp)
 
-item2 <- od$get_item("2026_GHG_update/clean_in_the_sheets.xlsx")
+item2 <- od$get_item(paste0(onedrive_folder, "/clean_in_the_sheets.xlsx"))
 tmp2 <- tempfile(fileext = ".xlsx")
 item2$download(dest = tmp2)
 

@@ -2,6 +2,8 @@ library(tidyverse)
 library(Microsoft365R)
 library(readxl)
 
+source("params.R")
+
 od <- get_business_onedrive()
 
 source("stationary.R")

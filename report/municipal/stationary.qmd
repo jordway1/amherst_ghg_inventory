@@ -7,12 +7,20 @@ title: "Municipal Stationary Energy"
 source("../params.R")
 library(tidyverse)
 mei_final <- read_csv("../mei_final.csv") 
-mei_stationary <- mei_final %>% filter(fiscal_year %in% c(2016, 2022, 2025), supercategory == "stationary_energy")
+mei_stationary <- mei_final %>% filter(fiscal_year %in% inventory_years, supercategory == "stationary_energy")
 ```
+
+```{r}
+mei_2016_stationary <- mei_stationary |> filter(fiscal_year == 2016) |> pull(emission_mtco2e) |> sum() |> round(1)
+mei_2022_stationary <- mei_stationary |> filter(fiscal_year == 2022) |> pull(emission_mtco2e) |> sum() |> round(1)
+mei_2025_stationary <- mei_stationary |> filter(fiscal_year == 2025) |> pull(emission_mtco2e) |> sum() |> round(1)
+stationary_pct_change <- round((mei_2016_stationary - mei_2025_stationary)/mei_2016_stationary*100, 1)
+```
+
 
 ## Broad Trends in Stationary Emissions
 
-Stationary emissions accounted for 3,195 MTCO2e in 2016, and 2,704 MTCO2e in 2025, representing a **15.4% reduction**. Notably, despite an overall reduction in municipal emissions since 2022, stationary energy emissions were slightly higher in 2025 than they were in 2022, an increase of 78 MTCO2e. 
+Stationary emissions accounted for `r mei_2016_stationary` MTCO2e in 2016, and `r mei_2025_stationary` MTCO2e in 2025, representing a **`r stationary_pct_change`% reduction**. Notably, despite an overall reduction in municipal emissions since 2022, stationary energy emissions were slightly higher in 2025 than they were in 2022, an increase of `r mei_2025_stationary - mei_2022_stationary` MTCO2e. 
 
 ```{r}
 #| echo: false
@@ -140,7 +148,7 @@ ggplotly(p, tooltip = "text")
 
 ```{r}
 top_emitters <- mei_stationary %>%
-  filter(fiscal_year == 2025) %>%
+  filter(fiscal_year == current_year) %>%
   group_by(building) %>%
   summarize(total_emissions = sum(emission_mtco2e)) %>%
   arrange(desc(total_emissions)) %>%
@@ -148,17 +156,17 @@ top_emitters <- mei_stationary %>%
   pull(building)
 
 top_building_emissions <- mei_stationary %>%
-  filter(building %in% top_emitters, fiscal_year == 2025) %>%
+  filter(building %in% top_emitters, fiscal_year == current_year) %>%
   summarize(total_emissions = sum(emission_mtco2e)) %>%
   pull(total_emissions)
  
-emissions_2025 <- mei_final %>% filter(fiscal_year == 2025) %>% pull(emission_mtco2e) %>% sum()
+emissions_2025 <- mei_final %>% filter(fiscal_year == current_year) %>% pull(emission_mtco2e) %>% sum()
 stationary_emissions_2025 <-  mei_final %>% 
-  filter(fiscal_year == 2025, supercategory == "stationary_energy") %>% 
+  filter(fiscal_year == current_year, supercategory == "stationary_energy") %>% 
   pull(emission_mtco2e) %>% 
   sum()
 school_emissions_2025 <- mei_final %>% 
-  filter(fiscal_year == 2025, supercategory == "stationary_energy", building %in% c("Wildwood ES", "Fort River ES")) %>% 
+  filter(fiscal_year == current_year, supercategory == "stationary_energy", building %in% c("Wildwood ES", "Fort River ES")) %>% 
   pull(emission_mtco2e) %>% 
   sum()
 
@@ -166,9 +174,10 @@ school_emissions_2025 <- mei_final %>%
 
 
 The 10 municipal facilities with the highest emissions account for `r round(top_building_emissions, 1)` MTCO2e in 2025, which accounts for `r round(top_building_emissions/emissions_2025 * 100)`% of total municipal emissions.
-- The new Amethyst Brook Elementary School is scheduled to be completed by the end of 2026, and will be a **net zero** facility. This building will replace both the Wildwood and Fort River elementary schools, which together account for `r round(school_emissions_2025, 1)` MTCO2e in FY 2025.
-- The Jones Library renovation project is expected to be completed in early 2027. This is another **net zero** facility, which accounts for 119 MTCO2e in FY 2025, prior to renovations.
-- Pump station facilities increased fuel consumption and emissions due to the completion of the Centennial facility.
+
+  - The new Amethyst Brook Elementary School is scheduled to be completed by the end of 2026, and will be a **net zero** facility. This building will replace both the Wildwood and Fort River elementary schools, which together account for `r round(school_emissions_2025, 1)` MTCO2e in FY 2025.
+  - The Jones Library renovation project is expected to be completed in early 2027. This is another **net zero** facility, which accounts for 119 MTCO2e in FY 2025, prior to renovations.
+  - Pump station facilities increased fuel consumption and emissions due to the completion of the Centennial facility.
 
 Wildwood, Fort River, and Crocker Farm Elementary Schools combine for `r round(school_emissions_2025, 1)` MTCO2e emissions in 2025, which amounts to `r round(school_emissions_2025/stationary_emissions_2025*100, 1)`% of municipal stationary emissions in 2025, or **`r round(school_emissions_2025/emissions_2025*100, 1)`% of total municipal emissions in 2025.**
 
@@ -176,7 +185,7 @@ Wildwood, Fort River, and Crocker Farm Elementary Schools combine for `r round(s
 ```{r}
 #| tbl-cap: Emissions (MTCO2e) data for highest-emissions facilities, with percent change in emissions from both 2016 and 2022 inventories.
 top_emitters <- mei_stationary %>%
-  filter(fiscal_year == 2025) %>%
+  filter(fiscal_year == current_year) %>%
   group_by(building) %>%
   summarize(total_emissions = sum(emission_mtco2e)) %>%
   arrange(desc(total_emissions)) %>%
@@ -188,14 +197,15 @@ mei_stationary %>%
   group_by(fiscal_year, building, building_subcategory) %>% 
   summarize(emissions = sum(emission_mtco2e), .groups = "drop") %>%
   pivot_wider(names_from = fiscal_year, values_from = emissions) %>%
-  mutate(pct_change_2016 = ((`2025` - `2016`) / `2016`),
-         pct_change_2022 = ((`2025` - `2022`) / `2022`)) %>%
-  arrange(desc(`2025`)) %>%
+  rename(current = !!sym(as.character(current_year))) %>%
+  mutate(pct_change_2016 = ((current - `2016`) / `2016`),
+         pct_change_2022 = ((current - `2022`) / `2022`)) %>%
+  arrange(desc(current)) %>%
   gt() %>%
   cols_label(building = "Facility", building_subcategory = "Facility Subcategory", 
-             `2016` = "FY 2016", `2022` = "FY 2022", `2025` = "FY 2025",
+             `2016` = "FY 2016", `2022` = "FY 2022", current = paste0("FY ", current_year),
              pct_change_2016 = "Change Since 2016", pct_change_2022 = "Change Since 2022") %>%
-  fmt_number(columns = `2016`:`2025`, decimals = 1, use_seps=TRUE) %>%
+  fmt_number(columns = c(`2016`, `2022`, current), decimals = 1, use_seps=TRUE) %>%
   fmt_percent(columns = pct_change_2016:pct_change_2022, decimals = 1) %>%
   data_color(
     columns = c(pct_change_2016, pct_change_2022),
@@ -252,7 +262,7 @@ mei_final %>%
 #| label: fig-electric-consumers
 #| fig-cap: "Highest electricity-consuming facilities (MWh) in 2025."
 mei_final %>%
-  filter(account_fuel == "Electric", fiscal_year == 2025) %>%
+  filter(account_fuel == "Electric", fiscal_year == current_year) %>%
   group_by(building) %>%
   summarize(electricity_usage = sum(use_updated_units), .groups="drop") %>%
   arrange(desc(electricity_usage)) %>%
@@ -268,7 +278,7 @@ mei_final %>%
 #| tbl-cap: "Highest electricity-consuming (MWh) facilities in 2025, with their associated emissions (MTCO2e)."
 
 mei_final %>%
-  filter(account_fuel == "Electric", fiscal_year == 2025) %>%
+  filter(account_fuel == "Electric", fiscal_year == current_year) %>%
   group_by(building) %>%
   summarize(electricity_usage = sum(use_updated_units), 
             emissions_mtco2e = sum(emission_mtco2e),
@@ -312,7 +322,7 @@ mei_final %>%
 #| label: fig-gas-consumers
 #| fig-cap: "Highest methane gas-consuming facilities (therms) in 2025."
 mei_final %>%
-  filter(account_fuel == "Gas", fiscal_year == 2025) %>%
+  filter(account_fuel == "Gas", fiscal_year == current_year) %>%
   group_by(building) %>%
   summarize(usage = sum(use_updated_units), .groups="drop") %>%
   arrange(desc(usage)) %>%
@@ -328,7 +338,7 @@ mei_final %>%
 #| tbl-cap: "Highest methane gas-consuming (therms) facilities in 2025, with their associated emissions (MTCO2e)."
 
 mei_final %>%
-  filter(account_fuel == "Gas", fiscal_year == 2025) %>%
+  filter(account_fuel == "Gas", fiscal_year == current_year) %>%
   group_by(building) %>%
   summarize(usage = sum(use_updated_units), 
             emissions_mtco2e = sum(emission_mtco2e),
@@ -374,7 +384,7 @@ mei_final %>%
 #| label: fig-oil-consumers
 #| fig-cap: "Highest oil-consuming facilities (gallons) in 2025."
 mei_final %>%
-  filter(account_fuel == "Oil", fiscal_year == 2025) %>%
+  filter(account_fuel == "Oil", fiscal_year == current_year) %>%
   group_by(building) %>%
   summarize(usage = sum(use_updated_units), .groups="drop") %>%
   arrange(desc(usage)) %>%
@@ -390,7 +400,7 @@ mei_final %>%
 #| tbl-cap: "Highest oil-consuming (gallons) facilities in 2025, with their associated emissions (MTCO2e)."
 
 mei_final %>%
-  filter(account_fuel == "Oil", fiscal_year == 2025) %>%
+  filter(account_fuel == "Oil", fiscal_year == current_year) %>%
   group_by(building) %>%
   summarize(usage = sum(use_updated_units), 
             emissions_mtco2e = sum(emission_mtco2e),

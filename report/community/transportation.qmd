@@ -17,8 +17,20 @@ ghg_emissions <- read_csv("../ghg_emissions.csv") |>
   supercategory = factor(supercategory, levels = c("AFOLU", "Waste", "Transportation", "Stationary Energy"))
   )
 transportation_emissions <- ghg_emissions |> filter(supercategory == "Transportation")
+
+
 ```
 
+
+## Overall Trends in Transportation Emissions
+
+```{r}
+transportation_2016 <- transportation_emissions |> filter(input_year == 2016) |> pull(total_mtco2e) |> sum()
+transportation_2025 <- transportation_emissions |> filter(input_year == 2025) |> pull(total_mtco2e) |> sum()
+pct_change <- (transportation_2016 - transportation_2025)/transportation_2016*100
+```
+
+Emissions related to transportation fell from `r round(transportation_2016,1)` MTCO2e in FY 2016 to `r round(transportation_2025,1)` MTCO2e in FY 2025, a **`r round(pct_change,1)`% decrease**. While there has been a reduction in emissions since FY 2016, there has actually been an increase in emissions since FY 2022. This is due to an increase in the estimated FY 2025 total miles driven in Amherst by the Massachusetts Vehicle Census.
 
 ```{r}
 #| label: fig-transportation-community
@@ -54,19 +66,26 @@ transportation_emissions |>
   fmt_number(columns = total, decimals = 0, use_seps=TRUE)
 ```
 
+## Emissions by Entity
+
+The primary source of transportation emissions are coded as "community" emissions, rather than being attributed to any one of the colleges. Emissions related to the colleges reflect only institutional fleet operations like buses, maintenance and service vehicles. Personal travel and commuting by students and faculty are not reflected by these figures. Personal driving by affiliated individuals living in Amherst is instead absorbed by the "community" totals. 
+
+The current Amherst College transportation figure is a placeholder that will be updated once FY 2025 data is made available.
+
 ```{r}
 #| tbl-cap: "Transportation emissions by entity and inventory year, with percent changes since FY 2016 and FY 2022 inventories."
 transportation_emissions |> 
   group_by(input_year, entity) |> 
   summarize(emissions = sum(total_mtco2e), .groups = "drop") |>
   pivot_wider(names_from = input_year, values_from = emissions) |>
-  mutate(pct_change_2016 = ((`2025` - `2016`) / `2016`),
-         pct_change_2022 = ((`2025` - `2022`) / `2022`)) |>
-  arrange(desc(`2025`)) |>
+  rename(current = !!sym(as.character(current_year))) |>
+  mutate(pct_change_2016 = ((current - `2016`) / `2016`),
+         pct_change_2022 = ((current - `2022`) / `2022`)) |>
+  arrange(desc(current)) |>
   gt() |>
-  cols_label(entity = "Entity", `2016` = "FY 2016", `2022` = "FY 2022", `2025` = "FY 2025",
+  cols_label(entity = "Entity", `2016` = "FY 2016", `2022` = "FY 2022", current = paste0("FY ", current_year),
              pct_change_2016 = "Change Since 2016", pct_change_2022 = "Change Since 2022") |>
-  fmt_number(columns = `2016`:`2025`, decimals = 1, use_seps=TRUE) |>
+  fmt_number(columns = c(`2016`, `2022`, current), decimals = 1, use_seps=TRUE) |>
   fmt_percent(columns = pct_change_2016:pct_change_2022, decimals = 1) |>
   data_color(
     columns = c(pct_change_2016, pct_change_2022),
@@ -74,3 +93,5 @@ transportation_emissions |>
     palette = c("#2ca25f", "#ffffff", "#de2d26"), 
     domain = c(-0.7, 0.7))
 ```
+
+*Note: FY 2016 Hampshire College direct transportation emissions data was not available.*

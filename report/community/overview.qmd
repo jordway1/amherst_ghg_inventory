@@ -24,7 +24,7 @@ pct_decrease <- (baseline_year_emissions - current_year_emissions)/baseline_year
 
 ## Progress to Date
 
-Community-wide emissions have decreased from `r comma(round(baseline_year_emissions,1))` MTCO2e in FY 2016 to `r comma(round(current_year_emissions,1))` in FY 2025, a `r round(pct_decrease,1)`% decrease, falling short of the 25% reduction target for 2025.
+Community-wide emissions have decreased from `r comma(round(baseline_year_emissions,1))` MTCO2e in FY 2016 to `r comma(round(current_year_emissions,1))` in FY 2025, a `r round(pct_decrease,1)`% decrease, falling short of the 25% reduction target for 2025. At present, this does not reflect any reduction in emissions from Amherst College, as that data has not been provided for FY 2025. It is likely that Amherst has lower FY 2025 emissions than what is currently reflected in the data due to their sustainability initiatives. UMass also has a number of major sustainability projects underway that will lead to meaningful emissions reductions in coming years, discussed below.
 
 ```{r}
 #| label: fig-community-trend
@@ -95,13 +95,14 @@ ghg_emissions |>
   group_by(input_year, entity) |>
   summarize(emissions = sum(total_mtco2e, na.rm = TRUE), .groups = "drop") |> 
   pivot_wider(names_from = input_year, values_from = emissions) |> 
-  mutate(pct_change_2016 = ((`2025` - `2016`) / `2016`),
-         pct_change_2022 = ((`2025` - `2022`) / `2022`)) |>
-  arrange(desc(`2025`)) |>
+  rename(current = !!sym(as.character(current_year))) |>
+  mutate(pct_change_2016 = ((current - `2016`) / `2016`),
+         pct_change_2022 = ((current - `2022`) / `2022`)) |>
+  arrange(desc(current)) |>
   gt() |> 
-  cols_label(entity = "Entity", `2016` = "FY 2016", `2022` = "FY 2022", `2025` = "FY 2025",
+  cols_label(entity = "Entity", `2016` = "FY 2016", `2022` = "FY 2022", current = paste0("FY ", current_year),
              pct_change_2016 = "Change Since 2016", pct_change_2022 = "Change Since 2022") |>
-  fmt_number(columns = `2016`:`2025`, decimals = 1, use_seps=TRUE) |>
+  fmt_number(columns = c(`2016`, `2022`, current), decimals = 1, use_seps=TRUE) |>
   fmt_percent(columns = pct_change_2016:pct_change_2022, decimals = 1) |>
   data_color(
     columns = c(pct_change_2016, pct_change_2022),
@@ -114,7 +115,10 @@ ghg_emissions |>
 ### UMass Amherst
 
 While emissions from UMass Amherst have only modestly decreased since 2016, the university has several major construction projects underway that will lead to significant emissions reductions upon their completion. Some of these projects include:
-- North Exchange Energy Center (NEEC) and Thermal Energy Storage (TES). The NEEC has a 640-ton heating/cooling capacity with 70 wells at 800ft depth each.These two projects are at or near completion.
+
+  - North Exchange Energy Center (NEEC) and Thermal Energy Storage (TES). The NEEC has a 640-ton heating/cooling capacity with 70 wells at 800ft depth each.These two projects are at or near completion.
+  - Computer Science Laboratories Building: A 94,300 GSF facility
+  - Flint Hall Renovation: 
 
 ## Emissions by Sector
 
@@ -147,13 +151,14 @@ ghg_emissions |>
   group_by(input_year, supercategory) |>
   summarize(emissions = sum(total_mtco2e, na.rm = TRUE), .groups = "drop") |> 
   pivot_wider(names_from = input_year, values_from = emissions) |> 
-  mutate(pct_change_2016 = ((`2025` - `2016`) / `2016`),
-         pct_change_2022 = ((`2025` - `2022`) / `2022`)) |>
-  arrange(desc(`2025`)) |>
+  rename(current = !!sym(as.character(current_year))) |>
+  mutate(pct_change_2016 = ((current - `2016`) / `2016`),
+         pct_change_2022 = ((current - `2022`) / `2022`)) |>
+  arrange(desc(current)) |>
   gt() |> 
-  cols_label(supercategory = "Sector", `2016` = "FY 2016", `2022` = "FY 2022", `2025` = "FY 2025",
+  cols_label(supercategory = "Sector", `2016` = "FY 2016", `2022` = "FY 2022", current = paste0("FY ", current_year),
              pct_change_2016 = "Change Since 2016", pct_change_2022 = "Change Since 2022") |>
-  fmt_number(columns = `2016`:`2025`, decimals = 1, use_seps=TRUE) |>
+  fmt_number(columns = c(`2016`, `2022`, current), decimals = 1, use_seps=TRUE) |>
   fmt_percent(columns = pct_change_2016:pct_change_2022, decimals = 1) |>
   data_color(
     columns = c(pct_change_2016, pct_change_2022),

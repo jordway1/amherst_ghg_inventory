@@ -42,7 +42,7 @@ Municipal emissions related to transportation decreased from 1,230 MTCO2e in FY 
 
 
 mei_final |> 
-  filter(fiscal_year >= 2016, supercategory == "transportation") |>
+  filter(fiscal_year >= baseline_year, supercategory == "transportation") |>
   group_by(fiscal_year_string, inventory_year) |>
   summarize(total_emissions = sum(emission_mtco2e)) |>
   ggplot(aes(fiscal_year_string, total_emissions, group = 1)) +
@@ -86,7 +86,7 @@ mei_transportation |>
 #| fig-cap: "Municipal transportation emissions per year by fuel type."
 
 p <- mei_final |>
-  filter(fiscal_year >= 2016, supercategory == "transportation") |>
+  filter(fiscal_year >= baseline_year, supercategory == "transportation") |>
   mutate(account_fuel = factor(account_fuel, levels = c("Diesel", "Gasoline")),
          inventory_year = as.character(inventory_year)) |>
   group_by(fiscal_year_string, inventory_year, account_fuel) |>
@@ -144,19 +144,20 @@ mei_transportation |>
 
 ```{r}
 mei_transportation |> 
-  filter(fiscal_year %in% c(2016, 2022, 2025)) |>
+  filter(fiscal_year %in% inventory_years) |>
   group_by(fiscal_year, fleet_group) |> 
   summarize(emissions = sum(emission_mtco2e), .groups = "drop") |>
   pivot_wider(names_from = fiscal_year, values_from = emissions) |>
-  mutate(pct_change_2016 = ((`2025` - `2016`) / `2016`),
-         pct_change_2022 = ((`2025` - `2022`) / `2022`)) |>
-  arrange(desc(`2025`)) |>
-  slice_max(`2025`, n=6) |>
+  rename(current = !!sym(as.character(current_year))) |>
+  mutate(pct_change_2016 = ((current - `2016`) / `2016`),
+         pct_change_2022 = ((current - `2022`) / `2022`)) |>
+  arrange(desc(current)) |>
+  slice_max(current, n=6) |>
   gt() |>
   cols_label(fleet_group = "Fleet Group", 
-             `2016` = "FY 2016", `2022` = "FY 2022", `2025` = "FY 2025",
+             `2016` = "FY 2016", `2022` = "FY 2022", current = paste0("FY ", current_year),
              pct_change_2016 = "Change Since 2016", pct_change_2022 = "Change Since 2022") |>
-  fmt_number(columns = `2016`:`2025`, decimals = 1, use_seps=TRUE) |>
+  fmt_number(columns = c(`2016`, `2022`, current), decimals = 1, use_seps=TRUE) |>
   fmt_percent(columns = pct_change_2016:pct_change_2022, decimals = 1) |>
   data_color(columns = c(pct_change_2016, pct_change_2022),
     direction = "column",

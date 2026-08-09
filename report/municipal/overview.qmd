@@ -7,7 +7,7 @@ title: "Municipal Overview"
 source("../params.R")
 ghg_emissions <- read_csv("../ghg_emissions.csv")
 municipal_emissions <- ghg_emissions |> filter(entity == "municipal") 
-mei_final <- read_csv("../mei_final.csv") |> filter(fiscal_year %in% c(2016, 2022, 2025))
+mei_final <- read_csv("../mei_final.csv") |> filter(fiscal_year %in% inventory_years)
 ```
 
 ## Progress to Date
@@ -146,8 +146,9 @@ mei_final |>
     TRUE ~ "Buildings & Stationary Infrastructure"
   )) |>
   pivot_wider(names_from = fiscal_year, values_from = total_consumption) |>
-  mutate(pct_change_2016 = ((`2025` - `2016`) / `2016`),
-         pct_change_2022 = ((`2025` - `2022`) / `2022`),
+  rename(current = !!sym(as.character(current_year))) |>
+  mutate(pct_change_2016 = ((current - `2016`) / `2016`),
+         pct_change_2022 = ((current - `2022`) / `2022`),
          updated_units = case_when(
            updated_units == "MWh" ~ updated_units,
            .default = str_to_title(updated_units)
@@ -159,9 +160,9 @@ mei_final |>
     row_group.background.color = "#f9f9f9"
   ) |>
   cols_label(account_fuel = "Fuel Type", updated_units = "Units", 
-             `2016` = "FY 2016", `2022` = "FY 2022", `2025` = "FY 2025",
+             `2016` = "FY 2016", `2022` = "FY 2022", current = paste0("FY ", current_year),
              pct_change_2016 = "Change Since 2016", pct_change_2022 = "Change Since 2022") |>
-  fmt_number(columns = `2016`:`2025`, decimals = 1, use_seps=TRUE) |>
+  fmt_number(columns = c(`2016`, `2022`, current), decimals = 1, use_seps=TRUE) |>
   fmt_percent(columns = pct_change_2016:pct_change_2022, decimals = 1) |>
   data_color(
     columns = c(pct_change_2016, pct_change_2022),

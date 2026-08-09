@@ -2,9 +2,11 @@ library(tidyverse)
 library(Microsoft365R)
 library(readxl)
 
-# read reference tables from OneDrive spreadsheet
+if (!exists("onedrive_folder")) source("params.R")
 if (!exists("od")) od <- get_business_onedrive()
-item <- od$get_item("2026_GHG_update/clean_in_the_sheets.xlsx")
+
+# read reference tables from OneDrive spreadsheet
+item <- od$get_item(paste0(onedrive_folder, "/clean_in_the_sheets.xlsx"))
 tmp <- tempfile(fileext = ".xlsx")
 item$download(dest = tmp)
 activity_emissions_key    <- read_xlsx(tmp, sheet = "activity_emissions_key")
@@ -48,21 +50,21 @@ mei_clean <- read_csv("output_doer_report_2026-07-11.csv") %>%
       building == "pump stations" ~ "Pump Stations",
       .default = building
     ),
-    inventory_year = ifelse(fiscal_year %in% c(2016,2022,2025), "1", "0"), #just add the next inventory year to this vector
+    inventory_year = ifelse(fiscal_year %in% inventory_years, "1", "0"),
     emission_mtco2e_factor = case_when(
       activity == "electricity" & fiscal_year == 2016 ~ 0.000277,
       .default = emission_mtco2e_factor
     )
   ) %>%
-  filter(fiscal_year < 2026)
+  filter(fiscal_year <= current_year)
 
 # transmission losses - this will need to be updated when new data arrives
+# I'm generalizing the loss factors since I don't want to hunt down the data for every single year
 transmission_losses <- mei_clean |> 
   mutate(loss_year = case_when(
     fiscal_year <= 2016 ~ 2016,
     fiscal_year <= 2022 ~ 2022,
-    fiscal_year <= 2025 ~ 2025,
-    .default = 2025  # anything after 2025 also falls back to the most recent factor
+    .default = current_year  # use most recent available factor for all later years
   )) |> 
   inner_join(transmission_loss_factors, by = c("activity" = "fuel_type", "loss_year" = "input_year")) |> 
   mutate(loss_amount = use_updated_units * loss_factor) |> 
