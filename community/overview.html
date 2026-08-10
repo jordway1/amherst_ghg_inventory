@@ -206,6 +206,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../final_summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Final Summary</span></span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -217,8 +223,11 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#progress-to-date" id="toc-progress-to-date" class="nav-link active" data-scroll-target="#progress-to-date"><span class="header-section-number">6.1</span> Progress to Date</a></li>
-  <li><a href="#emissions-by-sector" id="toc-emissions-by-sector" class="nav-link" data-scroll-target="#emissions-by-sector"><span class="header-section-number">6.2</span> Emissions by Sector</a></li>
-  <li><a href="#emissions-by-entity" id="toc-emissions-by-entity" class="nav-link" data-scroll-target="#emissions-by-entity"><span class="header-section-number">6.3</span> Emissions by Entity</a></li>
+  <li><a href="#emissions-by-entity" id="toc-emissions-by-entity" class="nav-link" data-scroll-target="#emissions-by-entity"><span class="header-section-number">6.2</span> Emissions by Entity</a>
+  <ul class="collapse">
+  <li><a href="#umass-amherst" id="toc-umass-amherst" class="nav-link" data-scroll-target="#umass-amherst"><span class="header-section-number">6.2.1</span> UMass Amherst</a></li>
+  </ul></li>
+  <li><a href="#emissions-by-sector" id="toc-emissions-by-sector" class="nav-link" data-scroll-target="#emissions-by-sector"><span class="header-section-number">6.3</span> Emissions by Sector</a></li>
   </ul>
 </nav>
     </div>
@@ -246,34 +255,41 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="progress-to-date" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="progress-to-date"><span class="header-section-number">6.1</span> Progress to Date</h2>
+<p>Community-wide emissions have decreased from 292,378 MTCO2e in FY 2016 to 254,608 in FY 2025, a <strong>12.9% decrease</strong>, falling short of the 25% reduction target for 2025.</p>
+<p>At present, this does not reflect any reduction in emissions from Amherst College, as that data has not yet been provided for FY 2025. These figures will be updated upon its availability. UMass also has a number of major sustainability projects underway that will lead to meaningful emissions reductions in coming years, which are discussed below. Hampshire College is regrettably set to close after the end of the Fall 2026 semester, which will also lead to a reduction in emissions.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="overview_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<div id="fig-community-trend" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-community-trend-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="overview_files/figure-html/fig-community-trend-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-community-trend-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.1: Plot of community GHG emissions (MTCO2e) by reporting year, including emissions targets set by the Town Council.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell" data-tbl-cap="Community GHG emissions by year, along with percentage reductions relative to the 2016 baseline.">
 <div class="cell-output-display">
-<div id="cvitlqysza" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#cvitlqysza table {
+<div id="ftaoscppoq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ftaoscppoq table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#cvitlqysza thead, #cvitlqysza tbody, #cvitlqysza tfoot, #cvitlqysza tr, #cvitlqysza td, #cvitlqysza th {
+#ftaoscppoq thead, #ftaoscppoq tbody, #ftaoscppoq tfoot, #ftaoscppoq tr, #ftaoscppoq td, #ftaoscppoq th {
   border-style: none;
 }
 
-#cvitlqysza p {
+#ftaoscppoq p {
   margin: 0;
   padding: 0;
 }
 
-#cvitlqysza .gt_table {
+#ftaoscppoq .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -299,12 +315,12 @@ ul.task-list li input[type="checkbox"] {
   border-left-color: #D3D3D3;
 }
 
-#cvitlqysza .gt_caption {
+#ftaoscppoq .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#cvitlqysza .gt_title {
+#ftaoscppoq .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -316,7 +332,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-width: 0;
 }
 
-#cvitlqysza .gt_subtitle {
+#ftaoscppoq .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -328,7 +344,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-width: 0;
 }
 
-#cvitlqysza .gt_heading {
+#ftaoscppoq .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -340,13 +356,13 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#cvitlqysza .gt_bottom_border {
+#ftaoscppoq .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#cvitlqysza .gt_col_headings {
+#ftaoscppoq .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -361,7 +377,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#cvitlqysza .gt_col_heading {
+#ftaoscppoq .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -381,7 +397,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#cvitlqysza .gt_column_spanner_outer {
+#ftaoscppoq .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -393,15 +409,15 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 4px;
 }
 
-#cvitlqysza .gt_column_spanner_outer:first-child {
+#ftaoscppoq .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#cvitlqysza .gt_column_spanner_outer:last-child {
+#ftaoscppoq .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#cvitlqysza .gt_column_spanner {
+#ftaoscppoq .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -413,11 +429,11 @@ ul.task-list li input[type="checkbox"] {
   width: 100%;
 }
 
-#cvitlqysza .gt_spanner_row {
+#ftaoscppoq .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#cvitlqysza .gt_group_heading {
+#ftaoscppoq .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -443,7 +459,7 @@ ul.task-list li input[type="checkbox"] {
   text-align: left;
 }
 
-#cvitlqysza .gt_empty_group_heading {
+#ftaoscppoq .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -458,15 +474,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 
-#cvitlqysza .gt_from_md > :first-child {
+#ftaoscppoq .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#cvitlqysza .gt_from_md > :last-child {
+#ftaoscppoq .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#cvitlqysza .gt_row {
+#ftaoscppoq .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -485,7 +501,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#cvitlqysza .gt_stub {
+#ftaoscppoq .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -498,7 +514,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#cvitlqysza .gt_stub_row_group {
+#ftaoscppoq .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -512,15 +528,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: top;
 }
 
-#cvitlqysza .gt_row_group_first td {
+#ftaoscppoq .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#cvitlqysza .gt_row_group_first th {
+#ftaoscppoq .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#cvitlqysza .gt_summary_row {
+#ftaoscppoq .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -530,16 +546,16 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#cvitlqysza .gt_first_summary_row {
+#ftaoscppoq .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#cvitlqysza .gt_first_summary_row.thick {
+#ftaoscppoq .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#cvitlqysza .gt_last_summary_row {
+#ftaoscppoq .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -549,7 +565,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#cvitlqysza .gt_grand_summary_row {
+#ftaoscppoq .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -559,7 +575,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#cvitlqysza .gt_first_grand_summary_row {
+#ftaoscppoq .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -569,7 +585,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-color: #D3D3D3;
 }
 
-#cvitlqysza .gt_last_grand_summary_row_top {
+#ftaoscppoq .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -579,11 +595,11 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#cvitlqysza .gt_striped {
+#ftaoscppoq .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#cvitlqysza .gt_table_body {
+#ftaoscppoq .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -592,7 +608,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#cvitlqysza .gt_footnotes {
+#ftaoscppoq .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -606,7 +622,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#cvitlqysza .gt_footnote {
+#ftaoscppoq .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -615,7 +631,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#cvitlqysza .gt_sourcenotes {
+#ftaoscppoq .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -629,7 +645,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#cvitlqysza .gt_sourcenote {
+#ftaoscppoq .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -637,72 +653,72 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#cvitlqysza .gt_left {
+#ftaoscppoq .gt_left {
   text-align: left;
 }
 
-#cvitlqysza .gt_center {
+#ftaoscppoq .gt_center {
   text-align: center;
 }
 
-#cvitlqysza .gt_right {
+#ftaoscppoq .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#cvitlqysza .gt_font_normal {
+#ftaoscppoq .gt_font_normal {
   font-weight: normal;
 }
 
-#cvitlqysza .gt_font_bold {
+#ftaoscppoq .gt_font_bold {
   font-weight: bold;
 }
 
-#cvitlqysza .gt_font_italic {
+#ftaoscppoq .gt_font_italic {
   font-style: italic;
 }
 
-#cvitlqysza .gt_super {
+#ftaoscppoq .gt_super {
   font-size: 65%;
 }
 
-#cvitlqysza .gt_footnote_marks {
+#ftaoscppoq .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#cvitlqysza .gt_asterisk {
+#ftaoscppoq .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#cvitlqysza .gt_indent_1 {
+#ftaoscppoq .gt_indent_1 {
   text-indent: 5px;
 }
 
-#cvitlqysza .gt_indent_2 {
+#ftaoscppoq .gt_indent_2 {
   text-indent: 10px;
 }
 
-#cvitlqysza .gt_indent_3 {
+#ftaoscppoq .gt_indent_3 {
   text-indent: 15px;
 }
 
-#cvitlqysza .gt_indent_4 {
+#ftaoscppoq .gt_indent_4 {
   text-indent: 20px;
 }
 
-#cvitlqysza .gt_indent_5 {
+#ftaoscppoq .gt_indent_5 {
   text-indent: 25px;
 }
 
-#cvitlqysza .katex-display {
+#ftaoscppoq .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#cvitlqysza div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ftaoscppoq div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -719,18 +735,18 @@ ul.task-list li input[type="checkbox"] {
 <tbody class="gt_table_body">
 <tr class="odd">
 <td class="gt_row gt_left" headers="fiscal_year">FY 2016</td>
-<td class="gt_row gt_right" headers="total">290,990</td>
-<td class="gt_row gt_right" headers="percent_change">0%</td>
+<td class="gt_row gt_right" headers="total">292,378</td>
+<td class="gt_row gt_right" headers="percent_change">0.0%</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="fiscal_year">FY 2022</td>
-<td class="gt_row gt_right" headers="total">256,239</td>
-<td class="gt_row gt_right" headers="percent_change">-12%</td>
+<td class="gt_row gt_right" headers="total">262,105</td>
+<td class="gt_row gt_right" headers="percent_change">-10.4%</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="fiscal_year">FY 2025</td>
-<td class="gt_row gt_right" headers="total">119,390</td>
-<td class="gt_row gt_right" headers="percent_change">-59%</td>
+<td class="gt_row gt_right" headers="total">254,608</td>
+<td class="gt_row gt_right" headers="percent_change">-12.9%</td>
 </tr>
 </tbody>
 </table>
@@ -739,552 +755,33 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="emissions-by-sector" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="emissions-by-sector"><span class="header-section-number">6.2</span> Emissions by Sector</h2>
-<div class="cell">
-<div id="fig-community-emissions-sector" class="cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-community-emissions-sector-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-af2e9ab8b20b9e2cfa8c" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-af2e9ab8b20b9e2cfa8c">{"x":{"data":[{"orientation":"v","width":[0.89999999999999991,0.90000000000000013],"base":[290148.26441737678,255332.81953011156],"x":[1,2],"y":[842.22672837454593,906.59048720568535],"text":["Sector: AFOLU<br>Emissions: 842<br>Share: 0.3%","Sector: AFOLU<br>Emissions: 907<br>Share: 0.4%"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(139,38,53,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"AFOLU","legendgroup":"AFOLU","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.89999999999999991,0.90000000000000013],"base":[282881.37752740318,251685.73008154336],"x":[1,2],"y":[7266.8868899735971,3647.0894485682074],"text":["Sector: Waste<br>Emissions: 7,267<br>Share: 2.5%","Sector: Waste<br>Emissions: 3,647<br>Share: 1.4%"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(46,125,140,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Waste","legendgroup":"Waste","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.89999999999999991,0.90000000000000013,0.90000000000000036],"base":[215274.5759529598,195769.28041397996,116847.81509706579],"x":[1,2,3],"y":[67606.80157444338,55916.4496675634,2542.4453417720069],"text":["Sector: Transportation<br>Emissions: 67,607<br>Share: 23.2%","Sector: Transportation<br>Emissions: 55,916<br>Share: 21.8%","Sector: Transportation<br>Emissions: 2,542<br>Share: 2.1%"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(90,122,94,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Transportation","legendgroup":"Transportation","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.89999999999999991,0.90000000000000013,0.90000000000000036],"base":[0,0,0],"x":[1,2,3],"y":[215274.5759529598,195769.28041397996,116847.81509706579],"text":["Sector: Stationary Energy<br>Emissions: 215,275<br>Share: 74%","Sector: Stationary Energy<br>Emissions: 195,769<br>Share: 76.4%","Sector: Stationary Energy<br>Emissions: 116,848<br>Share: 97.9%"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(201,160,64,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Stationary Energy","legendgroup":"Stationary Energy","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":22.648401826484022,"l":66.484018264840202},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"Georgia","size":14.611872146118724},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,3.6000000000000001],"tickmode":"array","ticktext":["FY 2016","FY 2022","FY 2025"],"tickvals":[1,2,3],"categoryorder":"array","categoryarray":["FY 2016","FY 2022","FY 2025"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"Georgia","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":null,"family":null,"size":0}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-14549.524557287566,305540.01570303889],"tickmode":"array","ticktext":["0","100,000","200,000","300,000"],"tickvals":[0,100000,199999.99999999997,300000],"categoryorder":"array","categoryarray":["0","100,000","200,000","300,000"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"Georgia","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"MTCO2e","font":{"color":"rgba(0,0,0,1)","family":"Georgia","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"Georgia","size":11.68949771689498},"title":{"text":"","font":{"color":null,"family":null,"size":0}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"3bb550a648ea":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"}},"cur_data":"3bb550a648ea","visdat":{"3bb550a648ea":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-community-emissions-sector-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.1: Emissions (MTCO2e) by sector for each inventory year.
-</figcaption>
-</figure>
-</div>
-</div>
-<div class="cell" data-tbl-cap="Emissions (MTCO2e) per inventory year by sector, along with percent changes from FY 2016 and FY 2022.">
-<div class="cell-output-display">
-<div id="poyslmmisv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#poyslmmisv table {
-  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#poyslmmisv thead, #poyslmmisv tbody, #poyslmmisv tfoot, #poyslmmisv tr, #poyslmmisv td, #poyslmmisv th {
-  border-style: none;
-}
-
-#poyslmmisv p {
-  margin: 0;
-  padding: 0;
-}
-
-#poyslmmisv .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#poyslmmisv .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#poyslmmisv .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#poyslmmisv .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#poyslmmisv .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#poyslmmisv .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#poyslmmisv .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#poyslmmisv .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#poyslmmisv .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#poyslmmisv .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#poyslmmisv .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#poyslmmisv .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#poyslmmisv .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-
-#poyslmmisv .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#poyslmmisv .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#poyslmmisv .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#poyslmmisv .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#poyslmmisv .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#poyslmmisv .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#poyslmmisv .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#poyslmmisv .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#poyslmmisv .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#poyslmmisv .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#poyslmmisv .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#poyslmmisv .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#poyslmmisv .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#poyslmmisv .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#poyslmmisv .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#poyslmmisv .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
-}
-
-#poyslmmisv .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#poyslmmisv .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#poyslmmisv .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#poyslmmisv .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#poyslmmisv .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#poyslmmisv .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#poyslmmisv .gt_left {
-  text-align: left;
-}
-
-#poyslmmisv .gt_center {
-  text-align: center;
-}
-
-#poyslmmisv .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#poyslmmisv .gt_font_normal {
-  font-weight: normal;
-}
-
-#poyslmmisv .gt_font_bold {
-  font-weight: bold;
-}
-
-#poyslmmisv .gt_font_italic {
-  font-style: italic;
-}
-
-#poyslmmisv .gt_super {
-  font-size: 65%;
-}
-
-#poyslmmisv .gt_footnote_marks {
-  font-size: 75%;
-  vertical-align: 0.4em;
-  position: initial;
-}
-
-#poyslmmisv .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#poyslmmisv .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#poyslmmisv .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#poyslmmisv .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#poyslmmisv .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#poyslmmisv .gt_indent_5 {
-  text-indent: 25px;
-}
-
-#poyslmmisv .katex-display {
-  display: inline-flex !important;
-  margin-bottom: 0.75em !important;
-}
-
-#poyslmmisv div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-  height: 0px !important;
-}
-</style>
-
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
-<caption>Emissions (MTCO2e) per inventory year by sector, along with percent changes from FY 2016 and FY 2022.</caption>
-<thead>
-<tr class="gt_col_headings header">
-<th id="supercategory" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Sector</th>
-<th id="a2016" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">FY 2016</th>
-<th id="a2022" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">FY 2022</th>
-<th id="a2025" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">FY 2025</th>
-<th id="pct_change_2016" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Change Since 2016</th>
-<th id="pct_change_2022" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Change Since 2022</th>
-</tr>
-</thead>
-<tbody class="gt_table_body">
-<tr class="odd">
-<td class="gt_row gt_center" headers="supercategory">Stationary Energy</td>
-<td class="gt_row gt_right" headers="2016">215,274.6</td>
-<td class="gt_row gt_right" headers="2022">195,769.3</td>
-<td class="gt_row gt_right" headers="2025">116,847.8</td>
-<td class="gt_row gt_right" headers="pct_change_2016" style="background-color: #80C394; color: #000000">−45.7%</td>
-<td class="gt_row gt_right" headers="pct_change_2022" style="background-color: #8FCAA0; color: #000000">−40.3%</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="supercategory">Transportation</td>
-<td class="gt_row gt_right" headers="2016">67,606.8</td>
-<td class="gt_row gt_right" headers="2022">55,916.4</td>
-<td class="gt_row gt_right" headers="2025">2,542.4</td>
-<td class="gt_row gt_right" headers="pct_change_2016" style="background-color: #808080; color: #FFFFFF">−96.2%</td>
-<td class="gt_row gt_right" headers="pct_change_2022" style="background-color: #808080; color: #FFFFFF">−95.5%</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="supercategory">AFOLU</td>
-<td class="gt_row gt_right" headers="2016">842.2</td>
-<td class="gt_row gt_right" headers="2022">906.6</td>
-<td class="gt_row gt_right" headers="2025">NA</td>
-<td class="gt_row gt_right" headers="pct_change_2016" style="background-color: #808080; color: #FFFFFF">NA</td>
-<td class="gt_row gt_right" headers="pct_change_2022" style="background-color: #808080; color: #FFFFFF">NA</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="supercategory">Waste</td>
-<td class="gt_row gt_right" headers="2016">7,266.9</td>
-<td class="gt_row gt_right" headers="2022">3,647.1</td>
-<td class="gt_row gt_right" headers="2025">NA</td>
-<td class="gt_row gt_right" headers="pct_change_2016" style="background-color: #808080; color: #FFFFFF">NA</td>
-<td class="gt_row gt_right" headers="pct_change_2022" style="background-color: #808080; color: #FFFFFF">NA</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-</section>
-<section id="emissions-by-entity" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="emissions-by-entity"><span class="header-section-number">6.3</span> Emissions by Entity</h2>
+<section id="emissions-by-entity" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="emissions-by-entity"><span class="header-section-number">6.2</span> Emissions by Entity</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-7c08d23bf5b162ba5c44" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-7c08d23bf5b162ba5c44">{"x":{"data":[{"orientation":"v","width":[0.89999999999999991,0.90000000000000013],"base":[289061.16147856042,252856.75727914774],"x":[1,2],"y":[1929.3296671909047,3382.6527381694468],"text":["Entity: Hampshire College<br>Emissions: 1,929<br>Share: 0.7%","Entity: Hampshire College<br>Emissions: 3,383<br>Share: 1.3%"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(139,38,53,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Hampshire College","legendgroup":"Hampshire College","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.89999999999999991,0.90000000000000013,0.90000000000000036],"base":[284573.54381455627,248958.40020471247,115658.41],"x":[1,2,3],"y":[4487.6176640041522,3898.3570744352764,3731.8504388377914],"text":["Entity: Municipal<br>Emissions: 4,488<br>Share: 1.5%","Entity: Municipal<br>Emissions: 3,898<br>Share: 1.5%","Entity: Municipal<br>Emissions: 3,732<br>Share: 3.1%"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(46,125,140,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Municipal","legendgroup":"Municipal","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.89999999999999991,0.90000000000000013],"base":[267091.52326832642,234884.08878788335],"x":[1,2],"y":[17482.020546229847,14074.311416829121],"text":["Entity: Amherst College<br>Emissions: 17,482<br>Share: 6%","Entity: Amherst College<br>Emissions: 14,074<br>Share: 5.5%"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(90,122,94,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Amherst College","legendgroup":"Amherst College","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.89999999999999991,0.90000000000000013,0.90000000000000036],"base":[144014.93919621385,122608.45169889212,0],"x":[1,2,3],"y":[123076.58407211257,112275.63708899122,115658.41],"text":["Entity: UMass<br>Emissions: 123,077<br>Share: 42.3%","Entity: UMass<br>Emissions: 112,276<br>Share: 43.8%","Entity: UMass<br>Emissions: 115,658<br>Share: 96.9%"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(201,160,64,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"UMass","legendgroup":"UMass","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.89999999999999991,0.90000000000000013],"base":[0,0],"x":[1,2],"y":[144014.93919621385,122608.45169889212],"text":["Entity: Community<br>Emissions: 144,015<br>Share: 49.5%","Entity: Community<br>Emissions: 122,608<br>Share: 47.8%"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(91,111,126,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Community","legendgroup":"Community","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":22.648401826484022,"l":66.484018264840202},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"Georgia","size":14.611872146118724},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,3.6000000000000001],"tickmode":"array","ticktext":["FY 2016","FY 2022","FY 2025"],"tickvals":[1,2,3],"categoryorder":"array","categoryarray":["FY 2016","FY 2022","FY 2025"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"Georgia","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":null,"family":null,"size":0}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-14549.524557287566,305540.01570303889],"tickmode":"array","ticktext":["0","100,000","200,000","300,000"],"tickvals":[0,100000,199999.99999999997,300000],"categoryorder":"array","categoryarray":["0","100,000","200,000","300,000"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"Georgia","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"MTCO2e","font":{"color":"rgba(0,0,0,1)","family":"Georgia","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"Georgia","size":11.68949771689498},"title":{"text":"","font":{"color":null,"family":null,"size":0}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"3bb5351c9d5a":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"}},"cur_data":"3bb5351c9d5a","visdat":{"3bb5351c9d5a":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-787da79605dfbd39e7a9" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-787da79605dfbd39e7a9">{"x":{"data":[{"orientation":"v","width":[0.89999999999999991,0.90000000000000013,0.90000000000000036],"base":[290448.59858340031,258691.57215653121,252431.98017231139],"x":[1,2,3],"y":[1929.3296671909047,3413.317867921869,2176],"text":["Entity: Hampshire College<br>Emissions: 1,929<br>Share: 0.7%","Entity: Hampshire College<br>Emissions: 3,413<br>Share: 1.3%","Entity: Hampshire College<br>Emissions: 2,176<br>Share: 0.9%"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(139,38,53,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Hampshire College","legendgroup":"Hampshire College","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.89999999999999991,0.90000000000000013,0.90000000000000036],"base":[285960.98091939616,254793.21508209594,248700.12973347362],"x":[1,2,3],"y":[4487.6176640041522,3898.3570744352764,3731.8504388377769],"text":["Entity: Municipal<br>Emissions: 4,488<br>Share: 1.5%","Entity: Municipal<br>Emissions: 3,898<br>Share: 1.5%","Entity: Municipal<br>Emissions: 3,732<br>Share: 1.5%"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(46,125,140,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Municipal","legendgroup":"Municipal","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.89999999999999991,0.90000000000000013,0.90000000000000036],"base":[268411.87334473483,240633.73482231493,234733.87174025705],"x":[1,2,3],"y":[17549.107574661321,14159.480259781005,13966.257993216568],"text":["Entity: Amherst College<br>Emissions: 17,549<br>Share: 6%","Entity: Amherst College<br>Emissions: 14,160<br>Share: 5.4%","Entity: Amherst College<br>Emissions: 13,966<br>Share: 5.5%"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(90,122,94,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Amherst College","legendgroup":"Amherst College","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.89999999999999991,0.90000000000000013,0.90000000000000036],"base":[145560.11668672264,128280.60902678022,123555.44182034394],"x":[1,2,3],"y":[122851.75665801219,112353.12579553471,111178.42991991311],"text":["Entity: UMass<br>Emissions: 122,852<br>Share: 42%","Entity: UMass<br>Emissions: 112,353<br>Share: 42.9%","Entity: UMass<br>Emissions: 111,178<br>Share: 43.7%"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(201,160,64,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"UMass","legendgroup":"UMass","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.89999999999999991,0.90000000000000013,0.90000000000000036],"base":[0,0,0],"x":[1,2,3],"y":[145560.11668672264,128280.60902678022,123555.44182034394],"text":["Entity: Community<br>Emissions: 145,560<br>Share: 49.8%","Entity: Community<br>Emissions: 128,281<br>Share: 48.9%","Entity: Community<br>Emissions: 123,555<br>Share: 48.5%"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(91,111,126,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Community","legendgroup":"Community","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":22.648401826484022,"l":66.484018264840202},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"Georgia","size":14.611872146118724},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,3.6000000000000001],"tickmode":"array","ticktext":["FY 2016","FY 2022","FY 2025"],"tickvals":[1,2,3],"categoryorder":"array","categoryarray":["FY 2016","FY 2022","FY 2025"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"Georgia","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":null,"family":null,"size":0}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-14618.896412529561,306996.82466312079],"tickmode":"array","ticktext":["0","100,000","200,000","300,000"],"tickvals":[0,99999.999999999985,200000.00000000006,300000],"categoryorder":"array","categoryarray":["0","100,000","200,000","300,000"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"Georgia","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"MTCO2e","font":{"color":"rgba(0,0,0,1)","family":"Georgia","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"Georgia","size":11.68949771689498},"title":{"text":"","font":{"color":null,"family":null,"size":0}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"113674da45b78":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"}},"cur_data":"113674da45b78","visdat":{"113674da45b78":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="cell" data-tbl-cap="Emissions (MTCO2e) per inventory year by entity, along with percent changes from FY 2016 and FY 2022.">
 <div class="cell-output-display">
-<div id="rceonsewjo" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#rceonsewjo table {
+<div id="yhwfzhjcwg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#yhwfzhjcwg table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#rceonsewjo thead, #rceonsewjo tbody, #rceonsewjo tfoot, #rceonsewjo tr, #rceonsewjo td, #rceonsewjo th {
+#yhwfzhjcwg thead, #yhwfzhjcwg tbody, #yhwfzhjcwg tfoot, #yhwfzhjcwg tr, #yhwfzhjcwg td, #yhwfzhjcwg th {
   border-style: none;
 }
 
-#rceonsewjo p {
+#yhwfzhjcwg p {
   margin: 0;
   padding: 0;
 }
 
-#rceonsewjo .gt_table {
+#yhwfzhjcwg .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1310,12 +807,12 @@ Figure&nbsp;6.1: Emissions (MTCO2e) by sector for each inventory year.
   border-left-color: #D3D3D3;
 }
 
-#rceonsewjo .gt_caption {
+#yhwfzhjcwg .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#rceonsewjo .gt_title {
+#yhwfzhjcwg .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1327,7 +824,7 @@ Figure&nbsp;6.1: Emissions (MTCO2e) by sector for each inventory year.
   border-bottom-width: 0;
 }
 
-#rceonsewjo .gt_subtitle {
+#yhwfzhjcwg .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1339,7 +836,7 @@ Figure&nbsp;6.1: Emissions (MTCO2e) by sector for each inventory year.
   border-top-width: 0;
 }
 
-#rceonsewjo .gt_heading {
+#yhwfzhjcwg .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1351,13 +848,13 @@ Figure&nbsp;6.1: Emissions (MTCO2e) by sector for each inventory year.
   border-right-color: #D3D3D3;
 }
 
-#rceonsewjo .gt_bottom_border {
+#yhwfzhjcwg .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#rceonsewjo .gt_col_headings {
+#yhwfzhjcwg .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1372,7 +869,7 @@ Figure&nbsp;6.1: Emissions (MTCO2e) by sector for each inventory year.
   border-right-color: #D3D3D3;
 }
 
-#rceonsewjo .gt_col_heading {
+#yhwfzhjcwg .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1392,7 +889,7 @@ Figure&nbsp;6.1: Emissions (MTCO2e) by sector for each inventory year.
   overflow-x: hidden;
 }
 
-#rceonsewjo .gt_column_spanner_outer {
+#yhwfzhjcwg .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1404,15 +901,15 @@ Figure&nbsp;6.1: Emissions (MTCO2e) by sector for each inventory year.
   padding-right: 4px;
 }
 
-#rceonsewjo .gt_column_spanner_outer:first-child {
+#yhwfzhjcwg .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#rceonsewjo .gt_column_spanner_outer:last-child {
+#yhwfzhjcwg .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#rceonsewjo .gt_column_spanner {
+#yhwfzhjcwg .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1424,11 +921,11 @@ Figure&nbsp;6.1: Emissions (MTCO2e) by sector for each inventory year.
   width: 100%;
 }
 
-#rceonsewjo .gt_spanner_row {
+#yhwfzhjcwg .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#rceonsewjo .gt_group_heading {
+#yhwfzhjcwg .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1454,7 +951,7 @@ Figure&nbsp;6.1: Emissions (MTCO2e) by sector for each inventory year.
   text-align: left;
 }
 
-#rceonsewjo .gt_empty_group_heading {
+#yhwfzhjcwg .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1469,15 +966,15 @@ Figure&nbsp;6.1: Emissions (MTCO2e) by sector for each inventory year.
   vertical-align: middle;
 }
 
-#rceonsewjo .gt_from_md > :first-child {
+#yhwfzhjcwg .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#rceonsewjo .gt_from_md > :last-child {
+#yhwfzhjcwg .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#rceonsewjo .gt_row {
+#yhwfzhjcwg .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1496,7 +993,7 @@ Figure&nbsp;6.1: Emissions (MTCO2e) by sector for each inventory year.
   overflow-x: hidden;
 }
 
-#rceonsewjo .gt_stub {
+#yhwfzhjcwg .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1509,7 +1006,7 @@ Figure&nbsp;6.1: Emissions (MTCO2e) by sector for each inventory year.
   padding-right: 5px;
 }
 
-#rceonsewjo .gt_stub_row_group {
+#yhwfzhjcwg .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1523,15 +1020,15 @@ Figure&nbsp;6.1: Emissions (MTCO2e) by sector for each inventory year.
   vertical-align: top;
 }
 
-#rceonsewjo .gt_row_group_first td {
+#yhwfzhjcwg .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#rceonsewjo .gt_row_group_first th {
+#yhwfzhjcwg .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#rceonsewjo .gt_summary_row {
+#yhwfzhjcwg .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1541,16 +1038,16 @@ Figure&nbsp;6.1: Emissions (MTCO2e) by sector for each inventory year.
   padding-right: 5px;
 }
 
-#rceonsewjo .gt_first_summary_row {
+#yhwfzhjcwg .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#rceonsewjo .gt_first_summary_row.thick {
+#yhwfzhjcwg .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#rceonsewjo .gt_last_summary_row {
+#yhwfzhjcwg .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1560,7 +1057,7 @@ Figure&nbsp;6.1: Emissions (MTCO2e) by sector for each inventory year.
   border-bottom-color: #D3D3D3;
 }
 
-#rceonsewjo .gt_grand_summary_row {
+#yhwfzhjcwg .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1570,7 +1067,7 @@ Figure&nbsp;6.1: Emissions (MTCO2e) by sector for each inventory year.
   padding-right: 5px;
 }
 
-#rceonsewjo .gt_first_grand_summary_row {
+#yhwfzhjcwg .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1580,7 +1077,7 @@ Figure&nbsp;6.1: Emissions (MTCO2e) by sector for each inventory year.
   border-top-color: #D3D3D3;
 }
 
-#rceonsewjo .gt_last_grand_summary_row_top {
+#yhwfzhjcwg .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1590,11 +1087,11 @@ Figure&nbsp;6.1: Emissions (MTCO2e) by sector for each inventory year.
   border-bottom-color: #D3D3D3;
 }
 
-#rceonsewjo .gt_striped {
+#yhwfzhjcwg .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#rceonsewjo .gt_table_body {
+#yhwfzhjcwg .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1603,7 +1100,7 @@ Figure&nbsp;6.1: Emissions (MTCO2e) by sector for each inventory year.
   border-bottom-color: #D3D3D3;
 }
 
-#rceonsewjo .gt_footnotes {
+#yhwfzhjcwg .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1617,7 +1114,7 @@ Figure&nbsp;6.1: Emissions (MTCO2e) by sector for each inventory year.
   border-right-color: #D3D3D3;
 }
 
-#rceonsewjo .gt_footnote {
+#yhwfzhjcwg .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1626,7 +1123,7 @@ Figure&nbsp;6.1: Emissions (MTCO2e) by sector for each inventory year.
   padding-right: 5px;
 }
 
-#rceonsewjo .gt_sourcenotes {
+#yhwfzhjcwg .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1640,7 +1137,7 @@ Figure&nbsp;6.1: Emissions (MTCO2e) by sector for each inventory year.
   border-right-color: #D3D3D3;
 }
 
-#rceonsewjo .gt_sourcenote {
+#yhwfzhjcwg .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1648,72 +1145,72 @@ Figure&nbsp;6.1: Emissions (MTCO2e) by sector for each inventory year.
   padding-right: 5px;
 }
 
-#rceonsewjo .gt_left {
+#yhwfzhjcwg .gt_left {
   text-align: left;
 }
 
-#rceonsewjo .gt_center {
+#yhwfzhjcwg .gt_center {
   text-align: center;
 }
 
-#rceonsewjo .gt_right {
+#yhwfzhjcwg .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#rceonsewjo .gt_font_normal {
+#yhwfzhjcwg .gt_font_normal {
   font-weight: normal;
 }
 
-#rceonsewjo .gt_font_bold {
+#yhwfzhjcwg .gt_font_bold {
   font-weight: bold;
 }
 
-#rceonsewjo .gt_font_italic {
+#yhwfzhjcwg .gt_font_italic {
   font-style: italic;
 }
 
-#rceonsewjo .gt_super {
+#yhwfzhjcwg .gt_super {
   font-size: 65%;
 }
 
-#rceonsewjo .gt_footnote_marks {
+#yhwfzhjcwg .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#rceonsewjo .gt_asterisk {
+#yhwfzhjcwg .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#rceonsewjo .gt_indent_1 {
+#yhwfzhjcwg .gt_indent_1 {
   text-indent: 5px;
 }
 
-#rceonsewjo .gt_indent_2 {
+#yhwfzhjcwg .gt_indent_2 {
   text-indent: 10px;
 }
 
-#rceonsewjo .gt_indent_3 {
+#yhwfzhjcwg .gt_indent_3 {
   text-indent: 15px;
 }
 
-#rceonsewjo .gt_indent_4 {
+#yhwfzhjcwg .gt_indent_4 {
   text-indent: 20px;
 }
 
-#rceonsewjo .gt_indent_5 {
+#yhwfzhjcwg .gt_indent_5 {
   text-indent: 25px;
 }
 
-#rceonsewjo .katex-display {
+#yhwfzhjcwg .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#rceonsewjo div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#yhwfzhjcwg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1725,51 +1222,580 @@ Figure&nbsp;6.1: Emissions (MTCO2e) by sector for each inventory year.
 <th id="entity" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Entity</th>
 <th id="a2016" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">FY 2016</th>
 <th id="a2022" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">FY 2022</th>
-<th id="a2025" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">FY 2025</th>
+<th id="current" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">FY 2025</th>
 <th id="pct_change_2016" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Change Since 2016</th>
 <th id="pct_change_2022" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Change Since 2022</th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
+<td class="gt_row gt_center" headers="entity">Community</td>
+<td class="gt_row gt_right" headers="2016">145,560.1</td>
+<td class="gt_row gt_right" headers="2022">128,280.6</td>
+<td class="gt_row gt_right" headers="current">123,555.4</td>
+<td class="gt_row gt_right" headers="pct_change_2016" style="background-color: #D5EBDB; color: #000000">−15.1%</td>
+<td class="gt_row gt_right" headers="pct_change_2022" style="background-color: #F5FAF6; color: #000000">−3.7%</td>
+</tr>
+<tr class="even">
 <td class="gt_row gt_center" headers="entity">UMass</td>
-<td class="gt_row gt_right" headers="2016">123,076.6</td>
-<td class="gt_row gt_right" headers="2022">112,275.6</td>
-<td class="gt_row gt_right" headers="2025">115,658.4</td>
-<td class="gt_row gt_right" headers="pct_change_2016" style="background-color: #EEF7F0; color: #000000">−6.0%</td>
-<td class="gt_row gt_right" headers="pct_change_2022" style="background-color: #FFF7F5; color: #000000">3.0%</td>
+<td class="gt_row gt_right" headers="2016">122,851.8</td>
+<td class="gt_row gt_right" headers="2022">112,353.1</td>
+<td class="gt_row gt_right" headers="current">111,178.4</td>
+<td class="gt_row gt_right" headers="pct_change_2016" style="background-color: #E5F3E8; color: #000000">−9.5%</td>
+<td class="gt_row gt_right" headers="pct_change_2022" style="background-color: #FCFEFC; color: #000000">−1.0%</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="entity">Amherst College</td>
+<td class="gt_row gt_right" headers="2016">17,549.1</td>
+<td class="gt_row gt_right" headers="2022">14,159.5</td>
+<td class="gt_row gt_right" headers="current">13,966.3</td>
+<td class="gt_row gt_right" headers="pct_change_2016" style="background-color: #C7E4CE; color: #000000">−20.4%</td>
+<td class="gt_row gt_right" headers="pct_change_2022" style="background-color: #FBFDFC; color: #000000">−1.4%</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_center" headers="entity">Municipal</td>
 <td class="gt_row gt_right" headers="2016">4,487.6</td>
 <td class="gt_row gt_right" headers="2022">3,898.4</td>
-<td class="gt_row gt_right" headers="2025">3,731.9</td>
+<td class="gt_row gt_right" headers="current">3,731.9</td>
 <td class="gt_row gt_right" headers="pct_change_2016" style="background-color: #D1E9D7; color: #000000">−16.8%</td>
 <td class="gt_row gt_right" headers="pct_change_2022" style="background-color: #F3F9F5; color: #000000">−4.3%</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_center" headers="entity">Hampshire College</td>
 <td class="gt_row gt_right" headers="2016">1,929.3</td>
-<td class="gt_row gt_right" headers="2022">3,382.7</td>
-<td class="gt_row gt_right" headers="2025">NA</td>
-<td class="gt_row gt_right" headers="pct_change_2016" style="background-color: #808080; color: #FFFFFF">NA</td>
-<td class="gt_row gt_right" headers="pct_change_2022" style="background-color: #808080; color: #FFFFFF">NA</td>
+<td class="gt_row gt_right" headers="2022">3,413.3</td>
+<td class="gt_row gt_right" headers="current">2,176.0</td>
+<td class="gt_row gt_right" headers="pct_change_2016" style="background-color: #FFDCD4; color: #000000">12.8%</td>
+<td class="gt_row gt_right" headers="pct_change_2022" style="background-color: #9BCFAA; color: #000000">−36.2%</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<section id="umass-amherst" class="level3" data-number="6.2.1">
+<h3 data-number="6.2.1" class="anchored" data-anchor-id="umass-amherst"><span class="header-section-number">6.2.1</span> UMass Amherst</h3>
+<p>While emissions from UMass Amherst have only modestly decreased since FY 2022, the university has several major construction projects that are underway or recently completed that will lead to significant emissions reductions in coming years. Some of these projects include:</p>
+<ul>
+<li><a href="https://www.umass.edu/planning-design-construction/north-energy-exchange-center-neec-and-thermal-energy-storage-tes" class="external" target="_blank">North Energy Exchange Center (NEEC) and Thermal Energy Storage (TES)</a>. The NEEC is a ground-source heat exchange system, with a 640-ton heating/cooling capacity with 70 wells at 800ft depth each. 95% of UMass emissions come from burning fossil fuels at its central heating plant, and this project is a major step in their transition to renewable energy. The NEEC will provide heating and cooling to the new Computer Science Laboratories and Sustainable Engineering Laboratories buildings, with capacity for future expansion. Estimated 2026 completion.</li>
+<li><a href="https://www.umass.edu/planning-design-construction/sustainable-engineering-laboratories-sel-building" class="external" target="_blank">Sustainable Engineering Laboratories (SEL) Building</a>: A 78,000 GSF facility designed to be a net-zero carbon facility. Estimated completion is Summer 2026.</li>
+<li><a href="https://www.umass.edu/planning-design-construction/book/buildings-infrastructure/buildings-and-sustainability/computer-sciences-laboratories-csl-building-2025" class="external" target="_blank">Computer Science Laboratories Building</a>: A 94,300 GSF net-zero facility completed in 2025, to be heated and cooled by the NEEC upon its completion.</li>
+<li><a href="https://www.umass.edu/planning-design-construction/college-natural-sciences-cns-student-success-center-flint" class="external" target="_blank">Flint Hall Renovation</a>: The renovation of Flint Hall, a 28,000 GSF facility that will be 100% electric. Estimated completion is Spring 2027.</li>
+</ul>
+</section>
+</section>
+<section id="emissions-by-sector" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="emissions-by-sector"><span class="header-section-number">6.3</span> Emissions by Sector</h2>
+<div class="cell">
+<div id="fig-community-emissions-sector" class="cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-community-emissions-sector-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-a2564646af2386a821f3" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-a2564646af2386a821f3">{"x":{"data":[{"orientation":"v","width":[0.89999999999999991,0.90000000000000013,0.90000000000000036],"base":[291535.70152221667,261198.29953724745,253616.26866537734],"x":[1,2,3],"y":[842.22672837454593,906.59048720568535,991.7115069340216],"text":["Sector: AFOLU<br>Emissions: 842<br>Share: 0.3%","Sector: AFOLU<br>Emissions: 907<br>Share: 0.3%","Sector: AFOLU<br>Emissions: 992<br>Share: 0.4%"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(139,38,53,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"AFOLU","legendgroup":"AFOLU","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.89999999999999991,0.90000000000000013,0.90000000000000036],"base":[282881.37752740318,251685.73008154336,243405.4062688876],"x":[1,2,3],"y":[8654.3239948134869,9512.5694557040988,10210.862396489742],"text":["Sector: Waste<br>Emissions: 8,654<br>Share: 3%","Sector: Waste<br>Emissions: 9,513<br>Share: 3.6%","Sector: Waste<br>Emissions: 10,211<br>Share: 4%"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(46,125,140,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Waste","legendgroup":"Waste","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.89999999999999991,0.90000000000000013,0.90000000000000036],"base":[215274.5759529598,195769.28041397996,185898.14416984271],"x":[1,2,3],"y":[67606.80157444338,55916.4496675634,57507.262099044892],"text":["Sector: Transportation<br>Emissions: 67,607<br>Share: 23.1%","Sector: Transportation<br>Emissions: 55,916<br>Share: 21.3%","Sector: Transportation<br>Emissions: 57,507<br>Share: 22.6%"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(90,122,94,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Transportation","legendgroup":"Transportation","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.89999999999999991,0.90000000000000013,0.90000000000000036],"base":[0,0,0],"x":[1,2,3],"y":[215274.5759529598,195769.28041397996,185898.14416984271],"text":["Sector: Stationary Energy<br>Emissions: 215,275<br>Share: 73.6%","Sector: Stationary Energy<br>Emissions: 195,769<br>Share: 74.7%","Sector: Stationary Energy<br>Emissions: 185,898<br>Share: 73%"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(201,160,64,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Stationary Energy","legendgroup":"Stationary Energy","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":22.648401826484022,"l":66.484018264840202},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"Georgia","size":14.611872146118724},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,3.6000000000000001],"tickmode":"array","ticktext":["FY 2016","FY 2022","FY 2025"],"tickvals":[1,2,3],"categoryorder":"array","categoryarray":["FY 2016","FY 2022","FY 2025"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"Georgia","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":null,"family":null,"size":0}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-14618.896412529561,306996.82466312079],"tickmode":"array","ticktext":["0","100,000","200,000","300,000"],"tickvals":[0,99999.999999999985,200000.00000000006,300000],"categoryorder":"array","categoryarray":["0","100,000","200,000","300,000"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"Georgia","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"MTCO2e","font":{"color":"rgba(0,0,0,1)","family":"Georgia","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"Georgia","size":11.68949771689498},"title":{"text":"","font":{"color":null,"family":null,"size":0}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"113674a68d09a":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"}},"cur_data":"113674a68d09a","visdat":{"113674a68d09a":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-community-emissions-sector-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.2: Emissions (MTCO2e) by sector for each inventory year.
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell" data-tbl-cap="Emissions (MTCO2e) per inventory year by sector, along with percent changes from FY 2016 and FY 2022.">
+<div class="cell-output-display">
+<div id="gpdgibtmkn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#gpdgibtmkn table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#gpdgibtmkn thead, #gpdgibtmkn tbody, #gpdgibtmkn tfoot, #gpdgibtmkn tr, #gpdgibtmkn td, #gpdgibtmkn th {
+  border-style: none;
+}
+
+#gpdgibtmkn p {
+  margin: 0;
+  padding: 0;
+}
+
+#gpdgibtmkn .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#gpdgibtmkn .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#gpdgibtmkn .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#gpdgibtmkn .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#gpdgibtmkn .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#gpdgibtmkn .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#gpdgibtmkn .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#gpdgibtmkn .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#gpdgibtmkn .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#gpdgibtmkn .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#gpdgibtmkn .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#gpdgibtmkn .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#gpdgibtmkn .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#gpdgibtmkn .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#gpdgibtmkn .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#gpdgibtmkn .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#gpdgibtmkn .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#gpdgibtmkn .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#gpdgibtmkn .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gpdgibtmkn .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#gpdgibtmkn .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#gpdgibtmkn .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#gpdgibtmkn .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gpdgibtmkn .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#gpdgibtmkn .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#gpdgibtmkn .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#gpdgibtmkn .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gpdgibtmkn .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#gpdgibtmkn .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#gpdgibtmkn .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#gpdgibtmkn .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#gpdgibtmkn .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#gpdgibtmkn .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gpdgibtmkn .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#gpdgibtmkn .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gpdgibtmkn .gt_left {
+  text-align: left;
+}
+
+#gpdgibtmkn .gt_center {
+  text-align: center;
+}
+
+#gpdgibtmkn .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#gpdgibtmkn .gt_font_normal {
+  font-weight: normal;
+}
+
+#gpdgibtmkn .gt_font_bold {
+  font-weight: bold;
+}
+
+#gpdgibtmkn .gt_font_italic {
+  font-style: italic;
+}
+
+#gpdgibtmkn .gt_super {
+  font-size: 65%;
+}
+
+#gpdgibtmkn .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#gpdgibtmkn .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#gpdgibtmkn .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#gpdgibtmkn .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#gpdgibtmkn .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#gpdgibtmkn .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#gpdgibtmkn .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#gpdgibtmkn .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#gpdgibtmkn div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<caption>Emissions (MTCO2e) per inventory year by sector, along with percent changes from FY 2016 and FY 2022.</caption>
+<thead>
+<tr class="gt_col_headings header">
+<th id="supercategory" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Sector</th>
+<th id="a2016" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">FY 2016</th>
+<th id="a2022" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">FY 2022</th>
+<th id="current" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">FY 2025</th>
+<th id="pct_change_2016" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Change Since 2016</th>
+<th id="pct_change_2022" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Change Since 2022</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_center" headers="supercategory">Stationary Energy</td>
+<td class="gt_row gt_right" headers="2016">215,274.6</td>
+<td class="gt_row gt_right" headers="2022">195,769.3</td>
+<td class="gt_row gt_right" headers="current">185,898.1</td>
+<td class="gt_row gt_right" headers="pct_change_2016" style="background-color: #D9EDDE; color: #000000">−13.6%</td>
+<td class="gt_row gt_right" headers="pct_change_2022" style="background-color: #F1F8F3; color: #000000">−5.0%</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_center" headers="entity">Amherst College</td>
-<td class="gt_row gt_right" headers="2016">17,482.0</td>
-<td class="gt_row gt_right" headers="2022">14,074.3</td>
-<td class="gt_row gt_right" headers="2025">NA</td>
-<td class="gt_row gt_right" headers="pct_change_2016" style="background-color: #808080; color: #FFFFFF">NA</td>
-<td class="gt_row gt_right" headers="pct_change_2022" style="background-color: #808080; color: #FFFFFF">NA</td>
+<td class="gt_row gt_center" headers="supercategory">Transportation</td>
+<td class="gt_row gt_right" headers="2016">67,606.8</td>
+<td class="gt_row gt_right" headers="2022">55,916.4</td>
+<td class="gt_row gt_right" headers="current">57,507.3</td>
+<td class="gt_row gt_right" headers="pct_change_2016" style="background-color: #D6ECDB; color: #000000">−14.9%</td>
+<td class="gt_row gt_right" headers="pct_change_2022" style="background-color: #FFF7F5; color: #000000">2.8%</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_center" headers="entity">Community</td>
-<td class="gt_row gt_right" headers="2016">144,014.9</td>
-<td class="gt_row gt_right" headers="2022">122,608.5</td>
-<td class="gt_row gt_right" headers="2025">NA</td>
-<td class="gt_row gt_right" headers="pct_change_2016" style="background-color: #808080; color: #FFFFFF">NA</td>
-<td class="gt_row gt_right" headers="pct_change_2022" style="background-color: #808080; color: #FFFFFF">NA</td>
+<td class="gt_row gt_center" headers="supercategory">Waste</td>
+<td class="gt_row gt_right" headers="2016">8,654.3</td>
+<td class="gt_row gt_right" headers="2022">9,512.6</td>
+<td class="gt_row gt_right" headers="current">10,210.9</td>
+<td class="gt_row gt_right" headers="pct_change_2016" style="background-color: #FFCEC3; color: #000000">18.0%</td>
+<td class="gt_row gt_right" headers="pct_change_2022" style="background-color: #FFEBE6; color: #000000">7.3%</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="supercategory">AFOLU</td>
+<td class="gt_row gt_right" headers="2016">842.2</td>
+<td class="gt_row gt_right" headers="2022">906.6</td>
+<td class="gt_row gt_right" headers="current">991.7</td>
+<td class="gt_row gt_right" headers="pct_change_2016" style="background-color: #FFCEC4; color: #000000">17.7%</td>
+<td class="gt_row gt_right" headers="pct_change_2022" style="background-color: #FFE5DF; color: #000000">9.4%</td>
 </tr>
 </tbody>
 </table>
