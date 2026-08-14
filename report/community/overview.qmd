@@ -24,7 +24,9 @@ pct_decrease <- (baseline_year_emissions - current_year_emissions)/baseline_year
 
 ## Progress to Date
 
-Community-wide emissions have decreased from `r comma(round(baseline_year_emissions,1))` MTCO2e in FY 2016 to `r comma(round(current_year_emissions,1))` in FY 2025, a `r round(pct_decrease,1)`% decrease, falling short of the 25% reduction target for 2025. At present, this does not reflect any reduction in emissions from Amherst College, as that data has not been provided for FY 2025. It is likely that Amherst has lower FY 2025 emissions than what is currently reflected in the data due to their sustainability initiatives. UMass also has a number of major sustainability projects underway that will lead to meaningful emissions reductions in coming years, discussed below.
+Community-wide emissions have decreased from `r comma(round(baseline_year_emissions,1))` MTCO2e in FY 2016 to `r comma(round(current_year_emissions,1))` in FY 2025, a **`r round(pct_decrease,1)`% decrease**, falling short of the 25% reduction target for 2025. 
+
+At present, this does not reflect any reduction in emissions from Amherst College, as that data has not yet been provided for FY 2025. These figures will be updated upon its availability. UMass also has a number of major sustainability projects underway that will lead to meaningful emissions reductions in coming years, which are discussed below. Hampshire College is regrettably set to close after the end of the Fall 2026 semester, which will also lead to a reduction in emissions.
 
 ```{r}
 #| label: fig-community-trend
@@ -86,7 +88,7 @@ p <- ghg_emissions |>
         legend.title = element_blank()) +
   scale_y_continuous(labels = label_comma())
 
-ggplotly(p, tooltip = "text")
+if (knitr::is_html_output()) ggplotly(p, tooltip = "text") else p
 ```
 
 ```{r}
@@ -101,7 +103,7 @@ ghg_emissions |>
   arrange(desc(current)) |>
   gt() |> 
   cols_label(entity = "Entity", `2016` = "FY 2016", `2022` = "FY 2022", current = paste0("FY ", current_year),
-             pct_change_2016 = "Change Since 2016", pct_change_2022 = "Change Since 2022") |>
+             pct_change_2016 = "Δ% 2016", pct_change_2022 = "Δ% 2022") |>
   fmt_number(columns = c(`2016`, `2022`, current), decimals = 1, use_seps=TRUE) |>
   fmt_percent(columns = pct_change_2016:pct_change_2022, decimals = 1) |>
   data_color(
@@ -114,11 +116,12 @@ ghg_emissions |>
 
 ### UMass Amherst
 
-While emissions from UMass Amherst have only modestly decreased since 2016, the university has several major construction projects underway that will lead to significant emissions reductions upon their completion. Some of these projects include:
+Since UMass accounts for 44% of community-wide emissions in FY 2025, the Town's progress toward its community-wide emissions goals depends on the actions taken by the university. In recent years, UMass has not made significant reductions in its emissions, as emissions in FY 2025 were only 1% lower than in FY 2022. UMass has a number of projects underway that are detailed below, which primarily consist of new building projects and energy infrastructure to service these new projects. These new buildings will be net-zero, but it remains to be seen whether overall emissions will be lowered from existing facilities. Additionally, UMass, as a state organization, is subject to Executive Order 594 which requires them to reduce reduce emissions by 20% in FY 2025, relative to a 2004 baseline, 35% by 2030, and 95% by 2050, along with other intermediary requirements. 
 
-  - North Exchange Energy Center (NEEC) and Thermal Energy Storage (TES). The NEEC has a 640-ton heating/cooling capacity with 70 wells at 800ft depth each.These two projects are at or near completion.
-  - Computer Science Laboratories Building: A 94,300 GSF facility
-  - Flint Hall Renovation: 
+  - [North Energy Exchange Center (NEEC) and Thermal Energy Storage (TES)](https://www.umass.edu/planning-design-construction/north-energy-exchange-center-neec-and-thermal-energy-storage-tes){.external target="_blank"}. The NEEC is a ground-source heat exchange system, with a 640-ton heating/cooling capacity with 70 wells at 800ft depth each. The NEEC will provide heating and cooling to the new Computer Science Laboratories and Sustainable Engineering Laboratories buildings, with capacity for future expansion. Estimated 2026 completion.
+  - [Sustainable Engineering Laboratories (SEL) Building](https://www.umass.edu/planning-design-construction/sustainable-engineering-laboratories-sel-building){.external target="_blank"}: A 78,000 GSF facility designed to be a net-zero carbon facility. Estimated completion is Summer 2026.
+  - [Computer Science Laboratories Building](https://www.umass.edu/planning-design-construction/book/buildings-infrastructure/buildings-and-sustainability/computer-sciences-laboratories-csl-building-2025){.external target="_blank"}: A 94,300 GSF net-zero facility completed in 2025, to be heated and cooled by the NEEC upon its completion.
+  - [Flint Hall Renovation](https://www.umass.edu/planning-design-construction/college-natural-sciences-cns-student-success-center-flint){.external target="_blank"}: The renovation of Flint Hall, a 28,000 GSF facility that will be 100% electric. Estimated completion is Spring 2027.
 
 ## Emissions by Sector
 
@@ -142,7 +145,7 @@ p <- ghg_emissions |>
         legend.title = element_blank()) +
   scale_y_continuous(labels = label_comma())
 
-ggplotly(p, tooltip = "text")
+if (knitr::is_html_output()) ggplotly(p, tooltip = "text") else p
 ```
 
 ```{r}
@@ -157,7 +160,7 @@ ghg_emissions |>
   arrange(desc(current)) |>
   gt() |> 
   cols_label(supercategory = "Sector", `2016` = "FY 2016", `2022` = "FY 2022", current = paste0("FY ", current_year),
-             pct_change_2016 = "Change Since 2016", pct_change_2022 = "Change Since 2022") |>
+             pct_change_2016 = "Δ% 2016", pct_change_2022 = "Δ% 2022") |>
   fmt_number(columns = c(`2016`, `2022`, current), decimals = 1, use_seps=TRUE) |>
   fmt_percent(columns = pct_change_2016:pct_change_2022, decimals = 1) |>
   data_color(

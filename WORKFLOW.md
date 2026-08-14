@@ -108,14 +108,3 @@ quarto render
 The rendered HTML book will be output to `report/_book/`. Open `report/_book/index.html` to preview.
 
 ------------------------------------------------------------------------
-
-## Summary Checklist
-
-- [ ] New fiscal year data entered in OneDrive spreadsheets
-- [ ] DOER CSV downloaded and placed in project root
-- [ ] `current_year`, `inventory_years`, and `onedrive_folder` updated in `params.R`
-- [ ] DOER CSV filename updated in `mei.R`
-- [ ] `run_all.R` run successfully; `ghg_emissions.csv` and `mei_emissions.csv` regenerated
-- [ ] Book title updated in `report/_quarto.yml`
-- [ ] Narrative text reviewed and updated in `.qmd` chapters
-- [ ] Report rendered; output reviewed in `report/_book/`

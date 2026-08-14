@@ -2,8 +2,6 @@
 title: "Introduction"
 format: html
 ---
-# Summary
-
 ## Background
 
 The Town of Amherst Massachusetts seeks to achieve **net zero community emissions by 2050**, an ambitious goal set by the Town Council,
@@ -13,20 +11,23 @@ To accurately assess progress toward the ultimate goal of carbon neutrality, per
 
 ## Progress So Far
 
-Talk about how it's not a linear path, that it'll look like a stepwise function
+Between 2016 and 2025, the Town made measurable progress toward its emissions reduction goals. The municipality itself, which makes up only a small fraction of community-wide emissions, has seen a 16.8% reduction in emissions since 2016. Community-wide emissions decreased by 12.9% over the same interval. While the Town's emissions reductions fell short of the 2025 target of 25%, there are a number of ongoing large-scale sustainability projects that will bring these figures down in coming years, which are discussed later in this report.
 
-The Town has made significant progress toward achieving its 2025 emissions reduction target. There are numbers that exist to support this, but I have not finalized them, so this paragraph is really just a placeholder so I can get a sense of how things look before I get the aforementioned numbers.
+Emissions reduction often does not follow a linear path, even in cases where consistent efforts and investments are put forth. As new, sustainable, construction and renovation projects are finished, as renewable energy facilities come online, emissions will drop steeply once the data reflects these projects. With a number of such projects ongoing and nearing completion, future updates of this report will tell a more complete story of how Amherst has been progressing toward net zero emissions.
 
-# Data Sources
 
-## Municipal Emissions
+## Methodology
 
-Emissions and energy consumption data for the Town of Amherst Municipality comes from MassEnergyInsight (MEI), a tool managed by the Massachusetts Department of Energy Resources (DOER). 
+For purposes of consistency, the methodology of this report was kept close to that of the previous iterations of this report in 2016 and 2022, so that changes in emissions figures could be attributed to actual changes in emissions, rather than updates in methodology. Still, certain figures have been updated to reflect changes in emissions factors or to correct mistakes, though these changes have been small in scale. As carbon accounting is an evolving field, future updates to this report may be improved by updated methodologies, while keeping in mind the necessity of maintaining consistency for the integrity of comparative metrics.
 
-## Community Emissions
+### Municipal Emissions Data
 
-Community emissions come from a variety of data sources with varying degrees of reliability. 
+Emissions and energy consumption data for the Town of Amherst Municipality comes from MassEnergyInsight (MEI), a tool managed by the Massachusetts Department of Energy Resources (DOER). This tool is routinely updated with Town fuel consumption records, and is a data source that is generally considered to be reliable.
 
-# Structure of This Report
+### Community Emissions Data
 
-The first section of this report focuses on municipal emissions. Though municipal emissions only account for **a small percentage that I will determine** of the community total, it is important that the Town leads by example in the pursuit of carbon neutrality. The next section focuses on community-wide emissions, which includes university emissions and other sources such as transportation, residential, and commercial sectors. 
+Community emissions come from a variety of data sources with varying degrees of reliability. Much of the data is modeled using state-wide, or even nation-wide parameters, especially in the agriculture and waste sectors. 
+
+## Structure of This Report
+
+The first section of this report focuses on municipal emissions. Though municipal emissions only account for a small percentage of the community-wide total, this data is among the most actionable since the Town has direct control over its activities, and it is important that the Town leads by example in the pursuit of net zero emissions. The next section focuses on community-wide emissions, including emissions from colleges, businesses, and residents. Each section is broken down by sector, which includes stationary energy, transportation, waste, and agriculture. The report concludes with a summary of key findings and priorities going forward.

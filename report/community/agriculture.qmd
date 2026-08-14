@@ -32,7 +32,7 @@ afolu_emissions |>
   summarize(total = sum(total_mtco2e, na.rm = TRUE)) |>
   mutate(percent_change = percent((total - first(total))/first(total))) |> 
   gt() |>
-  cols_label(fiscal_year = "Inventory Year", total = "Total MTCO2e", percent_change = "Percent Reduction") |>
+  cols_label(fiscal_year = "Inventory Year", total = "Total MTCO2e", percent_change = "Percent Change") |>
   fmt_number(columns = total, decimals = 0, use_seps=TRUE)
 ```
 

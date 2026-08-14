@@ -3,7 +3,11 @@ library(scales)
 library(gt)
 library(plotly)
 
-theme_set(theme_minimal(base_family = "Georgia"))
+if (knitr::is_html_output()) {
+  theme_set(theme_minimal(base_family = "Georgia"))
+} else {
+  theme_set(theme_minimal(base_family = "serif"))
+}
 theme_update(plot.title = element_text(hjust = 0.5))
 options(scipen = 999)
 current_year    <- 2025 #change to whatever the current inventory year is

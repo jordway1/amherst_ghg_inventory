@@ -11,6 +11,22 @@ format:
     theme:
       - cosmo
     css: styles.css
+  pdf:
+    documentclass: report
+    geometry:
+      - margin=0.75in
+    fig-pos: "H"
+    tbl-pos: "H"
+    number-sections: false
+    include-in-header:
+      - text: |
+          \usepackage{float}
+          \usepackage{titlesec}
+          \titleformat{\chapter}[hang]{\Huge\bfseries}{}{0pt}{}
+          \titlespacing*{\chapter}{0pt}{-30pt}{20pt}
+          \floatplacement{figure}{H}
+          \floatplacement{table}{H}
+
 
 book:
   title: "Greenhouse Gas Inventory FY 2025"

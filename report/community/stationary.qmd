@@ -48,7 +48,7 @@ p <- stationary_emissions |>
   theme(axis.title.x = element_blank(),
         legend.title = element_blank()) 
 
-ggplotly(p, tooltip = "text")
+if (knitr::is_html_output()) ggplotly(p, tooltip = "text") else p
 ```
 
 ```{r}
@@ -66,7 +66,7 @@ stationary_emissions |>
 
 - Community (non-college) stationary emissions experienced the most significant decreases in emissions. This is primarily due to reduced consumption of natural gas and oil.
 - UMass emissions have decreased since FY 2016, but have remained relatively constant since FY 2022. Still, UMass has invested heavily in sustainable infrastructure, discussed previously, and these figures are expected to decrease significantly in coming years once these projects are reflected in the data.
-- The current Amherst College stationary figure is a placeholder that will be updated once FY 2025 data is made available.
+- The current Amherst College stationary figure is a placeholder that will be updated once FY 2025 data is made available. The slight decrease comes from updated emissions factors.
 - Hampshire College emissions will go away due to the closure of the college after the Fall 2026 semester. Future emissions depend on if and how their facilities are repurposed.
 
 ```{r}
@@ -81,7 +81,7 @@ stationary_emissions |>
   arrange(desc(current)) |>
   gt() |>
   cols_label(entity = "Entity", `2016` = "FY 2016", `2022` = "FY 2022", current = paste0("FY ", current_year),
-             pct_change_2016 = "Change Since 2016", pct_change_2022 = "Change Since 2022") |>
+             pct_change_2016 = "Δ% 2016", pct_change_2022 = "Δ% 2022") |>
   fmt_number(columns = c(`2016`, `2022`, current), decimals = 1, use_seps=TRUE) |>
   fmt_percent(columns = pct_change_2016:pct_change_2022, decimals = 1) |>
   data_color(
@@ -91,6 +91,7 @@ stationary_emissions |>
     domain = c(-0.7, 0.7))
 ```
 
+*Note: Municipal figures differ slightly from previous sections due to minor rounding errors.*
 
 ## Highest-Emission Fuel Types
 
@@ -121,7 +122,8 @@ stationary_emissions |>
                                 "natural_gas" = "Natural Gas",
                                 "electricity" = "Electricity")) +
   labs(y = "MTCO2e", fill = NULL) +
-  theme(axis.title.x = element_blank())
+  scale_y_continuous(labels = comma) +
+  theme(axis.title.x = element_blank()) 
 ```
 
 
@@ -130,6 +132,8 @@ stationary_emissions |>
 The previously-discussed trend in the mix of fuel usage is especially true among non-college community emissions. In FY 2022, emissions from natural gas consumption fell below those for electricity consumption, and this gap has only widened since. 
 
 ```{r}
+#| label: fig-community-fuel-mix
+#| fig-cap: Community (non-college) emissions by fuel type.
 stationary_emissions |> 
   filter(entity == "Community", activity %in% c("dist_oil", "electricity", "natural_gas")) |> 
   group_by(input_year, activity) |> 
@@ -140,9 +144,10 @@ stationary_emissions |>
   scale_color_amherst(labels = c("dist_oil" = "Distillate Oil",
                                 "natural_gas" = "Natural Gas",
                                 "electricity" = "Electricity")) +
-  labs(y = "MTCO2e", fill = NULL) +
+  labs(y = "MTCO2e", color = NULL) +
   theme(axis.title.x = element_blank())  +
-  scale_x_continuous(breaks = scales::breaks_width(1))
+  scale_x_continuous(breaks = scales::breaks_width(1)) +
+  scale_y_continuous(limits = c(0, 30000))
 ```
 
 

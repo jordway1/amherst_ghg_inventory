@@ -51,12 +51,25 @@ mei_clean <- read_csv("output_doer_report_2026-07-11.csv") %>%
       .default = building
     ),
     inventory_year = ifelse(fiscal_year %in% inventory_years, "1", "0"),
-    emission_mtco2e_factor = case_when(
-      activity == "electricity" & fiscal_year == 2016 ~ 0.000277,
-      .default = emission_mtco2e_factor
-    )
   ) %>%
   filter(fiscal_year <= current_year)
+
+# Override MEI electricity emissions factors with spreadsheet values for consistency
+# with the community pipeline (MEI has multiple factors per year; the spreadsheet has one)
+elec_ef_lookup <- activity_emissions_key |>
+  filter(activity == "electricity") |>
+  left_join(select(emissions_factors, emissions_factor, total_co2e_ef), by = "emissions_factor") |>
+  transmute(input_year, spreadsheet_ef_kwh = total_co2e_ef / 1000)
+
+mei_clean <- mei_clean |>
+  left_join(elec_ef_lookup, by = c("fiscal_year" = "input_year")) |>
+  mutate(
+    emission_mtco2e_factor = if_else(!is.na(spreadsheet_ef_kwh) & activity == "electricity",
+                                      spreadsheet_ef_kwh, emission_mtco2e_factor),
+    emission_mtco2e = if_else(!is.na(spreadsheet_ef_kwh) & activity == "electricity",
+                               usage_use * emission_mtco2e_factor, emission_mtco2e)
+  ) |>
+  select(-spreadsheet_ef_kwh)
 
 # transmission losses - this will need to be updated when new data arrives
 # I'm generalizing the loss factors since I don't want to hunt down the data for every single year

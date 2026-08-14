@@ -104,7 +104,7 @@ p <- mei_final |>
   labs(y = "MTCO2e", fill = NULL) +
   theme(axis.title.x = element_blank()) 
 
-ggplotly(p, tooltip = "text")
+if (knitr::is_html_output()) ggplotly(p, tooltip = "text") else p
 ```
 
 ## Emissions by Fuel Type
@@ -133,12 +133,13 @@ p <- ggplot(mei_interactive, aes(x = fiscal_year_string, y = total_emissions, te
   labs(fill = NULL) +
   theme(legend.title = element_blank(),
         axis.title = element_blank())
-ggplotly(p, tooltip = "text")
+if (knitr::is_html_output()) ggplotly(p, tooltip = "text") else p
 ```
 
 ```{r}
 #| tbl-cap: "Fuel consumption in original units, with percent change relative to 2016 and 2022 inventories."
 mei_final |>
+  filter(!str_detect(activity, "loss")) |> 
   group_by(fiscal_year, account_fuel, updated_units) |>
   summarize(total_consumption = sum(use_updated_units), .groups = "drop") |>
     mutate(sector = case_when(
@@ -161,7 +162,7 @@ mei_final |>
   ) |>
   cols_label(account_fuel = "Fuel Type", updated_units = "Units", 
              `2016` = "FY 2016", `2022` = "FY 2022", current = paste0("FY ", current_year),
-             pct_change_2016 = "Change Since 2016", pct_change_2022 = "Change Since 2022") |>
+             pct_change_2016 = "Δ% 2016", pct_change_2022 = "Δ% 2022") |>
   fmt_number(columns = c(`2016`, `2022`, current), decimals = 1, use_seps=TRUE) |>
   fmt_percent(columns = pct_change_2016:pct_change_2022, decimals = 1) |>
   data_color(

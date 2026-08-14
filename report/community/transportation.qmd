@@ -52,7 +52,7 @@ p <- transportation_emissions |>
   theme(axis.title.x = element_blank(),
         legend.title = element_blank()) 
 
-ggplotly(p, tooltip = "text")
+if (knitr::is_html_output()) ggplotly(p, tooltip = "text") else p
 ```
 
 ```{r}
@@ -73,7 +73,8 @@ The primary source of transportation emissions are coded as "community" emission
 The current Amherst College transportation figure is a placeholder that will be updated once FY 2025 data is made available.
 
 ```{r}
-#| tbl-cap: "Transportation emissions by entity and inventory year, with percent changes since FY 2016 and FY 2022 inventories."
+#| tbl-cap: "Transportation emissions by entity and inventory year, with percent changes since FY 2016 and FY 2022 inventories. 2016 Hampshire College direct transportation data was not available."
+#| tbl-pos: "H"
 transportation_emissions |> 
   group_by(input_year, entity) |> 
   summarize(emissions = sum(total_mtco2e), .groups = "drop") |>
@@ -84,7 +85,7 @@ transportation_emissions |>
   arrange(desc(current)) |>
   gt() |>
   cols_label(entity = "Entity", `2016` = "FY 2016", `2022` = "FY 2022", current = paste0("FY ", current_year),
-             pct_change_2016 = "Change Since 2016", pct_change_2022 = "Change Since 2022") |>
+             pct_change_2016 = "Δ% 2016", pct_change_2022 = "Δ% 2022") |>
   fmt_number(columns = c(`2016`, `2022`, current), decimals = 1, use_seps=TRUE) |>
   fmt_percent(columns = pct_change_2016:pct_change_2022, decimals = 1) |>
   data_color(
@@ -93,5 +94,3 @@ transportation_emissions |>
     palette = c("#2ca25f", "#ffffff", "#de2d26"), 
     domain = c(-0.7, 0.7))
 ```
-
-*Note: FY 2016 Hampshire College direct transportation emissions data was not available.*

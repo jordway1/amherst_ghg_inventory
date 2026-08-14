@@ -41,7 +41,7 @@ Municipal emissions related to transportation decreased from 1,230 MTCO2e in FY 
 #| fig-cap: "Municipal transportation emissions (MTCO2e) trends by fiscal year."
 
 
-mei_final |> 
+t_trend <- mei_final |> 
   filter(fiscal_year >= baseline_year, supercategory == "transportation") |>
   group_by(fiscal_year_string, inventory_year) |>
   summarize(total_emissions = sum(emission_mtco2e)) |>
@@ -64,6 +64,12 @@ mei_final |>
     axis.title.x = element_blank()
   ) + 
   scale_y_continuous(limits = c(800, 1400))
+
+if (knitr::is_html_output()){
+  t_trend
+} else{
+  t_trend + theme(axis.text.x = element_text(angle = 30, hjust = 1))
+}
 ```
 
 
@@ -106,16 +112,17 @@ p <- mei_final |>
   theme(legend.title = element_blank(),
         axis.title.x = element_blank())
 
-plt <- ggplotly(p, tooltip = "text") |>
-  layout(legend = list(title=list(text="")))
-
-plt$x$data[[3]]$name <- "Diesel"
-plt$x$data[[4]]$name <- "Gasoline"
-
-for (i in 1:2)  plt$x$data[[i]]$showlegend <- FALSE
-for (i in 3:4)  plt$x$data[[i]]$showlegend <- TRUE
-
-plt
+if (knitr::is_html_output()) {
+  plt <- ggplotly(p, tooltip = "text") |>
+    layout(legend = list(title=list(text="")))
+  plt$x$data[[3]]$name <- "Diesel"
+  plt$x$data[[4]]$name <- "Gasoline"
+  for (i in 1:2)  plt$x$data[[i]]$showlegend <- FALSE
+  for (i in 3:4)  plt$x$data[[i]]$showlegend <- TRUE
+  plt
+} else {
+  p + guides(alpha = "none") + theme(axis.text.x = element_text(angle = 30, hjust = 0.7))
+}
 ```
 
 
@@ -126,7 +133,7 @@ plt
 ```{r}
 #| label: fig-fleet-group-trends
 #| fig-cap: "Municipal emissions (MTCO2e) by fleet group over time."
-mei_transportation |> 
+fleet_trend <- mei_transportation |> 
   filter(fleet_group %in% c("Public Works", "Fire", "Police", "Schools"), fiscal_year >= 2016) |> 
   group_by(fiscal_year_string, fleet_group) |> 
   summarize(emissions = sum(emission_mtco2e), .groups="drop") |> 
@@ -139,10 +146,17 @@ mei_transportation |>
   theme(axis.title.x = element_blank(),
         legend.title = element_blank(),
         axis.text.x = element_text(angle = 0))
+
+if (knitr::is_html_output()){
+  fleet_trend
+} else{
+  fleet_trend + theme(axis.text.x = element_text(angle = 30, hjust = 1))
+}
 ```
 
 
 ```{r}
+#| tbl-cap: "Municipal fleet emissions, with percent changes since 2016 and 2022 inventories."
 mei_transportation |> 
   filter(fiscal_year %in% inventory_years) |>
   group_by(fiscal_year, fleet_group) |> 
@@ -156,7 +170,7 @@ mei_transportation |>
   gt() |>
   cols_label(fleet_group = "Fleet Group", 
              `2016` = "FY 2016", `2022` = "FY 2022", current = paste0("FY ", current_year),
-             pct_change_2016 = "Change Since 2016", pct_change_2022 = "Change Since 2022") |>
+             pct_change_2016 = "Δ% 2016", pct_change_2022 = "Δ% 2022") |>
   fmt_number(columns = c(`2016`, `2022`, current), decimals = 1, use_seps=TRUE) |>
   fmt_percent(columns = pct_change_2016:pct_change_2022, decimals = 1) |>
   data_color(columns = c(pct_change_2016, pct_change_2022),
@@ -167,5 +181,5 @@ mei_transportation |>
 
 ### Fire Department Fleet
 
-The fire department fleet's increase in fuel consumption in recent years has come despite noteworthy efforts to integrate hybrid vehicles into its fleet. The department currently has eight hybrid vehicles, including two fire engines, one ladder truck, and two ambulances that utilize idle-mitigation systems, with two more ambulances that utilize this technology on order. Several of these vehicles were introduced into the fleet in 2025 and may not be fully reflected in the data. Lindsay Stromgren, the current Fire Chief, suggested that the recent increase in fuel consumption is likely due to the increased call volume that the department has been experiencing, mostly from EMS calls. The department's policy is to continue to order hybrid vehicles as current vehicles need replacement.
+The increase in emissions from the fire department's vehicle fleet in recent years can be attributed to a policy update, which now sees two vehicles sent to every call. Lindsay Stromgren, the current fire chief, added that the department has also seen an increased call volume in recent years. While emissions have increased, the fire department has made noteworthy efforts to integrate hybrid vehicles into its fleet. The department currently has eight hybrid vehicles, including two fire engines, one ladder truck, and two ambulances that utilize idle-mitigation systems, with two more ambulances that utilize this technology on order. Several of these vehicles were introduced into the fleet in 2025 and may not be fully reflected in the data.The department's policy is to continue to order hybrid vehicles as current vehicles need replacement.
 

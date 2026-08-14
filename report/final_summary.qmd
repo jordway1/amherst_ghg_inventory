@@ -2,9 +2,40 @@
 title: "Final Summary"
 ---
 
-The Town of Amherst continues to make significant reductions in GHG emissions. Despite failing to meet the intermediary target of a
-25% reduction in emissions by 2025, projects currently underway, including the Amethyst Brook Elementary School and Jones Library
-renovation, both of which are net zero emissions facilities, will yield a significant drop in emissions upon their completion in
-coming years. 
+```{r}
+source("../params.R")
+ghg_emissions <- read_csv("../ghg_emissions.csv")
+mei_final <- read_csv("../mei_final.csv") |> filter(fiscal_year %in% inventory_years)
+```
 
 
+## Overall Progress
+
+Both community and municipal emissions decreased since 2016 but fell short of the 25% reduction target. 
+
+- The municipality experienced a **16.8%** reduction in emissions since 2016. Stationary energy accounts for the large majority of emissions (74.4%), and thus the greatest opportunity for further reductions.
+
+- Overall community experienced a **12.9%** reduction in emissions since the 2016 baseline. Much of this reduction was driven by a transition away from non-renewable fuels by the non college affiliated community. These emissions depend heavily on higher education partners and their own sustainability programs. 
+
+
+
+## Entities
+
+- Municipal emissions are a small fraction of the community total, but the Town has direct control over these activities making it the most actionable lever. It is important that the Town leads by example in emission reduction efforts.
+- UMass is the largest single entity, which has experienced only a modest decrease in emissions so far. UMass has a number of major sustainable projects underway (NEEC, net zero facilities), but these projects serve new buildings, and it remains to be seen whether these projects will serve to reduce existing emissions, or simply prevent increases.
+- Amherst College has not yet provided data for FY 2025 emissions.
+- Hampshire College emissions will be eliminated upon the institution's closure. Future emissions depend on if and how their facilities will be repurposed.
+
+## Limitations
+
+- Carbon accounting is an evolving field, and the methodology changes regularly. This report focused on maintaining consistency between reporting years, so that changes in emissions figures can be attributed to actual changes in emissions, rather than updates in methodology. Future reports may take other variables into account, other potential sources of emissions, or adopt different processes for emissions calculations that reflect the latest methodologies.
+- 2025 Amherst College data has not yet been provided, and this report will be updated once it is made available.
+- Much of the community emissions data is modeled, often relying on statewide or even nationwide assumptions that may not be precise for Amherst specifically. Carbon accounting, especially at the community level, necessarily relies on these kinds of assumptions as precise data is often unavailable.
+
+## Looking Forward
+
+There are a number of sustainable and net-zero projects currently underway, both at the municipal level and the broader community level. The Amethyst Brook ES construction (completion ~2026) and the Jones Library renovation (2027) will eliminate a substantial share of municipal emissions. With these projects and their estimated emissions reductions factored in, projected municipal emissions in 2030 come much closer to the 50% reduction target than before.
+
+Since UMass contributes about 44% of overall emissions, the community's progress toward net-zero emissions relies heavily on actions taken by the university.
+
+Achieving 50% community-wide reduction by 2030, and net zero emissions by 2050, will require action beyond municipal operations. Residents, businesses, and higher education partners will all have to play their part and continue to reduce emissions. Fortunately, there already has been serious, large-scale investment by both the municipality and community partners to work toward these goals.
